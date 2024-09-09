@@ -30,7 +30,7 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "file:///home/jr/Code/leaftracker/leaftracker-gtk"
+                    "url" : "file:///home/jr/Code/leaftracker-gtk"
                 }
             ]
         }
