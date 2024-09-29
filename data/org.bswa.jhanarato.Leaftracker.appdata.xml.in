@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop">
-	<id>org.bswa.jhanarato.Leaftracker.desktop</id>
-	<metadata_license>CC0-1.0</metadata_license>
-	<project_license>GPL-3.0-or-later</project_license>
-	<description>
-	  <p>No description</p>
-	</description>
+<component type="desktop-application">
+  <id>org.bswa.jhanarato.Leaftracker</id>
+  <name>Leaftracker</name>
+  <summary>Manage revegetation projects</summary>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <description>
+    <p>
+      This is a GTK user interface for my DDD project, Leaftracker. Given that the Leaftracker system uses
+      Elasticsearch for storage, it&apos;s not entirely practical for the average user who just wants to take care of
+      their garden. Instead it&apos;s for my personal exploration of user interface design.
+    </p>
+  </description>
+  <launchable type="desktop-id">org.bswa.jhanarato.Leaftracker.desktop</launchable>
 </component>
