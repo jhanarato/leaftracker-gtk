@@ -18,6 +18,8 @@
 import sys
 import gi
 
+gi.require_version('Gtk', '4.16')
+gi.require_version('Adw', '1')
 
 from gi.repository import Adw, Gtk, Gio
 from .window_test import WindowTest
