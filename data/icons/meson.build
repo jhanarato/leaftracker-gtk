@@ -1,4 +1,4 @@
-application_id = 'org.bswa.jhanarato.Leaftracker'
+application_id = 'org.bswa.Leaftracker'
 
 scalable_dir = join_paths('hicolor', 'scalable', 'apps')
 install_data(

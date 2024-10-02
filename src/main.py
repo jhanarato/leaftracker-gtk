@@ -31,6 +31,6 @@ def on_activate(app):
 
 
 def main(version):
-    app = Adw.Application(application_id='org.bswa.jhanarato.Leaftracker')
+    app = Adw.Application(application_id='org.bswa.Leaftracker')
     app.connect('activate', on_activate)
     return app.run(sys.argv)

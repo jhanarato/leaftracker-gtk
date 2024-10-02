@@ -4,7 +4,7 @@ gi.require_version('Adw', '1')
 from gi.repository import Adw, Gtk
 
 
-@Gtk.Template(resource_path="/org/bswa/jhanarato/Leaftracker/window_test.ui")
+@Gtk.Template(resource_path="/org/bswa/Leaftracker/window_test.ui")
 class WindowTest(Adw.ApplicationWindow):
     __gtype_name__ = "WindowTest"
 

@@ -1,5 +1,5 @@
 {
-    "app-id" : "org.bswa.jhanarato.Leaftracker",
+    "app-id" : "org.bswa.Leaftracker",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "47",
     "sdk" : "org.gnome.Sdk",

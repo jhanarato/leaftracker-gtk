@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>org.bswa.jhanarato.Leaftracker</id>
+  <id>org.bswa.Leaftracker</id>
   <name>Leaftracker</name>
   <summary>Manage revegetation projects</summary>
   <metadata_license>MIT</metadata_license>
@@ -12,5 +12,5 @@
       their garden. Instead it&apos;s for my personal exploration of user interface design.
     </p>
   </description>
-  <launchable type="desktop-id">org.bswa.jhanarato.Leaftracker.desktop</launchable>
+  <launchable type="desktop-id">org.bswa.Leaftracker.desktop</launchable>
 </component>

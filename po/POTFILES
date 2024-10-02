@@ -1,6 +1,6 @@
-data/org.bswa.jhanarato.Leaftracker.desktop.in
-data/org.bswa.jhanarato.Leaftracker.appdata.xml.in
-data/org.bswa.jhanarato.Leaftracker.gschema.xml
+data/org.bswa.Leaftracker.desktop.in
+data/org.bswa.Leaftracker.appdata.xml.in
+data/org.bswa.Leaftracker.gschema.xml
 src/window.ui
 src/main.py
 src/window.py
