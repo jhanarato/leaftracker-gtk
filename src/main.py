@@ -31,6 +31,7 @@ def on_activate(app):
 
 
 def main(version):
+    print(f"Python version {sys.version}")
     print(f"Adwaita version {Adw.MAJOR_VERSION}.{Adw.MINOR_VERSION}.{Adw.MICRO_VERSION}")
     app = Adw.Application(application_id='org.bswa.Leaftracker')
     app.connect('activate', on_activate)
