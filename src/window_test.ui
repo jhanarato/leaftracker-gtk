@@ -9,7 +9,9 @@
                     <object class="AdwHeaderBar"/>
                 </child>
                 <property name="content">
-                    <!-- ... -->
+                    <object class="GtkLabel" id="label">
+                        <property name="label">Replace me!</property>
+                    </object>
                 </property>
             </object>
         </property>
