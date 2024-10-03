@@ -30,6 +30,10 @@
             "sources" : [
                 {
                     "type" : "dir",
+                    "path" : "/home/jr/Code/leaftracker"
+                },
+                {
+                    "type" : "dir",
                     "path" : "/home/jr/Code/leaftracker-gtk"
                 }
             ]
