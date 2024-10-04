@@ -23,16 +23,12 @@
         "*.a"
     ],
     "modules" : [
-        "python3-requirements.json",
+        "pypi-dependencies.json",
         {
             "name" : "leaftracker-gtk",
             "builddir" : true,
             "buildsystem" : "meson",
             "sources" : [
-                {
-                    "type" : "dir",
-                    "path" : "/home/jr/Code/leaftracker"
-                },
                 {
                     "type" : "dir",
                     "path" : "/home/jr/Code/leaftracker-gtk"
