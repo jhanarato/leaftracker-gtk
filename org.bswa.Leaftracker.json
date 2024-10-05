@@ -34,6 +34,19 @@
                     "path" : "/home/jr/Code/leaftracker-gtk"
                 }
             ]
+        },
+        {
+            "name" : "leaftracker",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"leaftracker==0.1.0\""
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "path" : "/home/jr/Code/leaftracker/dist/leaftracker-0.1.0-py3-none-any.whl"
+                }
+            ]
         }
     ]
 }
