@@ -18,9 +18,12 @@
 import sys
 import gi
 
+from .backend import create_indexes
+
 gi.require_version('Adw', '1')
 
-from gi.repository import Adw, Gtk, Gio
+from gi.repository import Adw, Gtk
+
 from .window_test import WindowTest
 
 
@@ -33,6 +36,7 @@ def main(version):
     print(f"Python version {sys.version}")
     print(f"Adwaita version {Adw.MAJOR_VERSION}.{Adw.MINOR_VERSION}.{Adw.MICRO_VERSION}")
     print(f"GTK version {Gtk.MAJOR_VERSION}.{Gtk.MINOR_VERSION}.{Gtk.MICRO_VERSION}")
+    create_indexes()
     app = Adw.Application(application_id='org.bswa.Leaftracker')
     app.connect('activate', on_activate)
     return app.run(sys.argv)
