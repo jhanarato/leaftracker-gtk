@@ -17,9 +17,10 @@
 
 import sys
 import gi
-from leaftracker.service_layer.services import add_species
 
-from .backend import create_indexes, unit_of_work
+from leaftracker.adapters.elastic import initialise
+from leaftracker.service_layer import services
+
 
 gi.require_version('Adw', '1')
 
@@ -38,9 +39,9 @@ def main(version):
     print(f"Adwaita version {Adw.MAJOR_VERSION}.{Adw.MINOR_VERSION}.{Adw.MICRO_VERSION}")
     print(f"GTK version {Gtk.MAJOR_VERSION}.{Gtk.MINOR_VERSION}.{Gtk.MICRO_VERSION}")
 
-    create_indexes()
-    uow = unit_of_work()
-    add_species("Leaftracker gtk", uow)
+    initialise.indexes()
+    uow = initialise.unit_of_work()
+    services.add_species("Leaftracker gtk", uow)
 
     app = Adw.Application(application_id='org.bswa.Leaftracker')
     app.connect('activate', on_activate)
