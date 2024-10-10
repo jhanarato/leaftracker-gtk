@@ -16,15 +16,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import sys
+
 import gi
+gi.require_version('Adw', '1')
+from gi.repository import Adw, Gtk
 
 from leaftracker.adapters.elastic import initialise
 from leaftracker.service_layer import services
-
-
-gi.require_version('Adw', '1')
-
-from gi.repository import Adw, Gtk
 
 from .window_test import WindowTest
 
