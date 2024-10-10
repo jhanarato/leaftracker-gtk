@@ -33,9 +33,7 @@ def on_activate(app):
 
 
 def main(version):
-    print(f"Python version {sys.version}")
-    print(f"Adwaita version {Adw.MAJOR_VERSION}.{Adw.MINOR_VERSION}.{Adw.MICRO_VERSION}")
-    print(f"GTK version {Gtk.MAJOR_VERSION}.{Gtk.MINOR_VERSION}.{Gtk.MICRO_VERSION}")
+    print_versions()
 
     initialise.indexes()
     uow = initialise.unit_of_work()
@@ -44,3 +42,9 @@ def main(version):
     app = Adw.Application(application_id='org.bswa.Leaftracker')
     app.connect('activate', on_activate)
     return app.run(sys.argv)
+
+
+def print_versions():
+    print(f"Python version {sys.version}")
+    print(f"Adwaita version {Adw.MAJOR_VERSION}.{Adw.MINOR_VERSION}.{Adw.MICRO_VERSION}")
+    print(f"GTK version {Gtk.MAJOR_VERSION}.{Gtk.MINOR_VERSION}.{Gtk.MICRO_VERSION}")
