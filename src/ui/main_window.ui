@@ -23,7 +23,29 @@
                                 <property name="title">Species</property>
                                 <property name="child">
                                     <object class="AdwStatusPage">
-                                        <property name="title">Species editor goes here</property>
+                                        <property name="title">Edit a species!</property>
+                                    </object>
+                                </property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="AdwViewStackPage">
+                                <property name="name">catalogue</property>
+                                <property name="title">Catalogue</property>
+                                <property name="child">
+                                    <object class="AdwStatusPage">
+                                        <property name="title">Catalogue a batch</property>
+                                    </object>
+                                </property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="AdwViewStackPage">
+                                <property name="name">sources</property>
+                                <property name="title">Sources</property>
+                                <property name="child">
+                                    <object class="AdwStatusPage">
+                                        <property name="title">Add a source</property>
                                     </object>
                                 </property>
                             </object>
