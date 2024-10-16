@@ -24,11 +24,11 @@ from gi.repository import Adw, Gtk
 from leaftracker.adapters.elastic import initialise
 from leaftracker.service_layer import services
 
-from .window_test import WindowTest
+from .main_window import MainWindow
 
 
 def on_activate(app):
-    window = WindowTest(application=app)
+    window = MainWindow(application=app)
     window.present()
 
 

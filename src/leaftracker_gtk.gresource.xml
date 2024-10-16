@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/bswa/Leaftracker">
-    <file>ui/window_test.ui</file>
+    <file>ui/main_window.ui</file>
   </gresource>
 </gresources>
