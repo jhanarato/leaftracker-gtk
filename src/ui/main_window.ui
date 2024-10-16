@@ -6,11 +6,28 @@
         <property name="content">
             <object class="AdwToolbarView">
                 <child type="top">
-                    <object class="AdwHeaderBar"/>
+                    <object class="AdwHeaderBar">
+                        <property name="title-widget">
+                            <object class="AdwViewSwitcher">
+                                <property name="stack">stack</property>
+                                <property name="policy">wide</property>
+                            </object>
+                        </property>
+                    </object>
                 </child>
                 <property name="content">
-                    <object class="GtkLabel" id="label">
-                        <property name="label">Replace me!</property>
+                    <object class="AdwViewStack" id="stack">
+                        <child>
+                            <object class="AdwViewStackPage">
+                                <property name="name">overview</property>
+                                <property name="title">Species</property>
+                                <property name="child">
+                                    <object class="AdwStatusPage">
+                                        <property name="title">Species editor goes here</property>
+                                    </object>
+                                </property>
+                            </object>
+                        </child>
                     </object>
                 </property>
             </object>
