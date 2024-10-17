@@ -19,7 +19,7 @@
                     <object class="AdwViewStack" id="stack">
                         <child>
                             <object class="AdwViewStackPage">
-                                <property name="name">overview</property>
+                                <property name="name">species</property>
                                 <property name="title">Species</property>
                                 <property name="child">
                                     <object class="AdwStatusPage">
