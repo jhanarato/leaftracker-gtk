@@ -22,8 +22,10 @@
                                 <property name="name">species</property>
                                 <property name="title">Species</property>
                                 <property name="child">
-                                    <object class="AdwStatusPage">
-                                        <property name="title">Edit a species!</property>
+                                    <object class="AdwNavigationView">
+                                        <child>
+                                            <object class="SpeciesDetails"/>
+                                        </child>
                                     </object>
                                 </property>
                             </object>

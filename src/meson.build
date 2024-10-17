@@ -29,6 +29,7 @@ leaftracker_gtk_sources = [
   '__init__.py',
   'main.py',
   'main_window.py',
+  'species_details.py'
 ]
 
 install_data(leaftracker_gtk_sources, install_dir: moduledir)
