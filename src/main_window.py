@@ -3,7 +3,7 @@ import gi
 gi.require_version('Adw', '1')
 from gi.repository import Adw, Gtk
 
-from .species_details import SpeciesDetails
+from .species import SpeciesDetails
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/main_window.ui")
 class MainWindow(Adw.ApplicationWindow):
