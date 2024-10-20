@@ -3,5 +3,6 @@
   <gresource prefix="/org/bswa/Leaftracker">
     <file>ui/main_window.ui</file>
     <file>ui/species_details.ui</file>
+    <file>ui/navigation_example.ui</file>
   </gresource>
 </gresources>

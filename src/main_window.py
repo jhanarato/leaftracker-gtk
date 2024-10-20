@@ -5,6 +5,7 @@ from gi.repository import Adw, Gtk
 
 from .species import SpeciesDetails
 
+
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/main_window.ui")
 class MainWindow(Adw.ApplicationWindow):
     __gtype_name__ = "MainWindow"
