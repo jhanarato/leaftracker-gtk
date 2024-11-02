@@ -4,7 +4,7 @@
         <property name="title">Species List</property>
         <property name="child">
             <object class="GtkButton">
-                <property name="label">Add Species</property>
+                <property name="label">Go To Species Details</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="action-name">navigation.push</property>

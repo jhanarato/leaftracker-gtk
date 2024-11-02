@@ -3,8 +3,11 @@
     <template class="SpeciesDetails" parent="AdwNavigationPage">
         <property name="title">Species Details</property>
         <property name="child">
-            <object class="GtkLabel">
-                <property name="label">Edit the details</property>
+            <object class="GtkButton">
+                <property name="label">Go To Species List</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="action-name">navigation.pop</property>
             </object>
         </property>
     </template>
