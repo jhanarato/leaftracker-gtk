@@ -2,6 +2,7 @@
 <interface>
     <template class="SpeciesDetails" parent="AdwNavigationPage">
         <property name="title">Species Details</property>
+        <property name="tag">species-details</property>
         <property name="child">
             <object class="AdwToolbarView">
                 <child type="top">
