@@ -10,7 +10,5 @@ from .species import SpeciesDetails
 class MainWindow(Adw.ApplicationWindow):
     __gtype_name__ = "MainWindow"
 
-    species_details = SpeciesDetails()
-
     def __init__(self, application: Adw.Application):
         super().__init__(application=application)
