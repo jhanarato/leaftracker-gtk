@@ -28,6 +28,10 @@
             "name" : "leaftracker-gtk",
             "builddir" : true,
             "buildsystem" : "meson",
+            "run-tests" : true,
+            "test-commands" : [
+                "pytest /app/share/leaftracker-gtk/leaftracker_gtk_tests"
+            ],
             "sources" : [
                 {
                     "type" : "dir",
