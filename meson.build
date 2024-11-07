@@ -13,6 +13,7 @@ gnome = import('gnome')
 
 subdir('data')
 subdir('src')
+subdir('tests')
 subdir('po')
 
 gnome.post_install(
