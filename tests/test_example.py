@@ -1,5 +1,5 @@
-from testable import to_call
+from leaftracker.adapters.elastic.initialise import indexes
 
 
-def test_pytest_installed():
-    assert to_call()
+def test_import():
+    indexes()
