@@ -2,8 +2,10 @@ from gi.repository import Gio
 resource = Gio.Resource.load('../leaftracker-gtk.gresource')
 resource._register()
 
-from pygui.main_window import MainWindow
+from pygui.species import SpeciesDetails, SpeciesList
 
 
-def test_set_new_species():
-    pass
+class TestSpeciesDetails():
+    def test_start_in_new_species_mode(self):
+        page = SpeciesDetails()
+        assert page.species_reference == None
