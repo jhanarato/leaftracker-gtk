@@ -1,5 +1,5 @@
-from leaftracker.adapters.elastic.initialise import indexes
+from main import main
 
 
-def test_import():
-    indexes()
+def test_run_main_function():
+    main(None)
