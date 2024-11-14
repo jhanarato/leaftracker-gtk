@@ -3,12 +3,13 @@
     <template class="SpeciesList" parent="AdwNavigationPage">
         <property name="title">Species List</property>
         <property name="child">
-            <object class="GtkButton">
+            <object class="GtkButton" id="goto-button">
                 <property name="label">Go To Species Details</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="action-name">navigation.push</property>
                 <property name="action-target">'species-details'</property>
+                <signal name="clicked" handler="goto_button_clicked"/>
             </object>
         </property>
     </template>

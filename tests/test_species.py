@@ -18,3 +18,10 @@ class TestSpeciesList():
         list_page.set_details_page(details_page)
         list_page.select_species("a_species")
         assert details_page.species_reference == "a_species"
+
+    def test_goto_button_callback(self):
+        list_page = SpeciesList()
+        details_page = SpeciesDetails()
+        list_page.set_details_page(details_page)
+        list_page.goto_button_clicked()
+        assert details_page.species_reference == "callback_set_reference"
