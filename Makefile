@@ -6,3 +6,6 @@ test: build
 
 run:
 	flatpak run org.bswa.Leaftracker
+
+shell:
+	flatpak run --command=sh --cwd=/app/share/leaftracker-gtk/ --devel org.bswa.Leaftracker
