@@ -24,7 +24,7 @@ from gi.repository import Adw, Gtk
 from leaftracker.adapters.elastic import initialise
 from leaftracker.service_layer import services
 
-from .main_window import MainWindow
+from leaftracker_gtk.main_window import MainWindow
 # from .navigation_example import NavigationExample
 
 
