@@ -25,11 +25,4 @@ configure_file(
   install_dir: get_option('bindir')
 )
 
-leaftracker_gtk_sources = [
-  '__init__.py',
-  'main.py',
-  'main_window.py',
-  'species.py',
-]
-
-install_data(leaftracker_gtk_sources, install_dir: moduledir)
+subdir('pygui')
