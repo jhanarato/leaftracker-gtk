@@ -25,12 +25,10 @@ from leaftracker.adapters.elastic import initialise
 from leaftracker.service_layer import services
 
 from leaftracker_gtk.main_window import MainWindow
-# from .navigation_example import NavigationExample
 
 
 def on_activate(app):
     window = MainWindow(application=app)
-    # window = NavigationExample(application=app)
     window.present()
 
 
