@@ -10,7 +10,7 @@ conf.set('localedir', join_paths(get_option('prefix'), get_option('localedir')))
 conf.set('pkgdatadir', pkgdatadir)
 
 pygui_tests = [
-  'test_example.py',
+  'test_species.py',
   'pytest.ini'
 ]
 
