@@ -1,5 +1,5 @@
 pkgdatadir = join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
-moduledir = join_paths(pkgdatadir, 'leaftracker_gtk_tests')
+moduledir = join_paths(pkgdatadir, 'pygui_tests')
 
 python = import('python')
 
@@ -9,9 +9,9 @@ conf.set('VERSION', meson.project_version())
 conf.set('localedir', join_paths(get_option('prefix'), get_option('localedir')))
 conf.set('pkgdatadir', pkgdatadir)
 
-leaftracker_gtk_tests = [
+pygui_tests = [
   'test_example.py',
   'pytest.ini'
 ]
 
-install_data(leaftracker_gtk_tests, install_dir: moduledir)
+install_data(pygui_tests, install_dir: moduledir)
