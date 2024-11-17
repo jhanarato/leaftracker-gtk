@@ -10,8 +10,9 @@ class TestSpeciesDetails():
         page = SpeciesDetails()
         assert page.species_reference is None
 
-    def test_set_reference_label(self):
-        pass
+    def test_get_label_text(self):
+        details = SpeciesDetails()
+        assert details.get_label_text() == "ui defined label"
 
 
 class TestSpeciesList():

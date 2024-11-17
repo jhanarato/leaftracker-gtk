@@ -19,6 +19,9 @@ class SpeciesDetails(Adw.NavigationPage):
     def select_species(self, reference: str) -> None:
         self._species_reference = reference
 
+    def get_label_text(self) -> str:
+        return "ui defined label"
+
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_list.ui")
 class SpeciesList(Adw.NavigationPage):
