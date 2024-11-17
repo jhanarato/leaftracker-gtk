@@ -8,7 +8,7 @@ from gi.repository import Adw, Gtk
 class SpeciesDetails(Adw.NavigationPage):
     __gtype_name__ = "SpeciesDetails"
 
-
+    ui_defined_label: Gtk.Label = Gtk.Template.Child()
 
     def __init__(self):
         super().__init__()
@@ -22,7 +22,7 @@ class SpeciesDetails(Adw.NavigationPage):
         self._species_reference = reference
 
     def get_label_text(self) -> str:
-        return "ui defined label"
+        return self.ui_defined_label.get_label()
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_list.ui")
