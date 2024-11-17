@@ -8,7 +8,10 @@ from pygui.species import SpeciesDetails, SpeciesList
 class TestSpeciesDetails():
     def test_start_in_new_species_mode(self):
         page = SpeciesDetails()
-        assert page.species_reference == None
+        assert page.species_reference is None
+
+    def test_set_reference_label(self):
+        pass
 
 
 class TestSpeciesList():
