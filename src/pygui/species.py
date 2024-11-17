@@ -8,6 +8,8 @@ from gi.repository import Adw, Gtk
 class SpeciesDetails(Adw.NavigationPage):
     __gtype_name__ = "SpeciesDetails"
 
+
+
     def __init__(self):
         super().__init__()
         self._species_reference = None

@@ -11,11 +11,20 @@
                     </object>
                 </child>
                 <property name="content">
-                    <object class="GtkButton">
-                        <property name="label">Go To Species List</property>
-                        <property name="halign">center</property>
-                        <property name="valign">center</property>
-                        <property name="action-name">navigation.pop</property>
+                    <object class="GtkBox">
+                        <child>
+                            <object class="GtkButton">
+                                <property name="label">Go To Species List</property>
+                                <property name="halign">center</property>
+                                <property name="valign">center</property>
+                                <property name="action-name">navigation.pop</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">ui defined label</property>
+                            </object>
+                        </child>
                     </object>
                 </property>
             </object>
