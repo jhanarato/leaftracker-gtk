@@ -19,3 +19,14 @@ def test_open_and_close_main_window():
     app = Adw.Application(application_id='org.bswa.Leaftracker')
     app.connect('activate', on_activate)
     app.run(sys.argv)
+
+
+def test_get_species_details():
+    def on_activate(app):
+        window = MainWindow(application=app)
+        assert window.species_details
+        window.close()
+
+    app = Adw.Application(application_id='org.bswa.Leaftracker')
+    app.connect('activate', on_activate)
+    app.run(sys.argv)
