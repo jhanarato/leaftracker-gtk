@@ -2,6 +2,7 @@ pkgdatadir = join_paths(get_option('prefix'), get_option('datadir'), meson.proje
 moduledir = join_paths(pkgdatadir, 'pygui_tests')
 
 pygui_tests = [
+  'test_main.py',
   'test_species.py',
   'pytest.ini'
 ]
