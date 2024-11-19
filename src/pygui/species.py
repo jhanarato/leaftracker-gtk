@@ -47,4 +47,5 @@ class SpeciesList(Adw.NavigationPage):
 
     @Gtk.Template.Callback()
     def goto_button_clicked(self, *args):
-        self._details_page.select_species(self._species_reference)
+        if self._species_reference:
+            self._details_page.select_species(self._species_reference)
