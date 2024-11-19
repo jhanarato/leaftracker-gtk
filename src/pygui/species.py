@@ -20,6 +20,7 @@ class SpeciesDetails(Adw.NavigationPage):
 
     def select_species(self, reference: str) -> None:
         self._species_reference = reference
+        self.set_label_text(reference)
 
     def get_label_text(self) -> str:
         return self.ui_defined_label.get_label()
@@ -41,8 +42,9 @@ class SpeciesList(Adw.NavigationPage):
         self._details_page = page
 
     def select_species(self, reference: str) -> None:
+        self._species_reference = reference
         self._details_page.select_species(reference)
 
     @Gtk.Template.Callback()
     def goto_button_clicked(self, *args):
-        self.select_species("callback_set_reference")
+        self._details_page.select_species(self._species_reference)
