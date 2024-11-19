@@ -14,6 +14,11 @@ class TestSpeciesDetails():
         details = SpeciesDetails()
         assert details.get_label_text() == "ui defined label"
 
+    def test_set_label_text(self):
+        details = SpeciesDetails()
+        details.set_label_text("a new label")
+        assert details.get_label_text() == "a new label"
+
 
 class TestSpeciesList():
     def test_set_species_reference(self):
