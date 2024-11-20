@@ -12,12 +12,12 @@ class TestSpeciesDetails():
 
     def test_get_label_text(self):
         details = SpeciesDetails()
-        assert details.get_label_text() == "ui defined label"
+        assert details.get_label_text() == "banged in"
 
     def test_set_label_text(self):
         details = SpeciesDetails()
-        details.set_label_text("a new label")
-        assert details.get_label_text() == "a new label"
+        details.set_label_text("banged in new")
+        assert details.get_label_text() == "banged in new"
 
 
 class TestSpeciesList():

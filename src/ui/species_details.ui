@@ -22,8 +22,13 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkLabel" id="ui_defined_label">
-                                <property name="label">ui defined label</property>
+                            <object class="GtkLabel" id="banged_in">
+                                <property name="label">banged in</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkLabel" id="property_set">
+                                <property name="label">property set</property>
                             </object>
                         </child>
                     </object>
