@@ -12,14 +12,8 @@ class SpeciesDetails(Adw.NavigationPage):
 
     def __init__(self):
         super().__init__()
-        self._species_reference = None
-
-    @property
-    def species_reference(self) -> str | None:
-        return self._species_reference
 
     def select_species(self, reference: str) -> None:
-        self._species_reference = reference
         self.set_label_text(reference)
 
     def get_label_text(self) -> str:
