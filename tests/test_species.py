@@ -11,6 +11,11 @@ class TestSpeciesDetails():
         details.set_banged_in("banged in new")
         assert details.get_banged_in() == "banged in new"
 
+    def test_set_species_reference_via_property(self):
+        details = SpeciesDetails()
+        details.set_property("species_property", "species_reference")
+        assert details.get_property("species_property") == "species_reference"
+
 
 class TestSpeciesList():
     def test_goto_button_callback(self):
