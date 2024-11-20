@@ -12,6 +12,7 @@
                 </child>
                 <property name="content">
                     <object class="GtkBox">
+                        <property name="orientation">vertical</property>
                         <child>
                             <object class="GtkButton">
                                 <property name="label">Go To Species List</property>
