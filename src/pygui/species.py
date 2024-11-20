@@ -14,12 +14,12 @@ class SpeciesDetails(Adw.NavigationPage):
         super().__init__()
 
     def select_species(self, reference: str) -> None:
-        self.set_label_text(reference)
+        self.set_banged_in(reference)
 
-    def get_label_text(self) -> str:
+    def get_banged_in(self) -> str:
         return self.banged_in.get_label()
 
-    def set_label_text(self, text: str) -> None:
+    def set_banged_in(self, text: str) -> None:
         self.banged_in.set_label(text)
 
 

@@ -6,14 +6,10 @@ from pygui.species import SpeciesDetails, SpeciesList
 
 
 class TestSpeciesDetails():
-    def test_get_label_text(self):
+    def test_bang_in_species_reference(self):
         details = SpeciesDetails()
-        assert details.get_label_text() == "banged in"
-
-    def test_set_label_text(self):
-        details = SpeciesDetails()
-        details.set_label_text("banged in new")
-        assert details.get_label_text() == "banged in new"
+        details.set_banged_in("banged in new")
+        assert details.get_banged_in() == "banged in new"
 
 
 class TestSpeciesList():
@@ -23,4 +19,4 @@ class TestSpeciesList():
         list_page.set_details_page(details_page)
         list_page.select_species("Acacia saligna")
         list_page.goto_button_clicked()
-        assert details_page.get_label_text() == "Acacia saligna"
+        assert details_page.get_banged_in() == "Acacia saligna"
