@@ -35,13 +35,13 @@ def test_getting_and_setting_properties():
     assert meaning.get_property("meaning_of_life") == 43
 
 
-@pytest.mark.skip("Have to figure out how parameter notifications work")
 def test_changing_property_invokes_notifier():
     notified = Notification()
 
     meaning = Meaning()
     meaning.connect("notify::meaning_of_life", notified)
     meaning.meaning_of_life = 43
+    meaning.emit("notify::meaning_of_life", GObject.ParamSpecInt())
 
     assert notified.notified
 
