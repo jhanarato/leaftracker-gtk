@@ -31,6 +31,9 @@ class SpeciesDetails(Adw.NavigationPage):
     def species_property(self, species: str):
         self._species = species
 
+    def property_changed(self) -> bool:
+        return True
+
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_list.ui")
 class SpeciesList(Adw.NavigationPage):

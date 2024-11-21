@@ -21,6 +21,11 @@ class TestSpeciesDetails():
         details.set_property("species_property", None)
         assert details.get_property("species_property") is None
 
+    def test_notify_when_property_changes(self):
+        details = SpeciesDetails()
+        details.set_property("species_property", "species_id")
+        assert details.property_changed()
+
 
 class TestSpeciesList():
     def test_goto_button_callback(self):
