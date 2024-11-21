@@ -2,6 +2,18 @@ import pytest
 from gi.repository import Gio, GObject
 
 
+class Notification():
+    def __init__(self):
+        self.notified = False
+        self.instance = None
+        self.param = None
+
+    def __call__(self, instance, param):
+        self.instance = instance
+        self.param = param
+        self.notified = True
+
+
 class Meaning(GObject.Object):
     def __init__(self):
         super().__init__()
@@ -23,43 +35,24 @@ def test_getting_and_setting_properties():
     assert meaning.get_property("meaning_of_life") == 43
 
 
-@pytest.mark.skip("Try with app first")
+@pytest.mark.skip("Have to figure out how parameter notifications work")
 def test_changing_property_invokes_notifier():
-    meaning_changed = False
-
-    def on_notify():
-        nonlocal meaning_changed
-        meaning_changed = True
+    notified = Notification()
 
     meaning = Meaning()
-    meaning.connect("notify::meaning_of_life", on_notify)
+    meaning.connect("notify::meaning_of_life", notified)
     meaning.meaning_of_life = 43
 
-    assert meaning_changed
+    assert notified.notified
 
 
-@pytest.mark.skip("Also fails")
 def test_changing_app_property_invokes_notifier():
-    app_id_changed = False
-
-    def on_notify():
-        nonlocal app_id_changed
-        app_id_changed = True
+    notified = Notification()
 
     app = Gio.Application(application_id="foo.bar")
-    app.connect("notify::application-id", on_notify)
+    app.connect("notify::application-id", notified)
     app.set_application_id("foo.baz")
 
-    assert app_id_changed
-
-
-def test_prints_on_change(capsys):
-    def on_notify(instance, param):
-        print("Notified")
-
-    app = Gio.Application(application_id="foo.bar")
-    app.connect("notify::application-id", on_notify)
-    app.set_application_id("foo.baz")
-
-    assert capsys.readouterr().out == "Notified\n"
-
+    assert isinstance(notified.param, GObject.ParamSpecString)
+    assert notified.param.name == "application-id"
+    assert notified.notified
