@@ -13,6 +13,7 @@ class SpeciesDetails(Adw.NavigationPage):
     def __init__(self):
         super().__init__()
         self._species: str | None = None
+        self._property_changed = True
 
     def select_species(self, reference: str) -> None:
         self.set_banged_in(reference)
@@ -32,7 +33,7 @@ class SpeciesDetails(Adw.NavigationPage):
         self._species = species
 
     def property_changed(self) -> bool:
-        return True
+        return self._property_changed
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_list.ui")
