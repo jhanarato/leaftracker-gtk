@@ -40,9 +40,12 @@ def test_changing_property_invokes_notifier():
 
     meaning = Meaning()
     meaning.connect("notify::meaning_of_life", notified)
-    meaning.meaning_of_life = 43
     meaning.emit("notify::meaning_of_life", GObject.ParamSpecInt())
 
+    assert isinstance(notified.instance, Meaning)
+    assert isinstance(notified.param, GObject.ParamSpecInt)
+    assert notified.param.param_id == 0
+    assert notified.param.name is None
     assert notified.notified
 
 
