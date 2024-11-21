@@ -24,11 +24,11 @@ class SpeciesDetails(Adw.NavigationPage):
         return self.banged_in.get_label()
 
     @GObject.Property(type=str)
-    def species_property(self):
+    def species_property(self) -> str | None:
         return self._species
 
     @species_property.setter
-    def species_property(self, species):
+    def species_property(self, species: str):
         self._species = species
 
 
