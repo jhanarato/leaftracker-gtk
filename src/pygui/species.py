@@ -9,10 +9,10 @@ class SpeciesDetails(Adw.NavigationPage):
     __gtype_name__ = "SpeciesDetails"
 
     banged_in: Gtk.Label = Gtk.Template.Child()
-    _species = ""
 
     def __init__(self):
         super().__init__()
+        self._species: str | None = None
 
     def select_species(self, reference: str) -> None:
         self.set_banged_in(reference)
