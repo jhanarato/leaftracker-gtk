@@ -55,5 +55,6 @@ def test_changing_app_property_invokes_notifier():
 
     assert isinstance(notified.instance, Gio.Application)
     assert isinstance(notified.param, GObject.ParamSpecString)
+    assert notified.param.param_id == 1
     assert notified.param.name == "application-id"
     assert notified.notified
