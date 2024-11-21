@@ -51,3 +51,15 @@ def test_changing_app_property_invokes_notifier():
     app.set_application_id("foo.baz")
 
     assert app_id_changed
+
+
+def test_prints_on_change(capsys):
+    def on_notify(instance, param):
+        print("Notified")
+
+    app = Gio.Application(application_id="foo.bar")
+    app.connect("notify::application-id", on_notify)
+    app.set_application_id("foo.baz")
+
+    assert capsys.readouterr().out == "Notified\n"
+
