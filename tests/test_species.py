@@ -16,6 +16,11 @@ class TestSpeciesDetails():
         details.set_property("species_property", "species_reference")
         assert details.get_property("species_property") == "species_reference"
 
+    def test_property_can_be_none(self):
+        details = SpeciesDetails()
+        details.set_property("species_property", None)
+        assert details.get_property("species_property") is None
+
 
 class TestSpeciesList():
     def test_goto_button_callback(self):
