@@ -39,14 +39,14 @@ def test_changing_property_invokes_notifier():
     notified = Notification()
 
     meaning = Meaning()
-    meaning.connect("notify::meaning_of_life", notified)
-    meaning.emit("notify::meaning_of_life", GObject.ParamSpecInt())
+    meaning.connect("notify::meaning-of-life", notified)
+    meaning.set_property("meaning_of_life", 43)
 
+    assert notified.notified
     assert isinstance(notified.instance, Meaning)
     assert isinstance(notified.param, GObject.ParamSpecInt)
-    assert notified.param.param_id == 0
-    assert notified.param.name is None
-    assert notified.notified
+    assert notified.param.param_id == 1
+    assert notified.param.name == "meaning-of-life"
 
 
 def test_changing_app_property_invokes_notifier():
