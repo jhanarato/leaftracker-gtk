@@ -30,9 +30,9 @@ class Meaning(GObject.Object):
 
 def test_getting_and_setting_properties():
     meaning = Meaning()
-    assert meaning.get_property("meaning_of_life") == 42
+    assert meaning.get_property("meaning-of-life") == 42
     meaning.set_property("meaning_of_life", 43)
-    assert meaning.get_property("meaning_of_life") == 43
+    assert meaning.get_property("meaning-of-life") == 43
 
 
 def test_changing_property_invokes_notifier():
@@ -40,7 +40,7 @@ def test_changing_property_invokes_notifier():
 
     meaning = Meaning()
     meaning.connect("notify::meaning-of-life", notified)
-    meaning.set_property("meaning_of_life", 43)
+    meaning.set_property("meaning-of-life", 43)
 
     assert notified.notified
     assert isinstance(notified.instance, Meaning)
