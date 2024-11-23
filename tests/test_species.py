@@ -14,17 +14,17 @@ class TestSpeciesDetails():
 
     def test_set_species_reference_via_property(self):
         details = SpeciesDetails()
-        details.set_property("species_property", "species_reference")
+        details.set_property("species-property", "species_reference")
         assert details.get_property("species_property") == "species_reference"
 
     def test_property_can_be_none(self):
         details = SpeciesDetails()
-        details.set_property("species_property", None)
-        assert details.get_property("species_property") is None
+        details.set_property("species-property", None)
+        assert details.get_property("species-property") is None
 
     def test_notify_when_property_changes(self):
         details = SpeciesDetails()
-        details.set_property("species_property", "species_id")
+        details.set_property("species-property", "species_id")
         assert details.property_changed()
 
 
