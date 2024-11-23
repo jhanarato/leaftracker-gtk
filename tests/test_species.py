@@ -25,7 +25,6 @@ class TestSpeciesDetails():
     def test_notify_when_property_changes(self):
         details = SpeciesDetails()
         details.set_property("species_property", "species_id")
-        details.emit("notify::species_property", GObject.ParamSpecString())
         assert details.property_changed()
 
 

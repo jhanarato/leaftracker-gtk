@@ -17,7 +17,7 @@ class SpeciesDetails(Adw.NavigationPage):
         super().__init__()
         self._species: str | None = None
         self._property_changed = False
-        self.connect("notify::species_property", self.on_property_changed)
+        self.connect("notify::species-property", self.on_property_changed)
 
     def select_species(self, reference: str) -> None:
         self.set_banged_in(reference)
