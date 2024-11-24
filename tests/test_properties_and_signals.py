@@ -61,3 +61,36 @@ def test_changing_app_property_invokes_notifier():
     assert notified.param.param_id == 1
     assert notified.param.name == "application-id"
     assert notified.notified
+
+
+class SelfNotifier(GObject.Object):
+    def __init__(self):
+        super().__init__()
+        self._some_property = 0
+        self.notified = False
+        self.connect("notify::some-property", self.notify_method)
+
+    @GObject.Property(type=int)
+    def some_property(self):
+        return self._some_property
+
+    @some_property.setter
+    def some_property(self, value):
+        self._some_property = value
+
+    def notify_method(self, instance, param):
+        self.notified = True
+
+
+def test_changing_param_invokes_notify_method():
+    self_notifier = SelfNotifier()
+    assert not self_notifier.notified
+    self_notifier.set_property("some-property", 77)
+    assert self_notifier.notified
+
+
+@pytest.mark.skip("Work on method call test first.")
+def test_changing_property_calls_callback():
+    button = CallbackButton()
+    button.string_parameter = "Frosty Fruits"
+    assert button.callback_called
