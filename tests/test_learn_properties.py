@@ -87,10 +87,3 @@ def test_changing_param_invokes_notify_method():
     assert not self_notifier.notified
     self_notifier.set_property("some-property", 77)
     assert self_notifier.notified
-
-
-@pytest.mark.skip("Work on method call test first.")
-def test_changing_property_calls_callback():
-    button = CallbackButton()
-    button.string_parameter = "Frosty Fruits"
-    assert button.callback_called
