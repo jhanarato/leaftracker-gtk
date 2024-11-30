@@ -7,7 +7,7 @@ from gi.repository import Gtk, GObject
 callback_template = """\
 <interface>
     <template class="CallbackWidget" parent="GtkBox">
-        <signal name="notify::custom-parameter" handler="parameter_changed"/>
+        <signal name="notify::custom-property" handler="property_changed"/>
     </template>
 </interface>
 """
@@ -19,27 +19,27 @@ class CallbackWidget(Gtk.Box):
 
     def __init__(self):
         super().__init__()
-        self._custom_parameter_value = 0
+        self._custom_property_value = 0
         self._callback_called = False
 
     @GObject.Property(type=int)
-    def custom_parameter(self) -> int:
-        return self._custom_parameter_value
+    def custom_property(self) -> int:
+        return self._custom_property_value
 
-    @custom_parameter.setter
-    def custom_parameter(self, new_value: int) -> None:
-        self._custom_parameter_value = new_value
+    @custom_property.setter
+    def custom_property(self, new_value: int) -> None:
+        self._custom_property_value = new_value
 
     @property
     def callback_called(self) -> bool:
         return self._callback_called
 
     @Gtk.Template.Callback()
-    def parameter_changed(self, *args):
+    def property_changed(self, *args):
         self._callback_called = True
 
 
 def test_changing_property_calls_callback():
     button = CallbackWidget()
-    button.custom_parameter = 1
+    button.custom_property = 1
     assert button.callback_called is True
