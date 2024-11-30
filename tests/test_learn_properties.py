@@ -87,3 +87,47 @@ def test_changing_param_invokes_notify_method():
     assert not self_notifier.notified
     self_notifier.set_property("some-property", 77)
     assert self_notifier.notified
+
+
+class ObjectA(GObject.Object):
+    def __init__(self):
+        super().__init__()
+        self._property_a = ""
+
+    @GObject.Property(type=str)
+    def property_a(self) -> str:
+        return self._property_a
+
+    @property_a.setter
+    def property_a(self, value: str):
+        self._property_a = value
+
+
+class ObjectB(GObject.Object):
+    def __init__(self):
+        super().__init__()
+        self._property_b = ""
+
+    @GObject.Property(type=str)
+    def property_b(self) -> str:
+        return self._property_b
+
+    @property_b.setter
+    def property_b(self, value: str):
+        self._property_b = value
+
+
+def test_changing_bound_param_propagates():
+    object_a = ObjectA()
+    object_a.set_property("property-a", "start-value-a")
+
+    object_b = ObjectB()
+    object_b.set_property("property-b", "start-value-b")
+
+    object_a.bind_property("property-a", object_b, "property-b", GObject.BindingFlags.BIDIRECTIONAL)
+
+    object_a.set_property("property-a", "end-value-a")
+    assert object_b.get_property("property-b") == "end-value-a"
+
+    object_b.set_property("property-b", "end-value-b")
+    assert object_a.get_property("property-a") == "end-value-b"
