@@ -126,8 +126,8 @@ def test_changing_bound_param_propagates():
 
     object_a.bind_property("property-a", object_b, "property-b", GObject.BindingFlags.BIDIRECTIONAL)
 
-    object_a.set_property("property-a", "end-value-a")
-    assert object_b.get_property("property-b") == "end-value-a"
+    object_a.set_property("property-a", "value-changed-a")
+    assert object_b.get_property("property-b") == "value-changed-a"
 
-    object_b.set_property("property-b", "end-value-b")
-    assert object_a.get_property("property-a") == "end-value-b"
+    object_b.set_property("property-b", "value-changed-b")
+    assert object_a.get_property("property-a") == "value-changed-b"
