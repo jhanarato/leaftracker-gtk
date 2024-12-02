@@ -17,7 +17,6 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     def __init__(self):
         super().__init__()
         self._current_species: str | None = None
-        self._property_changed = False
 
     @GObject.Property(type=str)
     def current_species(self) -> str | None:
@@ -27,12 +26,9 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     def current_species(self, species: str):
         self._current_species = species
 
-    def property_changed(self) -> bool:
-        return self._property_changed
-
     @Gtk.Template.Callback()
     def on_property_changed(self, instance, param):
-        self._property_changed = True
+        pass
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_list.ui")

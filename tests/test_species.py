@@ -16,8 +16,3 @@ class TestSpeciesDetailsPage:
         details = SpeciesDetailsPage()
         details.set_property("current-species", None)
         assert details.get_property("current-species") is None
-
-    def test_notify_when_property_changes(self):
-        details = SpeciesDetailsPage()
-        details.set_property("current-species", "species_id")
-        assert details.property_changed()
