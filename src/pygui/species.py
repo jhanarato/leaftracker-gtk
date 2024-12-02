@@ -18,7 +18,6 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         super().__init__()
         self._current_species: str | None = None
         self._property_changed = False
-        self.connect("notify::current-species", self.on_property_changed)
 
     @GObject.Property(type=str)
     def current_species(self) -> str | None:
@@ -31,6 +30,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     def property_changed(self) -> bool:
         return self._property_changed
 
+    @Gtk.Template.Callback()
     def on_property_changed(self, instance, param):
         self._property_changed = True
 
