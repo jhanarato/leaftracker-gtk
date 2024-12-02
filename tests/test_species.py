@@ -7,11 +7,6 @@ from pygui.species import SpeciesDetailsPage, SpeciesListPage
 
 
 class TestSpeciesDetailsPage:
-    def test_bang_in_species_reference(self):
-        details = SpeciesDetailsPage()
-        details.set_banged_in("banged in new")
-        assert details.get_banged_in() == "banged in new"
-
     def test_set_species_reference_via_property(self):
         details = SpeciesDetailsPage()
         details.set_property("current-species", "species_reference")

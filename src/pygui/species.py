@@ -21,13 +21,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self.connect("notify::current-species", self.on_property_changed)
 
     def select_species(self, reference: str) -> None:
-        self.set_banged_in(reference)
-
-    def set_banged_in(self, text: str) -> None:
-        self.banged_in.set_label(text)
-
-    def get_banged_in(self) -> str:
-        return self.banged_in.get_label()
+        pass
 
     @GObject.Property(type=str)
     def current_species(self) -> str | None:
