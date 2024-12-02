@@ -1,5 +1,5 @@
 import pytest
-from gi.overrides.GObject import ParamSpec
+
 from gi.repository import Gio, GObject
 
 
@@ -140,5 +140,13 @@ def test_access_property_by_props():
     assert object_a.get_property("property-a") == "Blue"
 
 
-def test_param_spec_string_converts_empty_to_none():
-    pspec = GObject.ParamSpecString()
+def test_doesnt_convert_empty_to_none():
+    object_a = ObjectA()
+    object_a.props.property_a = ""
+    assert object_a.props.property_a == ""
+
+
+def test_doesnt_convert_none_to_empty():
+    object_a = ObjectA()
+    object_a.props.property_a = None
+    assert object_a.props.property_a is None
