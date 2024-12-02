@@ -12,13 +12,15 @@
                     </object>
                 </child>
                 <child>
-                    <object class="GtkButton" id="goto-button">
-                        <property name="label">Go To Species Details</property>
-                        <property name="halign">center</property>
-                        <property name="valign">center</property>
+                    <object class="AdwEntryRow">
+                    </object>
+                </child>
+                <child>
+                    <object class="AdwButtonRow">
+                        <property name="title">View Existing</property>
                         <property name="action-name">navigation.push</property>
                         <property name="action-target">'species-details-page'</property>
-                        <signal name="clicked" handler="goto_button_clicked"/>
+                        <signal name="activated" handler="goto_button_clicked"/>
                     </object>
                 </child>
             </object>

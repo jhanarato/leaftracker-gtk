@@ -40,4 +40,4 @@ class SpeciesListPage(Adw.NavigationPage):
 
     @Gtk.Template.Callback()
     def goto_button_clicked(self, *args):
-        pass
+        print("Clicked")
