@@ -9,8 +9,8 @@ def on_property_changed(instance, param):
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details.ui")
-class SpeciesDetails(Adw.NavigationPage):
-    __gtype_name__ = "SpeciesDetails"
+class SpeciesDetailsPage(Adw.NavigationPage):
+    __gtype_name__ = "SpeciesDetailsPage"
 
     banged_in: Gtk.Label = Gtk.Template.Child()
 
@@ -53,7 +53,7 @@ class SpeciesList(Adw.NavigationPage):
         self._species_reference = None
         self._details_page = None
 
-    def set_details_page(self, page: SpeciesDetails) -> None:
+    def set_details_page(self, page: SpeciesDetailsPage) -> None:
         self._details_page = page
 
     def select_species(self, reference: str) -> None:

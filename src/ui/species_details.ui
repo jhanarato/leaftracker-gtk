@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <interface>
-    <template class="SpeciesDetails" parent="AdwNavigationPage">
+    <template class="SpeciesDetailsPage" parent="AdwNavigationPage">
         <property name="title">Species Details</property>
         <property name="tag">species-details</property>
         <property name="child">

@@ -27,7 +27,7 @@
                                             <object class="SpeciesList" id="species_list"/>
                                         </child>
                                         <child>
-                                            <object class="SpeciesDetails" id="species_details"/>
+                                            <object class="SpeciesDetailsPage" id="species_details_page"/>
                                         </child>
                                     </object>
                                 </property>
