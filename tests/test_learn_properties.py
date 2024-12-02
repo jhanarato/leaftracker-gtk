@@ -1,4 +1,5 @@
 import pytest
+from gi.overrides.GObject import ParamSpec
 from gi.repository import Gio, GObject
 
 
@@ -131,3 +132,13 @@ def test_changing_bound_property_propagates():
 
     object_b.set_property("property-b", "value-changed-b")
     assert object_a.get_property("property-a") == "value-changed-b"
+
+
+def test_access_property_by_props():
+    object_a = ObjectA()
+    object_a.props.property_a = "Blue"
+    assert object_a.get_property("property-a") == "Blue"
+
+
+def test_param_spec_string_converts_empty_to_none():
+    pspec = GObject.ParamSpecString()
