@@ -15,5 +15,3 @@ class MainWindow(Adw.ApplicationWindow):
 
     def __init__(self, application: Adw.Application):
         super().__init__(application=application)
-        self.species_list_page.set_details_page(self.species_details_page)
-        self.species_list_page.select_species("Acacia dentifera")
