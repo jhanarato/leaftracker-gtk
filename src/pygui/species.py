@@ -41,10 +41,6 @@ class SpeciesListPage(Adw.NavigationPage):
 
     def __init__(self):
         super().__init__()
-        self._species_reference = None
-
-    def select_species(self, reference: str) -> None:
-        self._species_reference = reference
 
     @Gtk.Template.Callback()
     def goto_button_clicked(self, *args):
