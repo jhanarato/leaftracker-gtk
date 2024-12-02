@@ -45,8 +45,8 @@ class SpeciesDetailsPage(Adw.NavigationPage):
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_list.ui")
-class SpeciesList(Adw.NavigationPage):
-    __gtype_name__ = "SpeciesList"
+class SpeciesListPage(Adw.NavigationPage):
+    __gtype_name__ = "SpeciesListPage"
 
     def __init__(self):
         super().__init__()

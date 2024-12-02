@@ -3,10 +3,10 @@ from gi.repository import Gio, GObject
 resource = Gio.Resource.load('../leaftracker-gtk.gresource')
 resource._register()
 
-from pygui.species import SpeciesDetailsPage, SpeciesList
+from pygui.species import SpeciesDetailsPage, SpeciesListPage
 
 
-class TestSpeciesDetails():
+class TestSpeciesDetailsPage:
     def test_bang_in_species_reference(self):
         details = SpeciesDetailsPage()
         details.set_banged_in("banged in new")
@@ -28,9 +28,9 @@ class TestSpeciesDetails():
         assert details.property_changed()
 
 
-class TestSpeciesList():
+class TestSpeciesListPage:
     def test_goto_button_callback(self):
-        list_page = SpeciesList()
+        list_page = SpeciesListPage()
         details_page = SpeciesDetailsPage()
         list_page.set_details_page(details_page)
         list_page.select_species("Acacia saligna")

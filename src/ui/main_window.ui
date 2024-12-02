@@ -24,7 +24,7 @@
                                 <property name="child">
                                     <object class="AdwNavigationView">
                                         <child>
-                                            <object class="SpeciesList" id="species_list"/>
+                                            <object class="SpeciesListPage" id="species_list_page"/>
                                         </child>
                                         <child>
                                             <object class="SpeciesDetailsPage" id="species_details_page"/>

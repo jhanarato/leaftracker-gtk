@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <interface>
-    <template class="SpeciesList" parent="AdwNavigationPage">
+    <template class="SpeciesListPage" parent="AdwNavigationPage">
         <property name="title">Species List</property>
         <property name="child">
             <object class="GtkButton" id="goto-button">
