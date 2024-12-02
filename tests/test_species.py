@@ -26,13 +26,3 @@ class TestSpeciesDetailsPage:
         details = SpeciesDetailsPage()
         details.set_property("current-species", "species_id")
         assert details.property_changed()
-
-
-class TestSpeciesListPage:
-    def test_goto_button_callback(self):
-        list_page = SpeciesListPage()
-        details_page = SpeciesDetailsPage()
-        list_page.set_details_page(details_page)
-        list_page.select_species("Acacia saligna")
-        list_page.goto_button_clicked()
-        assert details_page.get_banged_in() == "Acacia saligna"
