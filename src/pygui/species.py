@@ -16,7 +16,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
 
     def __init__(self):
         super().__init__()
-        self._species: str | None = None
+        self._current_species: str | None = None
         self._property_changed = False
         self.connect("notify::species-property", self.on_property_changed)
 
@@ -31,11 +31,11 @@ class SpeciesDetailsPage(Adw.NavigationPage):
 
     @GObject.Property(type=str)
     def species_property(self) -> str | None:
-        return self._species
+        return self._current_species
 
     @species_property.setter
     def species_property(self, species: str):
-        self._species = species
+        self._current_species = species
 
     def property_changed(self) -> bool:
         return self._property_changed
