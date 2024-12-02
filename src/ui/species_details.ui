@@ -23,13 +23,8 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkLabel" id="banged_in">
-                                <property name="label">banged in</property>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="GtkLabel" id="property_set">
-                                <property name="label">property set</property>
+                            <object class="GtkLabel" id="reference_label">
+                                <property name="label">Not Set</property>
                             </object>
                         </child>
                     </object>

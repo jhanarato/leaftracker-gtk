@@ -12,7 +12,7 @@ def on_property_changed(instance, param):
 class SpeciesDetailsPage(Adw.NavigationPage):
     __gtype_name__ = "SpeciesDetailsPage"
 
-    banged_in: Gtk.Label = Gtk.Template.Child()
+    reference_label: Gtk.Label = Gtk.Template.Child()
 
     def __init__(self):
         super().__init__()
