@@ -5,7 +5,7 @@ from gi.repository import Adw, Gtk, GObject
 
 
 def on_property_changed(instance, param):
-    instance.species_property = True
+    instance.current_species = True
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details.ui")
@@ -18,7 +18,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         super().__init__()
         self._current_species: str | None = None
         self._property_changed = False
-        self.connect("notify::species-property", self.on_property_changed)
+        self.connect("notify::current-species", self.on_property_changed)
 
     def select_species(self, reference: str) -> None:
         self.set_banged_in(reference)
@@ -30,11 +30,11 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         return self.banged_in.get_label()
 
     @GObject.Property(type=str)
-    def species_property(self) -> str | None:
+    def current_species(self) -> str | None:
         return self._current_species
 
-    @species_property.setter
-    def species_property(self, species: str):
+    @current_species.setter
+    def current_species(self, species: str):
         self._current_species = species
 
     def property_changed(self) -> bool:
