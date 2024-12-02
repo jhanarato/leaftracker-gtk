@@ -20,9 +20,6 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self._property_changed = False
         self.connect("notify::current-species", self.on_property_changed)
 
-    def select_species(self, reference: str) -> None:
-        pass
-
     @GObject.Property(type=str)
     def current_species(self) -> str | None:
         return self._current_species
