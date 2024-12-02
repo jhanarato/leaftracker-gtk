@@ -1,9 +1,9 @@
-import pytest
-from gi.repository import Gio, GObject
+from gi.repository import Gio
+
 resource = Gio.Resource.load('../leaftracker-gtk.gresource')
 resource._register()
 
-from pygui.species import SpeciesDetailsPage, SpeciesListPage
+from pygui.species import SpeciesDetailsPage
 
 
 class TestSpeciesDetailsPage:
@@ -16,3 +16,8 @@ class TestSpeciesDetailsPage:
         details = SpeciesDetailsPage()
         details.set_property("current-species", None)
         assert details.get_property("current-species") is None
+
+    def test_changing_reference_property_sets_label(self):
+        details = SpeciesDetailsPage()
+        details.set_property("current-species", "refxyz")
+        assert details.reference_label.get_label() == "refxyz"
