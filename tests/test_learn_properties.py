@@ -117,7 +117,7 @@ class ObjectB(GObject.Object):
         self._property_b = value
 
 
-def test_changing_bound_param_propagates():
+def test_changing_bound_property_propagates():
     object_a = ObjectA()
     object_a.set_property("property-a", "start-value-a")
 
