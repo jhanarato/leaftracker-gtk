@@ -3,13 +3,24 @@
     <template class="SpeciesListPage" parent="AdwNavigationPage">
         <property name="title">Species List</property>
         <property name="child">
-            <object class="GtkButton" id="goto-button">
-                <property name="label">Go To Species Details</property>
-                <property name="halign">center</property>
-                <property name="valign">center</property>
-                <property name="action-name">navigation.push</property>
-                <property name="action-target">'species-details-page'</property>
-                <signal name="clicked" handler="goto_button_clicked"/>
+            <object class="GtkListBox">
+                <child>
+                    <object class="AdwButtonRow">
+                        <property name="title">Add New</property>
+                        <property name="action-name">navigation.push</property>
+                        <property name="action-target">'species-details-page'</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkButton" id="goto-button">
+                        <property name="label">Go To Species Details</property>
+                        <property name="halign">center</property>
+                        <property name="valign">center</property>
+                        <property name="action-name">navigation.push</property>
+                        <property name="action-target">'species-details-page'</property>
+                        <signal name="clicked" handler="goto_button_clicked"/>
+                    </object>
+                </child>
             </object>
         </property>
     </template>
