@@ -8,7 +8,7 @@
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="action-name">navigation.push</property>
-                <property name="action-target">'species-details'</property>
+                <property name="action-target">'species-details-page'</property>
                 <signal name="clicked" handler="goto_button_clicked"/>
             </object>
         </property>
