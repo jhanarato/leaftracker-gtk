@@ -6,6 +6,7 @@
             <object class="GtkBox">
                 <property name="spacing">10</property>
                 <property name="valign">center</property>
+                <property name="halign">center</property>
                 <child>
                     <object class="GtkButton">
                         <property name="icon-name">add</property>
