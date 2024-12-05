@@ -7,17 +7,20 @@
                 <child>
                     <object class="AdwButtonRow">
                         <property name="title">Add New</property>
+                        <property name="halign">center</property>
                         <property name="action-name">navigation.push</property>
                         <property name="action-target">'species-details-page'</property>
                     </object>
                 </child>
                 <child>
                     <object class="AdwEntryRow">
+                        <property name="title">Species Reference</property>
                     </object>
                 </child>
                 <child>
                     <object class="AdwButtonRow">
                         <property name="title">View Existing</property>
+                        <property name="halign">center</property>
                         <property name="action-name">navigation.push</property>
                         <property name="action-target">'species-details-page'</property>
                         <signal name="activated" handler="goto_button_clicked"/>
