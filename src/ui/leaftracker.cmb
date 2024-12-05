@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!DOCTYPE cambalache-project SYSTEM "cambalache-project.dtd">
+<cambalache-project version="0.94.0" target_tk="gtk-4.0">
+  <ui>
+	(3,1,"species_list.ui","species_list.ui",None,None,None,None,None,None,None),
+	(4,1,"species_details.ui","species_details.ui",None,None,None,None,None,None,None),
+	(5,1,"main_window.ui","main_window.ui",None,None,None,None,None,None,None)
+  </ui>
+  <object>
+	(3,1,"AdwNavigationPage","SpeciesListPage",None,None,None,None,0,None,None),
+	(3,2,"GtkListBox",None,1,None,None,None,0,None,None),
+	(3,3,"AdwButtonRow",None,2,None,None,None,0,None,None),
+	(3,4,"AdwEntryRow",None,2,None,None,None,1,None,None),
+	(3,5,"AdwButtonRow",None,2,None,None,None,2,None,None),
+	(4,1,"AdwNavigationPage","SpeciesDetailsPage",None,None,None,None,0,None,None),
+	(4,2,"AdwToolbarView",None,1,None,None,None,0,None,None),
+	(4,3,"AdwHeaderBar",None,2,None,"top",None,0,None,None),
+	(4,4,"GtkBox",None,2,None,None,None,1,None,None),
+	(4,5,"GtkButton",None,4,None,None,None,0,None,None),
+	(4,6,"GtkLabel","reference_label",4,None,None,None,1,None,None),
+	(5,1,"AdwApplicationWindow","MainWindow",None,None,None,None,0,None,None),
+	(5,2,"AdwToolbarView",None,1,None,None,None,0,None,None),
+	(5,3,"AdwHeaderBar",None,2,None,"top",None,0,None,None),
+	(5,4,"AdwViewSwitcher",None,3,None,None,None,0,None,None),
+	(5,5,"AdwViewStack","stack",2,None,None,None,1,None,None),
+	(5,6,"AdwViewStackPage",None,5,None,None,None,0,None,None),
+	(5,7,"AdwNavigationView",None,6,None,None,None,0,None,None),
+	(5,8,"SpeciesListPage","species_list_page",7,None,None,None,0,None,None),
+	(5,9,"SpeciesDetailsPage","species_details_page",7,None,None,None,1,None,None),
+	(5,10,"AdwViewStackPage",None,5,None,None,None,1,None,None),
+	(5,11,"AdwStatusPage",None,10,None,None,None,0,None,None),
+	(5,12,"AdwViewStackPage",None,5,None,None,None,2,None,None),
+	(5,13,"AdwStatusPage",None,12,None,None,None,0,None,None)
+  </object>
+  <object_property>
+	(3,1,"AdwNavigationPage","child",None,0,None,None,None,2,None,None,None,None),
+	(3,1,"AdwNavigationPage","title","Species List",0,None,None,None,None,None,None,None,None),
+	(3,3,"AdwPreferencesRow","title","Add New",0,None,None,None,None,None,None,None,None),
+	(3,3,"GtkActionable","action-name","navigation.push",0,None,None,None,None,None,None,None,None),
+	(3,3,"GtkActionable","action-target","'species-details-page'",0,None,None,None,None,None,None,None,None),
+	(3,5,"AdwPreferencesRow","title","View Existing",0,None,None,None,None,None,None,None,None),
+	(3,5,"GtkActionable","action-name","navigation.push",0,None,None,None,None,None,None,None,None),
+	(3,5,"GtkActionable","action-target","'species-details-page'",0,None,None,None,None,None,None,None,None),
+	(4,1,"AdwNavigationPage","child",None,0,None,None,None,2,None,None,None,None),
+	(4,1,"AdwNavigationPage","tag","species-details-page",0,None,None,None,None,None,None,None,None),
+	(4,1,"AdwNavigationPage","title","Species Details",0,None,None,None,None,None,None,None,None),
+	(4,2,"AdwToolbarView","content",None,0,None,None,None,4,None,None,None,None),
+	(4,3,"AdwHeaderBar","show-end-title-buttons","false",0,None,None,None,None,None,None,None,None),
+	(4,4,"GtkOrientable","orientation","vertical",0,None,None,None,None,None,None,None,None),
+	(4,5,"GtkActionable","action-name","navigation.pop",0,None,None,None,None,None,None,None,None),
+	(4,5,"GtkButton","label","Go To Species List",0,None,None,None,None,None,None,None,None),
+	(4,5,"GtkWidget","halign","center",0,None,None,None,None,None,None,None,None),
+	(4,5,"GtkWidget","valign","center",0,None,None,None,None,None,None,None,None),
+	(4,6,"GtkLabel","label","Not Set",0,None,None,None,None,None,None,None,None),
+	(5,1,"AdwApplicationWindow","content",None,0,None,None,None,2,None,None,None,None),
+	(5,1,"GtkWindow","default-height","500",0,None,None,None,None,None,None,None,None),
+	(5,1,"GtkWindow","default-width","700",0,None,None,None,None,None,None,None,None),
+	(5,2,"AdwToolbarView","content",None,0,None,None,None,5,None,None,None,None),
+	(5,3,"AdwHeaderBar","title-widget",None,0,None,None,None,4,None,None,None,None),
+	(5,4,"AdwViewSwitcher","policy","wide",0,None,None,None,None,None,None,None,None),
+	(5,4,"AdwViewSwitcher","stack","5",0,None,None,None,None,None,None,None,None),
+	(5,6,"AdwViewStackPage","child",None,0,None,None,None,7,None,None,None,None),
+	(5,6,"AdwViewStackPage","name","species",0,None,None,None,None,None,None,None,None),
+	(5,6,"AdwViewStackPage","title","Species",0,None,None,None,None,None,None,None,None),
+	(5,10,"AdwViewStackPage","child",None,0,None,None,None,11,None,None,None,None),
+	(5,10,"AdwViewStackPage","name","catalogue",0,None,None,None,None,None,None,None,None),
+	(5,10,"AdwViewStackPage","title","Catalogue",0,None,None,None,None,None,None,None,None),
+	(5,11,"AdwStatusPage","title","Catalogue a batch",0,None,None,None,None,None,None,None,None),
+	(5,12,"AdwViewStackPage","child",None,0,None,None,None,13,None,None,None,None),
+	(5,12,"AdwViewStackPage","name","sources",0,None,None,None,None,None,None,None,None),
+	(5,12,"AdwViewStackPage","title","Sources",0,None,None,None,None,None,None,None,None),
+	(5,13,"AdwStatusPage","title","Add a source",0,None,None,None,None,None,None,None,None)
+  </object_property>
+  <object_signal>
+	(1,3,5,"AdwButtonRow","activated","goto_button_clicked",None,None,0,0,None),
+	(2,4,1,"GObject","notify","on_property_changed","current-species",None,0,0,None)
+  </object_signal>
+</cambalache-project>
