@@ -18,8 +18,9 @@
                                 <property name="halign">center</property>
                                 <property name="title">Elasticsearch Reference</property>
                                 <child>
-                                    <object class="GtkLabel" id="reference_label">
-                                        <property name="label">Unset</property>
+                                    <object class="AdwEntryRow" id="es_reference">
+                                        <property name="editable">false</property>
+                                        <property name="title">None</property>
                                     </object>
                                 </child>
                             </object>

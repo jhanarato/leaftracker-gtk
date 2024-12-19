@@ -20,4 +20,4 @@ class TestSpeciesDetailsPage:
     def test_changing_reference_property_sets_label(self):
         details = SpeciesDetailsPage()
         details.set_property("current-species", "refxyz")
-        assert details.reference_label.get_label() == "refxyz"
+        assert details.es_reference.get_text() == "refxyz"
