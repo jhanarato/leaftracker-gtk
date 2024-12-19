@@ -15,14 +15,6 @@
                     <object class="GtkBox">
                         <property name="orientation">vertical</property>
                         <child>
-                            <object class="GtkButton">
-                                <property name="label">Go To Species List</property>
-                                <property name="halign">center</property>
-                                <property name="valign">center</property>
-                                <property name="action-name">navigation.pop</property>
-                            </object>
-                        </child>
-                        <child>
                             <object class="GtkLabel" id="reference_label">
                                 <property name="label">Not Set</property>
                             </object>
