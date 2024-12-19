@@ -21,3 +21,8 @@ class TestSpeciesDetailsPage:
         details = SpeciesDetailsPage()
         details.set_property("current-species", "refxyz")
         assert details.es_reference.get_text() == "refxyz"
+
+    def test_setting_reference_to_none_shows_missing_message(self):
+        details = SpeciesDetailsPage()
+        details.set_property("current-species", None)
+        assert details.es_reference.get_text() == "None"
