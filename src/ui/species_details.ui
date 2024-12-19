@@ -15,9 +15,11 @@
                     <object class="AdwPreferencesPage">
                         <child>
                             <object class="AdwPreferencesGroup">
+                                <property name="halign">center</property>
+                                <property name="title">Elasticsearch Reference</property>
                                 <child>
                                     <object class="GtkLabel" id="reference_label">
-                                        <property name="label">Internal Reference</property>
+                                        <property name="label">Unset</property>
                                     </object>
                                 </child>
                             </object>
