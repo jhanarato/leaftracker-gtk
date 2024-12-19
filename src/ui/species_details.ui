@@ -12,8 +12,7 @@
                     </object>
                 </child>
                 <property name="content">
-                    <object class="GtkBox">
-                        <property name="orientation">vertical</property>
+                    <object class="AdwPreferencesGroup">
                         <child>
                             <object class="GtkLabel" id="reference_label">
                                 <property name="label">Not Set</property>
@@ -21,6 +20,7 @@
                         </child>
                         <child>
                             <object class="AdwEntryRow" id="scientific_name_entry">
+                                <property name="title">Scientific Name</property>
                             </object>
                         </child>
                     </object>
