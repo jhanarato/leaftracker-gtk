@@ -19,6 +19,10 @@
                                 <property name="label">Not Set</property>
                             </object>
                         </child>
+                        <child>
+                            <object class="AdwEntryRow" id="scientific_name_entry">
+                            </object>
+                        </child>
                     </object>
                 </property>
             </object>
