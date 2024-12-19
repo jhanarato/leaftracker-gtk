@@ -7,9 +7,7 @@ from gi.repository import Adw, Gtk, GObject
 def on_property_changed(instance, param):
     instance.current_species = True
 
-# TODO
-#   Add mode
-#   Edit mode
+
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details.ui")
 class SpeciesDetailsPage(Adw.NavigationPage):
     __gtype_name__ = "SpeciesDetailsPage"
