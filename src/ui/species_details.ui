@@ -12,17 +12,21 @@
                     </object>
                 </child>
                 <property name="content">
-                    <object class="AdwPreferencesGroup">
-                        <property name="halign">center</property>
-                        <property name="title">Scientific Names</property>
+                    <object class="AdwPreferencesPage">
                         <child>
-                            <object class="GtkLabel" id="reference_label">
-                                <property name="label">Internal Reference</property>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="AdwEntryRow" id="current_scientific_name">
-                                <property name="title">current</property>
+                            <object class="AdwPreferencesGroup">
+                                <property name="halign">center</property>
+                                <property name="title">Scientific Names</property>
+                                <child>
+                                    <object class="GtkLabel" id="reference_label">
+                                        <property name="label">Internal Reference</property>
+                                    </object>
+                                </child>
+                                <child>
+                                    <object class="AdwEntryRow" id="current_scientific_name">
+                                        <property name="title">current</property>
+                                    </object>
+                                </child>
                             </object>
                         </child>
                     </object>
