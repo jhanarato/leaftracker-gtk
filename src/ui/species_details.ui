@@ -15,13 +15,17 @@
                     <object class="AdwPreferencesPage">
                         <child>
                             <object class="AdwPreferencesGroup">
-                                <property name="halign">center</property>
-                                <property name="title">Scientific Names</property>
                                 <child>
                                     <object class="GtkLabel" id="reference_label">
                                         <property name="label">Internal Reference</property>
                                     </object>
                                 </child>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="AdwPreferencesGroup">
+                                <property name="halign">center</property>
+                                <property name="title">Scientific Names</property>
                                 <child>
                                     <object class="AdwEntryRow" id="current_scientific_name">
                                         <property name="title">current</property>
