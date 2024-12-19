@@ -13,6 +13,7 @@
                 </child>
                 <property name="content">
                     <object class="AdwPreferencesGroup">
+                        <property name="halign">center</property>
                         <child>
                             <object class="GtkLabel" id="reference_label">
                                 <property name="label">Not Set</property>
