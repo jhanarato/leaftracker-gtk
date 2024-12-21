@@ -1,3 +1,5 @@
+from enum import Enum, auto
+
 import gi
 
 gi.require_version('Adw', '1')
@@ -6,6 +8,11 @@ from gi.repository import Adw, Gtk, GObject
 
 def on_property_changed(instance, param):
     instance.current_species = True
+
+
+class SpeciesEditMode(Enum):
+    ADD_NEW = auto()
+    EDIT_EXISTING = auto()
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details.ui")
@@ -29,6 +36,9 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     @Gtk.Template.Callback()
     def reference_changed(self, instance, param):
         self.reference_display.set_text(str(self.reference))
+
+    def mode(self) -> SpeciesEditMode:
+        return SpeciesEditMode.ADD_NEW
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_list.ui")

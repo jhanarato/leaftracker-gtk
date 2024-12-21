@@ -4,7 +4,8 @@ from gi.repository import Gio, GObject
 resource = Gio.Resource.load('../leaftracker-gtk.gresource')
 resource._register()
 
-from pygui.species import SpeciesDetailsPage
+from pygui.species import SpeciesDetailsPage, SpeciesEditMode
+
 
 @pytest.fixture
 def details_page():
@@ -38,3 +39,5 @@ class TestSpeciesDetailsPage:
         gobject_with_property.set_property("prop-a", "cba")
         assert details_page.reference == "cba"
 
+    def test_starts_in_add_new_mode(self, details_page):
+        assert details_page.mode() == SpeciesEditMode.ADD_NEW
