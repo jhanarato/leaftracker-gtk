@@ -19,16 +19,16 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self._current_species: str | None = None
 
     @GObject.Property(type=str)
-    def current_species(self) -> str | None:
+    def reference(self) -> str | None:
         return self._current_species
 
-    @current_species.setter
-    def current_species(self, species: str):
+    @reference.setter
+    def reference(self, species: str):
         self._current_species = species
 
     @Gtk.Template.Callback()
     def on_property_changed(self, instance, param):
-        self.es_reference.props.text = str(self.current_species)
+        self.es_reference.props.text = str(self.reference)
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_list.ui")
