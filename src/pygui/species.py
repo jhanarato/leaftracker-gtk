@@ -12,7 +12,7 @@ def on_property_changed(instance, param):
 class SpeciesDetailsPage(Adw.NavigationPage):
     __gtype_name__ = "SpeciesDetailsPage"
 
-    es_reference: Gtk.Label = Gtk.Template.Child()
+    reference_display: Adw.EntryRow = Gtk.Template.Child()
 
     def __init__(self):
         super().__init__()
@@ -28,7 +28,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
 
     @Gtk.Template.Callback()
     def on_property_changed(self, instance, param):
-        self.es_reference.props.text = str(self.reference)
+        self.reference_display.props.text = str(self.reference)
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_list.ui")

@@ -20,12 +20,12 @@ class TestSpeciesDetailsPage:
     def test_reference_field_is_updated_when_reference_changed(self):
         details = SpeciesDetailsPage()
         details.set_property("reference", "xyz")
-        assert details.es_reference.get_text() == "xyz"
+        assert details.reference_display.get_text() == "xyz"
 
     def test_setting_reference_to_none_shows_missing_message(self):
         details = SpeciesDetailsPage()
         details.set_property("reference", None)
-        assert details.es_reference.get_text() == "None"
+        assert details.reference_display.get_text() == "None"
 
     def test_changing_bound_property_sets_reference(self, gobject_with_property):
         details_page = SpeciesDetailsPage()
