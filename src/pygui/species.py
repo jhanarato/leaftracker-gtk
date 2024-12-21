@@ -27,7 +27,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self._current_species = species
 
     @Gtk.Template.Callback()
-    def on_property_changed(self, instance, param):
+    def reference_changed(self, instance, param):
         self.reference_display.props.text = str(self.reference)
 
 
