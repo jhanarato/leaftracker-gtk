@@ -7,17 +7,17 @@ from pygui.species import SpeciesDetailsPage
 
 
 class TestSpeciesDetailsPage:
-    def test_set_species_reference_via_property(self):
+    def test_set_species_reference(self):
         details = SpeciesDetailsPage()
         details.set_property("reference", "abc")
         assert details.get_property("reference") == "abc"
 
-    def test_property_can_be_none(self):
+    def test_set_species_reference_to_none(self):
         details = SpeciesDetailsPage()
         details.set_property("reference", None)
         assert details.get_property("reference") is None
 
-    def test_changing_reference_property_sets_label(self):
+    def test_reference_field_is_updated_when_reference_changed(self):
         details = SpeciesDetailsPage()
         details.set_property("reference", "xyz")
         assert details.es_reference.get_text() == "xyz"
