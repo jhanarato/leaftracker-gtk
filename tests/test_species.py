@@ -46,5 +46,8 @@ class TestSpeciesDetailsPage:
         details_page.set_property("reference", "a reference")
         assert details_page.mode() == SpeciesEditMode.EDIT_EXISTING
 
-
+    def test_switches_mode_to_add_new(self, details_page):
+        details_page.set_property("reference", "a reference")
+        details_page.set_property("reference", None)
+        assert details_page.mode() == SpeciesEditMode.ADD_NEW
 
