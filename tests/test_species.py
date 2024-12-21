@@ -8,7 +8,7 @@ from pygui.species import SpeciesDetailsPage, SpeciesEditMode
 
 
 @pytest.fixture
-def details_page():
+def details_page() -> SpeciesDetailsPage:
     return SpeciesDetailsPage()
 
 
@@ -41,3 +41,10 @@ class TestSpeciesDetailsPage:
 
     def test_starts_in_add_new_mode(self, details_page):
         assert details_page.mode() == SpeciesEditMode.ADD_NEW
+
+    def test_switches_mode_to_edit_existing(self, details_page):
+        details_page.set_property("reference", "a reference")
+        assert details_page.mode() == SpeciesEditMode.EDIT_EXISTING
+
+
+

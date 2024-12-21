@@ -38,7 +38,10 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self.reference_display.set_text(str(self.reference))
 
     def mode(self) -> SpeciesEditMode:
-        return SpeciesEditMode.ADD_NEW
+        if self.reference is None:
+            return SpeciesEditMode.ADD_NEW
+        else:
+            return SpeciesEditMode.EDIT_EXISTING
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_list.ui")
