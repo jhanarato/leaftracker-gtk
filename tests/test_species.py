@@ -1,4 +1,4 @@
-from gi.repository import Gio
+from gi.repository import Gio, GObject
 
 resource = Gio.Resource.load('../leaftracker-gtk.gresource')
 resource._register()
@@ -26,6 +26,15 @@ class TestSpeciesDetailsPage:
         details = SpeciesDetailsPage()
         details.set_property("reference", None)
         assert details.es_reference.get_text() == "None"
+
+    def test_changing_bound_property_sets_reference(self, gobject_with_property):
+        details_page = SpeciesDetailsPage()
+        gobject_with_property.bind_property(
+            "prop-a", details_page, "reference",
+            GObject.BindingFlags.BIDIRECTIONAL
+        )
+        gobject_with_property.set_property("prop-a", "cba")
+        assert details_page.reference == "cba"
 
 
 def test_gobject_has_property(gobject_with_property):
