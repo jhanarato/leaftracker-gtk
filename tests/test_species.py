@@ -17,7 +17,7 @@ class TestSpeciesDetailsPage:
         details.set_property("reference", None)
         assert details.get_property("reference") is None
 
-    def test_reference_field_is_updated_when_reference_changed(self):
+    def test_reference_display_is_updated_when_reference_changed(self):
         details = SpeciesDetailsPage()
         details.set_property("reference", "xyz")
         assert details.reference_display.get_text() == "xyz"
