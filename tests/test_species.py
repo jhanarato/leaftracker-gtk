@@ -26,3 +26,7 @@ class TestSpeciesDetailsPage:
         details = SpeciesDetailsPage()
         details.set_property("reference", None)
         assert details.es_reference.get_text() == "None"
+
+
+def test_conftest_is_available(fixture_xyz):
+    assert fixture_xyz == 1
