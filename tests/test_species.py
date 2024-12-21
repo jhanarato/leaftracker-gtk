@@ -35,8 +35,3 @@ class TestSpeciesDetailsPage:
         )
         gobject_with_property.set_property("prop-a", "cba")
         assert details_page.reference == "cba"
-
-
-def test_gobject_has_property(gobject_with_property):
-    gobject_with_property.set_property("prop-a", "pqr")
-    assert gobject_with_property.get_property("prop-a") == "pqr"
