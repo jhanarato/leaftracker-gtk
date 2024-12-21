@@ -28,7 +28,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
 
     @Gtk.Template.Callback()
     def reference_changed(self, instance, param):
-        self.reference_display.props.text = str(self.reference)
+        self.reference_display.set_text(str(self.reference))
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_list.ui")
