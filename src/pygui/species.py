@@ -14,6 +14,13 @@ class SpeciesEditMode(Enum):
     ADD_NEW = auto()
     EDIT_EXISTING = auto()
 
+class SpeciesWriter:
+    def __init__(self):
+        pass
+
+    def write_current_scientific_name(self, name: str):
+        pass
+
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details.ui")
 class SpeciesDetailsPage(Adw.NavigationPage):
@@ -25,7 +32,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     def __init__(self):
         super().__init__()
         self._current_species: str | None = None
-        self._writer = None
+        self._writer = SpeciesWriter()
 
     @GObject.Property(type=str)
     def reference(self) -> str | None:
