@@ -32,6 +32,8 @@
                                 <child>
                                     <object class="AdwEntryRow" id="current_scientific_name">
                                         <property name="title">current</property>
+                                        <property name="show-apply-button">true</property>
+                                        <signal name="apply" handler="apply_handler"/>
                                         <signal name="notify::text" handler="current_scientific_name_changed"/>
                                     </object>
                                 </child>

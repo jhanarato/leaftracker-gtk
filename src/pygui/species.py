@@ -51,6 +51,10 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         text = self.current_scientific_name.get_text()
         self._writer.write_current_scientific_name(text)
 
+    @Gtk.Template.Callback()
+    def apply_handler(self, instance):
+        print(f"{instance}")
+
     def mode(self) -> SpeciesEditMode:
         if self.reference is None:
             return SpeciesEditMode.ADD_NEW
