@@ -11,6 +11,9 @@ class FakeSpeciesWriter:
     def __init__(self):
         self.current_scientific_name = "Acacia saligna"
 
+    def write_current_scientific_name(self, name: str):
+        self.current_scientific_name = name
+
 
 @pytest.fixture
 def writer() -> FakeSpeciesWriter:
@@ -68,8 +71,9 @@ class TestSpeciesDetailsPage:
 
     @pytest.mark.parametrize(
         "species_name",
-        ["Acacia saligna"]
+        ["Acacia saligna", "Acacia dentifera"]
     )
     def test_changes_persist_when_field_changed(self, details_page, writer, species_name):
         details_page.current_scientific_name.set_text(species_name)
+        details_page.current_scientific_name_changed(None, None)
         assert writer.current_scientific_name == species_name
