@@ -61,9 +61,12 @@ class TestSpeciesDetailsPage:
         details_page.set_property("reference", None)
         assert details_page.mode() == SpeciesEditMode.ADD_NEW
 
-    def test_changes_persist_when_field_changed(self, details_page):
+    @pytest.mark.parametrize(
+        "species_name",
+        ["Acacia saligna"]
+    )
+    def test_changes_persist_when_field_changed(self, details_page, species_name):
         writer = FakeSpeciesWriter()
         details_page.set_writer(writer)
-        name = "Acacia saligna"
-        details_page.current_scientific_name.set_text(name)
-        assert writer.current_scientific_name == name
+        details_page.current_scientific_name.set_text(species_name)
+        assert writer.current_scientific_name == species_name
