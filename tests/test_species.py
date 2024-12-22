@@ -14,11 +14,13 @@ def details_page() -> SpeciesDetailsPage:
 
 class FakeSpeciesWriter:
     def __init__(self):
-        pass
+        self.current_scientific_name = "Acacia saligna"
+
 
 class TestFakeSpeciesWriter:
     def test_create_writer(self):
         writer = FakeSpeciesWriter()
+
 
 class TestSpeciesDetailsPage:
     def test_set_species_reference(self, details_page):
@@ -59,7 +61,9 @@ class TestSpeciesDetailsPage:
         details_page.set_property("reference", None)
         assert details_page.mode() == SpeciesEditMode.ADD_NEW
 
-    @pytest.mark.skip("Create writer first")
     def test_changes_persist_when_field_changed(self, details_page):
-        assert 0
-
+        writer = FakeSpeciesWriter()
+        details_page.set_writer(writer)
+        name = "Acacia saligna"
+        details_page.current_scientific_name.set_text(name)
+        assert writer.current_scientific_name == name

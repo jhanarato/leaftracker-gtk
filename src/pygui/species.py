@@ -20,10 +20,12 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     __gtype_name__ = "SpeciesDetailsPage"
 
     reference_display: Adw.EntryRow = Gtk.Template.Child()
+    current_scientific_name: Adw.EntryRow = Gtk.Template.Child()
 
     def __init__(self):
         super().__init__()
         self._current_species: str | None = None
+        self._writer = None
 
     @GObject.Property(type=str)
     def reference(self) -> str | None:
@@ -42,6 +44,9 @@ class SpeciesDetailsPage(Adw.NavigationPage):
             return SpeciesEditMode.ADD_NEW
         else:
             return SpeciesEditMode.EDIT_EXISTING
+
+    def set_writer(self, writer):
+        self._writer = writer
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_list.ui")
