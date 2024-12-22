@@ -7,15 +7,20 @@ resource._register()
 from pygui.species import SpeciesDetailsPage, SpeciesEditMode
 
 
-@pytest.fixture
-def details_page() -> SpeciesDetailsPage:
-    return SpeciesDetailsPage()
-
-
 class FakeSpeciesWriter:
     def __init__(self):
         self.current_scientific_name = "Acacia saligna"
 
+
+@pytest.fixture
+def writer() -> FakeSpeciesWriter:
+    return FakeSpeciesWriter()
+
+@pytest.fixture
+def details_page(writer) -> SpeciesDetailsPage:
+    page = SpeciesDetailsPage()
+    page.set_writer(writer)
+    return page
 
 class TestFakeSpeciesWriter:
     def test_create_writer(self):
@@ -65,8 +70,6 @@ class TestSpeciesDetailsPage:
         "species_name",
         ["Acacia saligna"]
     )
-    def test_changes_persist_when_field_changed(self, details_page, species_name):
-        writer = FakeSpeciesWriter()
-        details_page.set_writer(writer)
+    def test_changes_persist_when_field_changed(self, details_page, writer, species_name):
         details_page.current_scientific_name.set_text(species_name)
         assert writer.current_scientific_name == species_name
