@@ -75,5 +75,4 @@ class TestSpeciesDetailsPage:
     )
     def test_changes_persist_when_field_changed(self, details_page, writer, species_name):
         details_page.current_scientific_name.set_text(species_name)
-        details_page.current_scientific_name_changed(None, None)
         assert writer.current_scientific_name == species_name
