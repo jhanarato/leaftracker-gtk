@@ -44,6 +44,9 @@
                                 <child>
                                     <object class="AdwButtonRow" id="apply_button">
                                         <property name="title">Save Changes</property>
+                                        <style>
+                                            <class name="suggested-action"/>
+                                        </style>
                                     </object>
                                 </child>
                             </object>
