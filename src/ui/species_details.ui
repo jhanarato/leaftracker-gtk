@@ -37,6 +37,11 @@
                                         <signal name="notify::text" handler="current_scientific_name_changed"/>
                                     </object>
                                 </child>
+                                <child>
+                                    <object class="AdwButtonRow" id="save_button">
+                                        <property name="title">Create New Species</property>
+                                    </object>
+                                </child>
                             </object>
                         </child>
                     </object>
