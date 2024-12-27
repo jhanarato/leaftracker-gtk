@@ -42,7 +42,7 @@
                             <object class="AdwPreferencesGroup">
                                 <property name="halign">center</property>
                                 <child>
-                                    <object class="AdwButtonRow" id="apply_button">
+                                    <object class="AdwButtonRow" id="save_button">
                                         <property name="title">Save Changes</property>
                                         <style>
                                             <class name="suggested-action"/>
