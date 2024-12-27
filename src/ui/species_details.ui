@@ -36,9 +36,14 @@
                                         <signal name="notify::text" handler="current_scientific_name_changed"/>
                                     </object>
                                 </child>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="AdwPreferencesGroup">
+                                <property name="halign">center</property>
                                 <child>
-                                    <object class="AdwButtonRow" id="save_button">
-                                        <property name="title">Create New Species</property>
+                                    <object class="AdwButtonRow" id="apply_button">
+                                        <property name="title">Save Changes</property>
                                     </object>
                                 </child>
                             </object>
