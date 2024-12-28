@@ -20,7 +20,6 @@
                                 <child>
                                     <object class="AdwEntryRow" id="reference_display">
                                         <property name="editable">false</property>
-                                        <property name="title">None</property>
                                     </object>
                                 </child>
                             </object>
