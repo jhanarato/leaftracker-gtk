@@ -9,7 +9,7 @@ from pygui.species import SpeciesDetailsPage, SpeciesEditMode
 
 class FakeSpeciesWriter:
     def __init__(self):
-        self.current_scientific_name = "Acacia saligna"
+        self.current_scientific_name = None
 
     def write_current_scientific_name(self, name: str):
         self.current_scientific_name = name
@@ -72,5 +72,6 @@ class TestSpeciesDetailsPage:
     def test_changes_saved_when_save_button_clicked(self, details_page, writer):
         species_name = "Acacia saligna"
         details_page.current_scientific_name.set_text(species_name)
+        assert writer.current_scientific_name is None
         details_page.save_button.emit("activated")
         assert writer.current_scientific_name == species_name
