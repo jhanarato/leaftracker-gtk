@@ -9,9 +9,11 @@ from pygui.species import SpeciesDetailsPage, SpeciesEditMode
 
 class FakeSpeciesWriter:
     def __init__(self):
+        self.reference = None
         self.current_scientific_name = None
 
     def write_current_scientific_name(self, name: str):
+        self.reference = "species-ref"
         self.current_scientific_name = name
 
 
@@ -75,3 +77,9 @@ class TestSpeciesDetailsPage:
         assert writer.current_scientific_name is None
         details_page.save_button.emit("activated")
         assert writer.current_scientific_name == species_name
+
+    def test_reference_displayed_on_save(self, details_page):
+        species_name = "Acacia saligna"
+        details_page.current_scientific_name.set_text(species_name)
+        details_page.save_button.emit("activated")
+        assert details_page.reference_display.get_text() == "species-ref"

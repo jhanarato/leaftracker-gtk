@@ -18,11 +18,11 @@ class SpeciesEditMode(Enum):
 
 class SpeciesWriter:
     def __init__(self):
-        pass
+        self.reference: str | None = None
 
     def write_current_scientific_name(self, name: str) -> None:
         uow = unit_of_work()
-        services.add_species(name, uow)
+        self.reference = services.add_species(name, uow)
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details.ui")
@@ -54,6 +54,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     def save_button_activated(self, instance):
         text = self.current_scientific_name.get_text()
         self._writer.write_current_scientific_name(text)
+        self.reference = self._writer.reference
 
     def mode(self) -> SpeciesEditMode:
         if self.reference is None:
