@@ -32,8 +32,6 @@
                                 <child>
                                     <object class="AdwEntryRow" id="current_scientific_name">
                                         <property name="title">current</property>
-                                        <signal name="apply" handler="apply_handler"/>
-                                        <signal name="notify::text" handler="current_scientific_name_changed"/>
                                     </object>
                                 </child>
                             </object>
@@ -47,6 +45,7 @@
                                         <style>
                                             <class name="suggested-action"/>
                                         </style>
+                                        <signal name="activated" handler="save_button_activated"/>
                                     </object>
                                 </child>
                             </object>

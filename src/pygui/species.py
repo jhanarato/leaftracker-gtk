@@ -28,6 +28,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
 
     reference_display: Adw.EntryRow = Gtk.Template.Child()
     current_scientific_name: Adw.EntryRow = Gtk.Template.Child()
+    save_button: Adw.ButtonRow = Gtk.Template.Child()
 
     def __init__(self):
         super().__init__()
@@ -47,13 +48,9 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self.reference_display.set_text(str(self.reference))
 
     @Gtk.Template.Callback()
-    def current_scientific_name_changed(self, instance, param):
+    def save_button_activated(self, instance):
         text = self.current_scientific_name.get_text()
         self._writer.write_current_scientific_name(text)
-
-    @Gtk.Template.Callback()
-    def apply_handler(self, instance):
-        print(f"{instance}")
 
     def mode(self) -> SpeciesEditMode:
         if self.reference is None:
