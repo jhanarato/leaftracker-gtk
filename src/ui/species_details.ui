@@ -17,6 +17,7 @@
                             <object class="AdwPreferencesGroup">
                                 <property name="halign">center</property>
                                 <property name="title">Elasticsearch Reference</property>
+                                <property name="width-request">300</property>
                                 <child>
                                     <object class="AdwEntryRow" id="reference_display">
                                         <property name="editable">false</property>
@@ -28,6 +29,7 @@
                             <object class="AdwPreferencesGroup">
                                 <property name="halign">center</property>
                                 <property name="title">Scientific Names</property>
+                                <property name="width-request">300</property>
                                 <child>
                                     <object class="AdwEntryRow" id="current_scientific_name">
                                         <property name="title">current</property>
