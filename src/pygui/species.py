@@ -5,6 +5,8 @@ import gi
 gi.require_version('Adw', '1')
 from gi.repository import Adw, Gtk, GObject
 
+from leaftracker.adapters.elastic.initialise import unit_of_work
+from leaftracker.service_layer import services
 
 def on_property_changed(instance, param):
     instance.current_species = True
@@ -18,8 +20,9 @@ class SpeciesWriter:
     def __init__(self):
         pass
 
-    def write_current_scientific_name(self, name: str):
-        pass
+    def write_current_scientific_name(self, name: str) -> None:
+        uow = unit_of_work()
+        services.add_species(name, uow)
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details.ui")

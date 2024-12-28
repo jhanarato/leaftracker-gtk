@@ -36,8 +36,6 @@ def main(version):
     print_versions()
 
     initialise.indexes()
-    uow = initialise.unit_of_work()
-    services.add_species("Leaftracker gtk", uow)
 
     app = Adw.Application(application_id='org.bswa.Leaftracker')
     app.connect('activate', on_activate)
