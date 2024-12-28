@@ -21,6 +21,9 @@
                                 <child>
                                     <object class="AdwEntryRow" id="reference_display">
                                         <property name="editable">false</property>
+                                        <style>
+                                            <class name="monospace"/>
+                                        </style>
                                     </object>
                                 </child>
                             </object>
