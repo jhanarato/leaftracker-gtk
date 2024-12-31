@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Created with Cambalache 0.94.1 -->
 <interface>
-    <!-- interface-name previous_names.ui -->
+    <!-- interface-name previous_scientific_names.ui -->
     <requires lib="gtk" version="4.0"/>
     <requires lib="libadwaita" version="1.2"/>
     <template class="PreviousScientificNames" parent="GtkListBox">
