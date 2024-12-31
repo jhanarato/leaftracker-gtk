@@ -38,6 +38,9 @@
                                         <property name="title">current</property>
                                     </object>
                                 </child>
+                                <child>
+                                    <object class="PreviousScientificNames" id="previous-scientific-names"/>
+                                </child>
                             </object>
                         </child>
                         <child>
