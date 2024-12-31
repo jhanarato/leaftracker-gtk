@@ -25,6 +25,11 @@ class SpeciesWriter:
         self.reference = services.add_species(name, uow)
 
 
+@Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/previous_names.ui")
+class PreviousScientificNames(Gtk.ListBox):
+    __gtype_name__ = "PreviousScientificNames"
+
+
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details.ui")
 class SpeciesDetailsPage(Adw.NavigationPage):
     __gtype_name__ = "SpeciesDetailsPage"

@@ -1,10 +1,10 @@
 import pytest
-from gi.repository import Gio, GObject
+from gi.repository import Gio, Gtk, GObject
 
 resource = Gio.Resource.load('../leaftracker-gtk.gresource')
 resource._register()
 
-from pygui.species import SpeciesDetailsPage, SpeciesEditMode
+from pygui.species import SpeciesDetailsPage, SpeciesEditMode, PreviousScientificNames
 
 
 class FakeSpeciesWriter:
@@ -30,6 +30,12 @@ def details_page(writer) -> SpeciesDetailsPage:
 class TestFakeSpeciesWriter:
     def test_create_writer(self):
         writer = FakeSpeciesWriter()
+
+
+class TestPreviousScientificNames:
+    def test_can_create_widget(self):
+        names = PreviousScientificNames()
+        assert names.get_property("selection-mode") == Gtk.SelectionMode.NONE
 
 
 class TestSpeciesDetailsPage:

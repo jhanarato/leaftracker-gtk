@@ -4,7 +4,8 @@
   <ui>
 	(3,1,"species_list.ui","species_list.ui",None,None,None,None,None,None,None),
 	(4,1,"species_details.ui","species_details.ui",None,None,None,None,None,None,None),
-	(5,1,"main_window.ui","main_window.ui",None,None,None,None,None,None,None)
+	(5,1,"main_window.ui","main_window.ui",None,None,None,None,None,None,None),
+	(6,None,None,"previous_names.ui",None,None,None,None,None,None,None)
   </ui>
   <object>
 	(3,1,"AdwNavigationPage","SpeciesListPage",None,None,None,None,0,None,None),
@@ -30,7 +31,8 @@
 	(5,10,"AdwViewStackPage",None,5,None,None,None,1,None,None),
 	(5,11,"AdwStatusPage",None,10,None,None,None,0,None,None),
 	(5,12,"AdwViewStackPage",None,5,None,None,None,2,None,None),
-	(5,13,"AdwStatusPage",None,12,None,None,None,0,None,None)
+	(5,13,"AdwStatusPage",None,12,None,None,None,0,None,None),
+	(6,1,"GtkListBox",None,None,None,None,None,0,None,None)
   </object>
   <object_property>
 	(3,1,"AdwNavigationPage","child",None,0,None,None,None,2,None,None,None,None),

@@ -4,5 +4,6 @@
     <file>ui/main_window.ui</file>
     <file>ui/species_details.ui</file>
     <file>ui/species_list.ui</file>
+    <file>ui/previous_names.ui</file>
   </gresource>
 </gresources>
