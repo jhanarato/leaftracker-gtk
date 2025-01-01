@@ -1,5 +1,5 @@
 depends:
-	python3 flatpak-pip-generator -r requirements.txt -o pypi-dependencies
+		.venv/bin/python3 flatpak-pip-generator -r requirements.txt -o pypi-dependencies
 
 build:
 	flatpak-builder --force-clean --user --install builddir org.bswa.Leaftracker.json

@@ -7,13 +7,13 @@
             "name": "python3-certifi",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"certifi==2024.8.30\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"certifi>=2024.8.30\" --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/12/90/3c9ff0512038035f59d279fddeb79f5f1eccd8859f06d6163c58798b9487/certifi-2024.8.30-py3-none-any.whl",
-                    "sha256": "922820b53db7a7257ffbda3f597266d435245903d80737e34f8a45ff3e3230d8"
+                    "url": "https://files.pythonhosted.org/packages/a5/32/8f6669fc4798494966bf446c8c4a162e0b5d893dff088afddf76414f70e1/certifi-2024.12.14-py3-none-any.whl",
+                    "sha256": "1275f7a45be9464efc1173084eaa30f866fe2e47d389406136d332ed4967ec56"
                 }
             ]
         },
@@ -21,23 +21,23 @@
             "name": "python3-elastic-transport",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"elastic-transport==8.15.0\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"elastic-transport>=8.15.0\" --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/12/90/3c9ff0512038035f59d279fddeb79f5f1eccd8859f06d6163c58798b9487/certifi-2024.8.30-py3-none-any.whl",
-                    "sha256": "922820b53db7a7257ffbda3f597266d435245903d80737e34f8a45ff3e3230d8"
+                    "url": "https://files.pythonhosted.org/packages/a5/32/8f6669fc4798494966bf446c8c4a162e0b5d893dff088afddf76414f70e1/certifi-2024.12.14-py3-none-any.whl",
+                    "sha256": "1275f7a45be9464efc1173084eaa30f866fe2e47d389406136d332ed4967ec56"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/1d/4a/df755b094170351b8199074fe8d0dfe6d639ab78a2e8893b556620ae982a/elastic_transport-8.15.0-py3-none-any.whl",
-                    "sha256": "d7080d1dada2b4eee69e7574f9c17a76b42f2895eff428e562f94b0360e158c0"
+                    "url": "https://files.pythonhosted.org/packages/b1/20/864177d7ecbc98633ead4d8e12200ec1c7c7a0c8d45080ac636e043db1c7/elastic_transport-8.15.1-py3-none-any.whl",
+                    "sha256": "b5e82ff1679d8c7705a03fd85c7f6ef85d6689721762d41228dd312e34f331fc"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/ce/d9/5f4c13cecde62396b0d3fe530a50ccea91e7dfc1ccf0e09c228841bb5ba8/urllib3-2.2.3-py3-none-any.whl",
-                    "sha256": "ca899ca043dcb1bafa3e262d73aa25c465bfb49e0bd9dd5d59f1d0acba2f8fac"
+                    "url": "https://files.pythonhosted.org/packages/c8/19/4ec628951a74043532ca2cf5d97b7b14863931476d117c471e8e2b1eb39f/urllib3-2.3.0-py3-none-any.whl",
+                    "sha256": "1cee9ad369867bfdbbb48b7dd50374c0967a0bb7710050facf0dd6911440e3df"
                 }
             ]
         },
@@ -45,28 +45,28 @@
             "name": "python3-elasticsearch",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"elasticsearch==8.15.1\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"elasticsearch>=8.15.1\" --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/12/90/3c9ff0512038035f59d279fddeb79f5f1eccd8859f06d6163c58798b9487/certifi-2024.8.30-py3-none-any.whl",
-                    "sha256": "922820b53db7a7257ffbda3f597266d435245903d80737e34f8a45ff3e3230d8"
+                    "url": "https://files.pythonhosted.org/packages/a5/32/8f6669fc4798494966bf446c8c4a162e0b5d893dff088afddf76414f70e1/certifi-2024.12.14-py3-none-any.whl",
+                    "sha256": "1275f7a45be9464efc1173084eaa30f866fe2e47d389406136d332ed4967ec56"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/1d/4a/df755b094170351b8199074fe8d0dfe6d639ab78a2e8893b556620ae982a/elastic_transport-8.15.0-py3-none-any.whl",
-                    "sha256": "d7080d1dada2b4eee69e7574f9c17a76b42f2895eff428e562f94b0360e158c0"
+                    "url": "https://files.pythonhosted.org/packages/b1/20/864177d7ecbc98633ead4d8e12200ec1c7c7a0c8d45080ac636e043db1c7/elastic_transport-8.15.1-py3-none-any.whl",
+                    "sha256": "b5e82ff1679d8c7705a03fd85c7f6ef85d6689721762d41228dd312e34f331fc"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/de/20/6f1d6977f68389116e40a0108a5bfd468f3a0cceabe90b522693834bb5ec/elasticsearch-8.15.1-py3-none-any.whl",
-                    "sha256": "02a0476e98768a30d7926335fc0d305c04fdb928eea1354c6e6040d8c2814569"
+                    "url": "https://files.pythonhosted.org/packages/1e/82/832ff4bdb53429af0025f5032c8b4f3ba18915e08ce16fc55aa09e900e26/elasticsearch-8.17.0-py3-none-any.whl",
+                    "sha256": "15965240fe297279f0e68b260936d9ced9606aa7ef8910b9b56727f96ef00d5b"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/ce/d9/5f4c13cecde62396b0d3fe530a50ccea91e7dfc1ccf0e09c228841bb5ba8/urllib3-2.2.3-py3-none-any.whl",
-                    "sha256": "ca899ca043dcb1bafa3e262d73aa25c465bfb49e0bd9dd5d59f1d0acba2f8fac"
+                    "url": "https://files.pythonhosted.org/packages/c8/19/4ec628951a74043532ca2cf5d97b7b14863931476d117c471e8e2b1eb39f/urllib3-2.3.0-py3-none-any.whl",
+                    "sha256": "1cee9ad369867bfdbbb48b7dd50374c0967a0bb7710050facf0dd6911440e3df"
                 }
             ]
         },
@@ -74,13 +74,13 @@
             "name": "python3-urllib3",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"urllib3==2.2.3\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"urllib3>=2.2.3\" --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/ce/d9/5f4c13cecde62396b0d3fe530a50ccea91e7dfc1ccf0e09c228841bb5ba8/urllib3-2.2.3-py3-none-any.whl",
-                    "sha256": "ca899ca043dcb1bafa3e262d73aa25c465bfb49e0bd9dd5d59f1d0acba2f8fac"
+                    "url": "https://files.pythonhosted.org/packages/c8/19/4ec628951a74043532ca2cf5d97b7b14863931476d117c471e8e2b1eb39f/urllib3-2.3.0-py3-none-any.whl",
+                    "sha256": "1cee9ad369867bfdbbb48b7dd50374c0967a0bb7710050facf0dd6911440e3df"
                 }
             ]
         },
@@ -88,9 +88,14 @@
             "name": "python3-pytest",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest==8.3.3\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest>=8.3.3\" --no-build-isolation"
             ],
             "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/02/cc/b7e31358aac6ed1ef2bb790a9746ac2c69bcb3c8588b41616914eb106eaf/exceptiongroup-1.2.2-py3-none-any.whl",
+                    "sha256": "3111b9d131c238bec2f8f516e123e14ba243563fb135d3fe885990585aa7795b"
+                },
                 {
                     "type": "file",
                     "url": "https://files.pythonhosted.org/packages/ef/a6/62565a6e1cf69e10f5727360368e451d4b7f58beeac6173dc9db836a5b46/iniconfig-2.0.0-py3-none-any.whl",
@@ -108,8 +113,13 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/6b/77/7440a06a8ead44c7757a64362dd22df5760f9b12dc5f11b6188cd2fc27a0/pytest-8.3.3-py3-none-any.whl",
-                    "sha256": "a6853c7375b2663155079443d2e45de913a911a11d669df02a50814944db57b2"
+                    "url": "https://files.pythonhosted.org/packages/11/92/76a1c94d3afee238333bc0a42b82935dd8f9cf8ce9e336ff87ee14d9e1cf/pytest-8.3.4-py3-none-any.whl",
+                    "sha256": "50e16d954148559c9a74109af1eaf0c945ba2d8f30f0a3d3335edde19788b6f6"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/6e/c2/61d3e0f47e2b74ef40a68b9e6ad5984f6241a942f7cd3bbfbdbd03861ea9/tomli-2.2.1-py3-none-any.whl",
+                    "sha256": "cb55c73c5f4408779d0cf3eef9f762b9c9f147a77de7b258bef0a5628adc85cc"
                 }
             ]
         }
