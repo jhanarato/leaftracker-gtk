@@ -44,7 +44,7 @@
             "sources": [
                 {
                     "type": "file",
-                    "path" : "/home/jr/Code/leaftracker/dist/leaftracker-0.1.0-py3-none-any.whl"
+                    "path" : "../leaftracker/dist/leaftracker-0.1.0-py3-none-any.whl"
                 }
             ]
         }
