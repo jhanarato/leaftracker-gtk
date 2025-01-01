@@ -6,13 +6,18 @@
     <requires lib="libadwaita" version="1.2"/>
     <template class="PreviousScientificNames" parent="GtkListBox">
         <property name="selection-mode">none</property>
-        <child>
-            <object class="AdwActionRow">
-                <property name="title">Boxed List Row</property>
-            </object>
-        </child>
         <style>
             <class name="boxed-list"/>
         </style>
+        <child>
+            <object class="AdwEntryRow">
+                <property name="title">Add Name</property>
+            </object>
+        </child>
+        <child>
+            <object class="AdwActionRow">
+                <property name="title">Acacia saligna</property>
+            </object>
+        </child>
     </template>
 </interface>
