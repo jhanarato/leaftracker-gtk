@@ -31,13 +31,20 @@
                         <child>
                             <object class="AdwPreferencesGroup">
                                 <property name="halign">center</property>
-                                <property name="title">Scientific Names</property>
+                                <property name="title">Current Scientific Name</property>
                                 <property name="width-request">300</property>
                                 <child>
                                     <object class="AdwEntryRow" id="current_scientific_name">
                                         <property name="title">current</property>
                                     </object>
                                 </child>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="AdwPreferencesGroup">
+                                <property name="halign">center</property>
+                                <property name="title">Previous Scientific Names</property>
+                                <property name="width-request">300</property>
                                 <child>
                                     <object class="PreviousScientificNames" id="previous-scientific-names"/>
                                 </child>
