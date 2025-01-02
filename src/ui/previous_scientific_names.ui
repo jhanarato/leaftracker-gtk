@@ -4,16 +4,16 @@
         <property name="halign">fill</property>
         <property name="title">Previous Scientific Names</property>
         <child>
+            <object class="AdwEntryRow">
+                <property name="title">Add Name</property>
+            </object>
+        </child>
+        <child>
             <object class="GtkListBox">
                 <property name="selection-mode">none</property>
                 <style>
                     <class name="boxed-list"/>
                 </style>
-                <child>
-                    <object class="AdwEntryRow">
-                        <property name="title">Add Name</property>
-                    </object>
-                </child>
                 <child>
                     <object class="AdwActionRow">
                         <property name="title">Acacia saligna</property>
