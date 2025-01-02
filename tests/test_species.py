@@ -35,7 +35,7 @@ class TestFakeSpeciesWriter:
 class TestPreviousScientificNames:
     def test_can_create_widget(self):
         names = PreviousScientificNames()
-        assert names.get_property("selection-mode") == Gtk.SelectionMode.NONE
+        assert names.get_property("halign") == Gtk.Align.FILL
 
 
 class TestSpeciesDetailsPage:

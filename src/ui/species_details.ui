@@ -41,13 +41,7 @@
                             </object>
                         </child>
                         <child>
-                            <object class="AdwPreferencesGroup">
-                                <property name="halign">fill</property>
-                                <property name="title">Previous Scientific Names</property>
-                                <child>
-                                    <object class="PreviousScientificNames" id="previous-scientific-names"/>
-                                </child>
-                            </object>
+                            <object class="PreviousScientificNames" id="previous-scientific-names"/>
                         </child>
                         <child>
                             <object class="AdwPreferencesGroup">

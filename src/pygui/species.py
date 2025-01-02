@@ -26,8 +26,10 @@ class SpeciesWriter:
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/previous_scientific_names.ui")
-class PreviousScientificNames(Gtk.ListBox):
+class PreviousScientificNames(Adw.PreferencesGroup):
     __gtype_name__ = "PreviousScientificNames"
+
+
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details.ui")

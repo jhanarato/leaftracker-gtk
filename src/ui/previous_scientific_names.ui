@@ -1,22 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- Created with Cambalache 0.94.1 -->
 <interface>
-    <!-- interface-name previous_scientific_names.ui -->
-    <requires lib="gtk" version="4.0"/>
-    <requires lib="libadwaita" version="1.2"/>
-    <template class="PreviousScientificNames" parent="GtkListBox">
-        <property name="selection-mode">none</property>
-        <style>
-            <class name="boxed-list"/>
-        </style>
+    <template class="PreviousScientificNames" parent="AdwPreferencesGroup">
+        <property name="halign">fill</property>
+        <property name="title">Previous Scientific Names</property>
         <child>
-            <object class="AdwEntryRow">
-                <property name="title">Add Name</property>
-            </object>
-        </child>
-        <child>
-            <object class="AdwActionRow">
-                <property name="title">Acacia saligna</property>
+            <object class="GtkListBox">
+                <property name="selection-mode">none</property>
+                <style>
+                    <class name="boxed-list"/>
+                </style>
+                <child>
+                    <object class="AdwEntryRow">
+                        <property name="title">Add Name</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="AdwActionRow">
+                        <property name="title">Acacia saligna</property>
+                    </object>
+                </child>
             </object>
         </child>
     </template>
