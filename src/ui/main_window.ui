@@ -21,6 +21,7 @@
                             <object class="AdwViewStackPage">
                                 <property name="name">species</property>
                                 <property name="title">Species</property>
+                                <property name="icon-name">sprout-symbolic</property>
                                 <property name="child">
                                     <object class="AdwNavigationView">
                                         <child>
@@ -37,6 +38,7 @@
                             <object class="AdwViewStackPage">
                                 <property name="name">catalogue</property>
                                 <property name="title">Catalogue</property>
+                                <property name="icon-name">clipboard-symbolic</property>
                                 <property name="child">
                                     <object class="AdwStatusPage">
                                         <property name="title">Catalogue a batch</property>

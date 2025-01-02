@@ -6,5 +6,6 @@
     <file>ui/species_list.ui</file>
     <file>ui/previous_scientific_names.ui</file>
     <file>icons/sprout-symbolic.svg</file>
+    <file>icons/clipboard-symbolic.svg</file>
   </gresource>
 </gresources>
