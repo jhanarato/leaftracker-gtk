@@ -1,24 +1,40 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <interface>
     <template class="PreviousScientificNames" parent="AdwPreferencesGroup">
-        <property name="halign">fill</property>
         <property name="title">Previous Scientific Names</property>
+        <property name="halign">fill</property>
+        <property name="separate-rows">true</property>
+
         <child>
-            <object class="AdwEntryRow">
-                <property name="title">Add Name</property>
+            <object class="AdwPreferencesRow">
+                <child>
+                    <object class="GtkListBox">
+                        <property name="selection-mode">none</property>
+                        <style>
+                            <class name="boxed-list"/>
+                        </style>
+                        <child>
+                            <object class="AdwActionRow">
+                                <property name="title">Acacia one</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="AdwActionRow">
+                                <property name="title">Acacia two</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="AdwActionRow">
+                                <property name="title">Acacia three</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
             </object>
         </child>
         <child>
-            <object class="GtkListBox">
-                <property name="selection-mode">none</property>
-                <style>
-                    <class name="boxed-list"/>
-                </style>
-                <child>
-                    <object class="AdwActionRow">
-                        <property name="title">Acacia saligna</property>
-                    </object>
-                </child>
+            <object class="AdwEntryRow">
+                <property name="title">Add Name</property>
             </object>
         </child>
     </template>
