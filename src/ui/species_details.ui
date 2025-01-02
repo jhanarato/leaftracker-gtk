@@ -33,9 +33,15 @@
                             <object class="AdwPreferencesGroup">
                                 <property name="halign">fill</property>
                                 <property name="title">Current Scientific Name</property>
+                                <property name="separate-rows">true</property>
                                 <child>
                                     <object class="AdwEntryRow" id="current_scientific_name">
                                         <property name="title">current</property>
+                                    </object>
+                                </child>
+                                <child>
+                                    <object class="AdwButtonRow">
+                                        <property name="title">Update Current Name</property>
                                     </object>
                                 </child>
                             </object>
