@@ -48,11 +48,12 @@
                         </child>
                         <child>
                             <object class="AdwViewStackPage">
-                                <property name="name">sources</property>
-                                <property name="title">Sources</property>
+                                <property name="name">suppliers</property>
+                                <property name="title">Suppliers</property>
+                                <property name="icon-name">shopping-cart-symbolic</property>
                                 <property name="child">
                                     <object class="AdwStatusPage">
-                                        <property name="title">Add a source</property>
+                                        <property name="title">Add a supplier</property>
                                     </object>
                                 </property>
                             </object>
