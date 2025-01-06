@@ -37,6 +37,11 @@ class TestPreviousScientificNames:
         names = PreviousScientificNames()
         assert names.get_property("halign") == Gtk.Align.FILL
 
+    def test_can_add_previous_scientific_name(self):
+        names = PreviousScientificNames()
+        names.add_name("Acacia saligna")
+        assert names.name_list[0] == "Acacia saligna"
+
 
 class TestSpeciesDetailsPage:
     def test_set_species_reference(self, details_page):
