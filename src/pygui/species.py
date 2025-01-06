@@ -30,10 +30,15 @@ class PreviousScientificNames(Adw.PreferencesGroup):
     __gtype_name__ = "PreviousScientificNames"
 
     add_name_entry_row: Adw.EntryRow = Gtk.Template.Child()
+    names_list_box: Gtk.ListBox = Gtk.Template.Child()
 
     def __init__(self):
         super().__init__()
         self._model = Gtk.StringList()
+        self.names_list_box.bind_model(
+            model=self._model,
+            create_widget_func=self.add_name_widget_to_list
+        )
 
     def fill_name_field(self, name: str) -> None:
         self.add_name_entry_row.set_text(name)
@@ -47,6 +52,12 @@ class PreviousScientificNames(Adw.PreferencesGroup):
     @Gtk.Template.Callback()
     def on_apply_add_name(self, instance: Adw.EntryRow):
         pass
+
+    def add_name_widget_to_list(self, list_item):
+        list_row = Adw.ActionRow(
+            title=list_item.get_string(),
+        )
+        return list_row
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details.ui")

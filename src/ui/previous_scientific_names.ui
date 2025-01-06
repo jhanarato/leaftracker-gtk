@@ -8,26 +8,11 @@
         <child>
             <object class="AdwPreferencesRow">
                 <child>
-                    <object class="GtkListBox">
+                    <object class="GtkListBox" id="names_list_box">
                         <property name="selection-mode">single</property>
                         <style>
                             <class name="boxed-list"/>
                         </style>
-                        <child>
-                            <object class="AdwActionRow">
-                                <property name="title">Acacia one</property>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="AdwActionRow">
-                                <property name="title">Acacia two</property>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="AdwActionRow">
-                                <property name="title">Acacia three</property>
-                            </object>
-                        </child>
                     </object>
                 </child>
             </object>
