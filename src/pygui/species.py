@@ -38,7 +38,7 @@ class PreviousScientificNames(Adw.PreferencesGroup):
         self.add_name_entry_row.set_text(name)
 
     def click_add_button(self) -> None:
-        pass
+        self.add_name_entry_row.emit("apply")
 
     def get_name_from_item(self, index: int) -> str:
         return "Acacia saligna"
