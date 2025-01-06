@@ -33,6 +33,7 @@ class PreviousScientificNames(Adw.PreferencesGroup):
 
     def __init__(self):
         super().__init__()
+        self._model = Gtk.StringList()
 
     def fill_name_field(self, name: str) -> None:
         self.add_name_entry_row.set_text(name)
