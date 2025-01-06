@@ -31,10 +31,15 @@ class PreviousScientificNames(Adw.PreferencesGroup):
 
     def __init__(self):
         super().__init__()
-        self.name_list = []
 
-    def add_name(self, name: str) -> None:
-        self.name_list.append(name)
+    def fill_name_field(self, name: str) -> None:
+        pass
+
+    def click_add_button(self) -> None:
+        pass
+
+    def get_name_from_item(self, index: int) -> str:
+        return "Acacia saligna"
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details.ui")

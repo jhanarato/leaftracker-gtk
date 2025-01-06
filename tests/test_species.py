@@ -39,8 +39,10 @@ class TestPreviousScientificNames:
 
     def test_can_add_previous_scientific_name(self):
         names = PreviousScientificNames()
-        names.add_name("Acacia saligna")
-        assert names.name_list[0] == "Acacia saligna"
+        names.fill_name_field("Acacia saligna")
+        names.click_add_button()
+        name = names.get_name_from_item(0)
+        assert name == "Acacia saligna"
 
 
 class TestSpeciesDetailsPage:
