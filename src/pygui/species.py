@@ -29,11 +29,13 @@ class SpeciesWriter:
 class PreviousScientificNames(Adw.PreferencesGroup):
     __gtype_name__ = "PreviousScientificNames"
 
+    add_name_entry_row: Adw.EntryRow = Gtk.Template.Child()
+
     def __init__(self):
         super().__init__()
 
     def fill_name_field(self, name: str) -> None:
-        pass
+        self.add_name_entry_row.set_text(name)
 
     def click_add_button(self) -> None:
         pass

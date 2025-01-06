@@ -33,7 +33,7 @@
             </object>
         </child>
         <child>
-            <object class="AdwEntryRow">
+            <object class="AdwEntryRow" id="add_name_entry_row">
                 <property name="title">Add Name</property>
             </object>
         </child>
