@@ -43,6 +43,10 @@ class PreviousScientificNames(Adw.PreferencesGroup):
     def get_name_from_item(self, index: int) -> str:
         return "Acacia saligna"
 
+    @Gtk.Template.Callback()
+    def on_apply_add_name(self, instance: Adw.EntryRow):
+        pass
+
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details.ui")
 class SpeciesDetailsPage(Adw.NavigationPage):

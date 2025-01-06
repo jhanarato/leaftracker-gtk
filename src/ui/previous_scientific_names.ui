@@ -36,6 +36,7 @@
             <object class="AdwEntryRow" id="add_name_entry_row">
                 <property name="title">Add Name</property>
                 <property name="show-apply-button">true</property>
+                <signal name="apply" handler="on_apply_add_name"/>
             </object>
         </child>
     </template>
