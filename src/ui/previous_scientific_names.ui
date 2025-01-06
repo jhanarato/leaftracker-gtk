@@ -9,7 +9,7 @@
             <object class="AdwPreferencesRow">
                 <child>
                     <object class="GtkListBox">
-                        <property name="selection-mode">none</property>
+                        <property name="selection-mode">single</property>
                         <style>
                             <class name="boxed-list"/>
                         </style>
