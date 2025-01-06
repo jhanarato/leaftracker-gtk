@@ -47,11 +47,13 @@ class PreviousScientificNames(Adw.PreferencesGroup):
         self.add_name_entry_row.emit("apply")
 
     def get_name_from_item(self, index: int) -> str:
-        return "Acacia saligna"
+        item = self._model.get_item(index)
+        return item.get_string()
 
     @Gtk.Template.Callback()
     def on_apply_add_name(self, instance: Adw.EntryRow):
-        pass
+        name = instance.get_text()
+        self._model.append(name)
 
     def add_name_widget_to_list(self, list_item):
         list_row = Adw.ActionRow(
