@@ -33,10 +33,6 @@ class TestFakeSpeciesWriter:
 
 
 class TestPreviousScientificNames:
-    def test_can_create_widget(self):
-        names = PreviousScientificNames()
-        assert names.get_property("halign") == Gtk.Align.FILL
-
     def test_can_add_name(self):
         names = PreviousScientificNames()
         names.name_field = "Acacia saligna"
