@@ -48,11 +48,11 @@ class PreviousScientificNames(Adw.PreferencesGroup):
         return item.get_string()
 
     @Gtk.Template.Callback()
-    def on_apply_add_name(self, instance: Adw.EntryRow):
+    def on_apply_add_name(self, instance: Adw.EntryRow) -> None:
         name = instance.get_text()
         self._model.append(name)
 
-    def add_name_widget_to_list(self, list_item: Gtk.StringObject):
+    def add_name_widget_to_list(self, list_item: Gtk.StringObject) -> None:
         list_row = Adw.ActionRow(
             title=list_item.get_string(),
         )
@@ -77,7 +77,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         return self._current_species
 
     @reference.setter
-    def reference(self, species: str):
+    def reference(self, species: str) -> None:
         self._current_species = species
 
     @Gtk.Template.Callback()
