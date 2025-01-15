@@ -27,6 +27,7 @@ class RemovableRow(Adw.PreferencesRow):
     __gtype_name__ = "RemovableRow"
 
     _text : Gtk.Label = Gtk.Template.Child()
+    _remove_button : Gtk.Label = Gtk.Template.Child()
 
     def __init__(self, text: str):
         super().__init__()
@@ -35,6 +36,13 @@ class RemovableRow(Adw.PreferencesRow):
     @GObject.Signal
     def removed(self) -> None:
         pass
+
+    def click_remove_button(self) -> None:
+        self._remove_button.emit("clicked")
+
+    @Gtk.Template.Callback()
+    def _on_remove_button_clicked(self, instance: Gtk.Button):
+        self.emit("removed")
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/previous_scientific_names.ui")

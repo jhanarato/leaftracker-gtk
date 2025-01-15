@@ -46,6 +46,19 @@ class TestRemovableRow:
 
         assert signal_received
 
+    def test_clicking_remove_button_emits_signal(self):
+        signal_received = False
+
+        def remove_callback(inst):
+            nonlocal signal_received
+            signal_received = True
+
+        widget = RemovableRow("Row text")
+        widget.connect("removed", remove_callback)
+        widget.click_remove_button()
+
+        assert signal_received
+
 
 class TestPreviousScientificNames:
     def test_can_add_name(self):
