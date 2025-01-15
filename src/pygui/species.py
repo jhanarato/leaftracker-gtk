@@ -8,9 +8,6 @@ from gi.repository import Adw, Gtk, GObject
 from leaftracker.adapters.elastic.initialise import unit_of_work
 from leaftracker.service_layer import services
 
-def on_property_changed(instance, param):
-    instance.current_species = True
-
 
 class SpeciesEditMode(Enum):
     ADD_NEW = auto()
