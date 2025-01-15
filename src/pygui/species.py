@@ -39,7 +39,7 @@ class PreviousScientificNames(Adw.PreferencesGroup):
 
     @property
     def name_field(self) -> str:
-        return ""
+        return self._add_name_entry_row.get_text()
 
     @name_field.setter
     def name_field(self, name: str) -> None:
@@ -56,6 +56,7 @@ class PreviousScientificNames(Adw.PreferencesGroup):
     def on_apply_add_name(self, instance: Adw.EntryRow) -> None:
         name = instance.get_text()
         self._model.append(name)
+        self._add_name_entry_row.set_text("")
 
     def add_name_widget_to_list(self, list_item: Gtk.StringObject) -> Adw.ActionRow:
         list_row = Adw.ActionRow(
