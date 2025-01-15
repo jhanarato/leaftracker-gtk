@@ -46,6 +46,14 @@ class TestPreviousScientificNames:
         widget.click_add_button()
         assert widget.name_field == ""
 
+    def test_can_get_list_of_names(self):
+        widget = PreviousScientificNames()
+        widget.name_field = "Acacia abc"
+        widget.click_add_button()
+        widget.name_field = "Acacia xyz"
+        widget.click_add_button()
+        assert widget.get_species_names() == ["Acacia abc", "Acacia xyz"]
+
 
 class TestSpeciesDetailsPage:
     def test_set_species_reference(self, details_page):

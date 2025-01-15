@@ -69,6 +69,9 @@ class PreviousScientificNames(Adw.PreferencesGroup):
         )
         return list_row
 
+    def get_species_names(self) -> list[str]:
+        return [item.get_string() for item in self._model]
+
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details.ui")
 class SpeciesDetailsPage(Adw.NavigationPage):
