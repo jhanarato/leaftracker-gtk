@@ -37,7 +37,12 @@ class PreviousScientificNames(Adw.PreferencesGroup):
             create_widget_func=self.add_name_widget_to_list
         )
 
-    def fill_name_field(self, name: str) -> None:
+    @property
+    def name_field(self) -> str:
+        return ""
+
+    @name_field.setter
+    def name_field(self, name: str) -> None:
         self._add_name_entry_row.set_text(name)
 
     def click_add_button(self) -> None:
