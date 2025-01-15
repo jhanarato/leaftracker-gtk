@@ -37,7 +37,7 @@ class TestPreviousScientificNames:
         names = PreviousScientificNames()
         assert names.get_property("halign") == Gtk.Align.FILL
 
-    def test_can_add_previous_scientific_name(self):
+    def test_can_add_name(self):
         names = PreviousScientificNames()
         names.name_field = "Acacia saligna"
         names.click_add_button()
