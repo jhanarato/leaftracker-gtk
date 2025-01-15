@@ -8,7 +8,7 @@
         <child>
             <object class="AdwPreferencesRow">
                 <child>
-                    <object class="GtkListBox" id="names_list_box">
+                    <object class="GtkListBox" id="_names_list_box">
                         <property name="selection-mode">single</property>
                         <style>
                             <class name="boxed-list"/>
@@ -18,7 +18,7 @@
             </object>
         </child>
         <child>
-            <object class="AdwEntryRow" id="add_name_entry_row">
+            <object class="AdwEntryRow" id="_add_name_entry_row">
                 <property name="title">Add Name</property>
                 <property name="show-apply-button">true</property>
                 <signal name="apply" handler="on_apply_add_name"/>
