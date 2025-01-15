@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<interface>
+    <template class="RemovableRow" parent="AdwPreferencesRow">
+        <child>
+            <object class="GtkBox">
+                <child>
+                    <object class="GtkLabel" id="_text"/>
+                </child>
+                <child>
+                    <object class="GtkButton">
+                        <property name="icon-name">list-remove-symbolic</property>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </template>
+</interface>

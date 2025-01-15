@@ -5,6 +5,7 @@
     <file>ui/species_details.ui</file>
     <file>ui/species_list.ui</file>
     <file>ui/previous_scientific_names.ui</file>
+    <file>ui/removable_row.ui</file>
     <file>icons/sprout-symbolic.svg</file>
     <file>icons/clipboard-symbolic.svg</file>
     <file>icons/shopping-cart-symbolic.svg</file>

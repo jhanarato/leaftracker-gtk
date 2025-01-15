@@ -22,6 +22,17 @@ class SpeciesWriter:
         self.reference = services.add_species(name, uow)
 
 
+@Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/removable_row.ui")
+class RemovableRow(Adw.PreferencesRow):
+    __gtype_name__ = "RemovableRow"
+
+    _text : Gtk.Label = Gtk.Template.Child()
+
+    def __init__(self, text: str):
+        super().__init__()
+        self._text.set_text(text)
+
+
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/previous_scientific_names.ui")
 class PreviousScientificNames(Adw.PreferencesGroup):
     __gtype_name__ = "PreviousScientificNames"
@@ -63,14 +74,16 @@ class PreviousScientificNames(Adw.PreferencesGroup):
         self._add_name_entry_row.set_show_apply_button(False)
         self._add_name_entry_row.set_show_apply_button(True)
 
-    def add_name_widget_to_list(self, list_item: Gtk.StringObject) -> Adw.ActionRow:
-        list_row = Adw.ActionRow(
-            title=list_item.get_string(),
-        )
+    def add_name_widget_to_list(self, list_item: Gtk.StringObject) -> RemovableRow:
+        text = list_item.get_string()
+        list_row = RemovableRow(text)
         return list_row
 
     def get_species_names(self) -> list[str]:
         return [item.get_string() for item in self._model]
+
+    def click_remove_on_item(self, item_number: int):
+        pass
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details.ui")

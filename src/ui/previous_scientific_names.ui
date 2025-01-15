@@ -4,12 +4,11 @@
         <property name="title">Previous Scientific Names</property>
         <property name="halign">fill</property>
         <property name="separate-rows">true</property>
-
         <child>
             <object class="AdwPreferencesRow">
                 <child>
                     <object class="GtkListBox" id="_names_list_box">
-                        <property name="selection-mode">single</property>
+                        <property name="selection-mode">none</property>
                         <style>
                             <class name="boxed-list"/>
                         </style>
