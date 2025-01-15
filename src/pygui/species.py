@@ -52,7 +52,7 @@ class PreviousScientificNames(Adw.PreferencesGroup):
         name = instance.get_text()
         self._model.append(name)
 
-    def add_name_widget_to_list(self, list_item):
+    def add_name_widget_to_list(self, list_item: Gtk.StringObject):
         list_row = Adw.ActionRow(
             title=list_item.get_string(),
         )
