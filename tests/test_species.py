@@ -4,7 +4,7 @@ from gi.repository import Gio, Gtk, GObject
 resource = Gio.Resource.load('../leaftracker-gtk.gresource')
 resource._register()
 
-from pygui.species import SpeciesDetailsPage, SpeciesEditMode, PreviousScientificNames
+from pygui.species import SpeciesDetailsPage, SpeciesEditMode, PreviousScientificNames, RemovableRow
 
 
 class FakeSpeciesWriter:
@@ -30,6 +30,21 @@ def details_page(writer) -> SpeciesDetailsPage:
 class TestFakeSpeciesWriter:
     def test_create_writer(self):
         writer = FakeSpeciesWriter()
+
+
+class TestRemovableRow:
+    def test_emits_remove_signal(self):
+        signal_received = False
+
+        def remove_callback(inst):
+            nonlocal signal_received
+            signal_received = True
+
+        widget = RemovableRow("Row text")
+        widget.connect("removed", remove_callback)
+        widget.emit("removed")
+
+        assert signal_received
 
 
 class TestPreviousScientificNames:

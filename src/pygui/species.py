@@ -32,6 +32,10 @@ class RemovableRow(Adw.PreferencesRow):
         super().__init__()
         self._text.set_text(text)
 
+    @GObject.Signal
+    def removed(self) -> None:
+        pass
+
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/previous_scientific_names.ui")
 class PreviousScientificNames(Adw.PreferencesGroup):
