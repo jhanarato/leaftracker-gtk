@@ -34,17 +34,17 @@ class TestFakeSpeciesWriter:
 
 class TestPreviousScientificNames:
     def test_can_add_name(self):
-        names = PreviousScientificNames()
-        names.name_field = "Acacia saligna"
-        names.click_add_button()
-        name = names.get_name_from_item(0)
+        widget = PreviousScientificNames()
+        widget.name_field = "Acacia saligna"
+        widget.click_add_button()
+        name = widget.get_name_from_item(0)
         assert name == "Acacia saligna"
 
     def test_name_field_cleared_after_add(self):
-        names = PreviousScientificNames()
-        names.name_field = "Acacia saligna"
-        names.click_add_button()
-        assert names.name_field == ""
+        widget = PreviousScientificNames()
+        widget.name_field = "Acacia saligna"
+        widget.click_add_button()
+        assert widget.name_field == ""
 
 
 class TestSpeciesDetailsPage:
