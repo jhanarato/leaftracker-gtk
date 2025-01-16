@@ -60,7 +60,7 @@ class TestStringListMaker:
         widget.click_add_button()
         widget.entry_field = "other text"
         widget.click_add_button()
-        assert widget.get_species_names() == ["some text", "other text"]
+        assert widget.all_values() == ["some text", "other text"]
 
     def test_adding_a_duplicate_name_does_not_modify_the_list(self):
         widget = StringListMaker()
@@ -68,4 +68,4 @@ class TestStringListMaker:
         widget.click_add_button()
         widget.entry_field = "some text"
         widget.click_add_button()
-        assert widget.get_species_names() == ["some text"]
+        assert widget.all_values() == ["some text"]
