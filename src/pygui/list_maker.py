@@ -31,7 +31,7 @@ class RemovableRow(Adw.PreferencesRow):
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/string_list_maker.ui")
-class PreviousScientificNames(Adw.PreferencesGroup):
+class StringListMaker(Adw.PreferencesGroup):
     __gtype_name__ = "PreviousScientificNames"
 
     _add_name_entry_row: Adw.EntryRow = Gtk.Template.Child()

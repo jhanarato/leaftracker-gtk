@@ -7,7 +7,7 @@ from gi.repository import Adw, Gtk, GObject
 
 from leaftracker.adapters.elastic.initialise import unit_of_work
 from leaftracker.service_layer import services
-from pygui.list_maker import PreviousScientificNames
+from pygui.list_maker import StringListMaker
 
 
 class SpeciesEditMode(Enum):

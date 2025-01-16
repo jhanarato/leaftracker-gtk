@@ -5,7 +5,7 @@ from gi.repository import Gio, Gtk, GObject
 resource = Gio.Resource.load('../leaftracker-gtk.gresource')
 resource._register()
 
-from pygui.list_maker import RemovableRow, PreviousScientificNames
+from pygui.list_maker import RemovableRow, StringListMaker
 
 
 class TestRemovableRow:
@@ -40,22 +40,22 @@ class TestRemovableRow:
         assert widget.get_text() == "Row text"
 
 
-class TestPreviousScientificNames:
+class TestStringListMaker:
     def test_can_add_name(self):
-        widget = PreviousScientificNames()
+        widget = StringListMaker()
         widget.name_field = "Acacia saligna"
         widget.click_add_button()
         name = widget.get_name_from_item(0)
         assert name == "Acacia saligna"
 
     def test_name_field_cleared_after_add(self):
-        widget = PreviousScientificNames()
+        widget = StringListMaker()
         widget.name_field = "Acacia saligna"
         widget.click_add_button()
         assert widget.name_field == ""
 
     def test_can_get_list_of_names(self):
-        widget = PreviousScientificNames()
+        widget = StringListMaker()
         widget.name_field = "Acacia abc"
         widget.click_add_button()
         widget.name_field = "Acacia xyz"
@@ -63,7 +63,7 @@ class TestPreviousScientificNames:
         assert widget.get_species_names() == ["Acacia abc", "Acacia xyz"]
 
     def test_adding_a_duplicate_name_does_not_modify_the_list(self):
-        widget = PreviousScientificNames()
+        widget = StringListMaker()
         widget.name_field = "Acacia saligna"
         widget.click_add_button()
         widget.name_field = "Acacia saligna"
