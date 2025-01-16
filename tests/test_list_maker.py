@@ -69,3 +69,9 @@ class TestStringListMaker:
         widget.entry_field = "some text"
         widget.click_add_button()
         assert widget.get_values() == ["some text"]
+
+    def test_position_of_value(self):
+        widget = StringListMaker()
+        widget.entry_field = "some text"
+        widget.click_add_button()
+        assert widget._position_of_value("some text") == 0
