@@ -59,6 +59,10 @@ class TestRemovableRow:
 
         assert signal_received
 
+    def test_get_text(self):
+        widget = RemovableRow("Row text")
+        assert widget.get_text() == "Row text"
+
 
 class TestPreviousScientificNames:
     def test_can_add_name(self):

@@ -33,6 +33,9 @@ class RemovableRow(Adw.PreferencesRow):
         super().__init__()
         self._text.set_text(text)
 
+    def get_text(self) -> str:
+        return self._text.get_text()
+
     @GObject.Signal
     def removed(self) -> None:
         pass
