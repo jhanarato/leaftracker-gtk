@@ -80,9 +80,12 @@ class StringListMaker(Adw.PreferencesGroup):
     def click_remove_on_item(self, item_number: int):
         pass
 
-    def _position_of_value(self, value: str) -> int | None:
+    def position_of_value(self, value: str) -> int | None:
         for position, item in enumerate(self._model):
             if item.get_string() == value:
                 return position
         return None
 
+    def remove_value(self, value: str) -> None:
+        position = self.position_of_value(value)
+        self._model.remove(position)

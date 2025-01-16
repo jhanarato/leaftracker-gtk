@@ -74,4 +74,11 @@ class TestStringListMaker:
         widget = StringListMaker()
         widget.entry_field = "some text"
         widget.click_add_button()
-        assert widget._position_of_value("some text") == 0
+        assert widget.position_of_value("some text") == 0
+
+    def test_remove_value(self):
+        widget = StringListMaker()
+        widget.entry_field = "some text"
+        widget.click_add_button()
+        widget.remove_value("some text")
+        assert widget.get_values() == []
