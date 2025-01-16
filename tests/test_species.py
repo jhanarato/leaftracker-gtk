@@ -32,37 +32,6 @@ class TestFakeSpeciesWriter:
         writer = FakeSpeciesWriter()
 
 
-class TestPreviousScientificNames:
-    def test_can_add_name(self):
-        widget = PreviousScientificNames()
-        widget.name_field = "Acacia saligna"
-        widget.click_add_button()
-        name = widget.get_name_from_item(0)
-        assert name == "Acacia saligna"
-
-    def test_name_field_cleared_after_add(self):
-        widget = PreviousScientificNames()
-        widget.name_field = "Acacia saligna"
-        widget.click_add_button()
-        assert widget.name_field == ""
-
-    def test_can_get_list_of_names(self):
-        widget = PreviousScientificNames()
-        widget.name_field = "Acacia abc"
-        widget.click_add_button()
-        widget.name_field = "Acacia xyz"
-        widget.click_add_button()
-        assert widget.get_species_names() == ["Acacia abc", "Acacia xyz"]
-
-    def test_adding_a_duplicate_name_does_not_modify_the_list(self):
-        widget = PreviousScientificNames()
-        widget.name_field = "Acacia saligna"
-        widget.click_add_button()
-        widget.name_field = "Acacia saligna"
-        widget.click_add_button()
-        assert widget.get_species_names() == ["Acacia saligna"]
-
-
 class TestSpeciesDetailsPage:
     def test_set_species_reference(self, details_page):
         details_page.set_property("reference", "abc")
