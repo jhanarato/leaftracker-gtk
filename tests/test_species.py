@@ -82,6 +82,14 @@ class TestPreviousScientificNames:
         widget.click_add_button()
         assert widget.get_species_names() == ["Acacia abc", "Acacia xyz"]
 
+    def test_adding_a_duplicate_name_does_not_modify_the_list(self):
+        widget = PreviousScientificNames()
+        widget.name_field = "Acacia saligna"
+        widget.click_add_button()
+        widget.name_field = "Acacia saligna"
+        widget.click_add_button()
+        assert widget.get_species_names() == ["Acacia saligna"]
+
 
 class TestSpeciesDetailsPage:
     def test_set_species_reference(self, details_page):

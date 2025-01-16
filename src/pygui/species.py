@@ -78,7 +78,9 @@ class PreviousScientificNames(Adw.PreferencesGroup):
     @Gtk.Template.Callback()
     def on_apply_add_name(self, instance: Adw.EntryRow) -> None:
         name = instance.get_text()
-        self._model.append(name)
+        if name not in self.get_species_names():
+            self._model.append(name)
+
         self._add_name_entry_row.set_text("")
         self.reset_apply_button()
 
