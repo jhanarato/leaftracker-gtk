@@ -30,7 +30,7 @@ class RemovableRow(Adw.PreferencesRow):
         self.emit("removed")
 
 
-@Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/previous_scientific_names.ui")
+@Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/string_list_maker.ui")
 class PreviousScientificNames(Adw.PreferencesGroup):
     __gtype_name__ = "PreviousScientificNames"
 
