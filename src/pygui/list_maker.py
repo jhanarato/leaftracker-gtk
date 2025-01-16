@@ -45,6 +45,9 @@ class StringListMaker(Adw.PreferencesGroup):
             create_widget_func=self.add_name_widget_to_list
         )
 
+    def click_add_button(self) -> None:
+        self._add_name_entry_row.emit("apply")
+
     @property
     def entry_field(self) -> str:
         return self._add_name_entry_row.get_text()
@@ -52,9 +55,6 @@ class StringListMaker(Adw.PreferencesGroup):
     @entry_field.setter
     def entry_field(self, name: str) -> None:
         self._add_name_entry_row.set_text(name)
-
-    def click_add_button(self) -> None:
-        self._add_name_entry_row.emit("apply")
 
     def get_values(self) -> list[str]:
         return [item.get_string() for item in self._model]
