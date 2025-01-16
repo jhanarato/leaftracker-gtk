@@ -56,7 +56,7 @@ class StringListMaker(Adw.PreferencesGroup):
     def click_add_button(self) -> None:
         self._add_name_entry_row.emit("apply")
 
-    def get_name_from_item(self, index: int) -> str:
+    def get_item_value(self, index: int) -> str:
         item = self._model.get_item(index)
         return item.get_string()
 
