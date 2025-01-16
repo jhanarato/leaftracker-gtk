@@ -65,10 +65,10 @@ class StringListMaker(Adw.PreferencesGroup):
         if name not in self.get_values():
             self._model.append(name)
 
-        self._add_name_entry_row.set_text("")
-        self.reset_apply_button()
+        self.reset_entry_field()
 
-    def reset_apply_button(self):
+    def reset_entry_field(self):
+        self._add_name_entry_row.set_text("")
         self._add_name_entry_row.set_show_apply_button(False)
         self._add_name_entry_row.set_show_apply_button(True)
 
