@@ -46,11 +46,11 @@ class StringListMaker(Adw.PreferencesGroup):
         )
 
     @property
-    def name_field(self) -> str:
+    def entry_field(self) -> str:
         return self._add_name_entry_row.get_text()
 
-    @name_field.setter
-    def name_field(self, name: str) -> None:
+    @entry_field.setter
+    def entry_field(self, name: str) -> None:
         self._add_name_entry_row.set_text(name)
 
     def click_add_button(self) -> None:
