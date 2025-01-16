@@ -56,14 +56,13 @@ class StringListMaker(Adw.PreferencesGroup):
     def click_add_button(self) -> None:
         self._add_name_entry_row.emit("apply")
 
-    def get_item_value(self, index: int) -> str:
-        item = self._model.get_item(index)
-        return item.get_string()
+    def get_values(self) -> list[str]:
+        return [item.get_string() for item in self._model]
 
     @Gtk.Template.Callback()
     def on_apply_add_name(self, instance: Adw.EntryRow) -> None:
         name = instance.get_text()
-        if name not in self.all_values():
+        if name not in self.get_values():
             self._model.append(name)
 
         self._add_name_entry_row.set_text("")
@@ -77,9 +76,6 @@ class StringListMaker(Adw.PreferencesGroup):
         text = list_item.get_string()
         list_row = RemovableRow(text)
         return list_row
-
-    def all_values(self) -> list[str]:
-        return [item.get_string() for item in self._model]
 
     def click_remove_on_item(self, item_number: int):
         pass
