@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <interface>
-    <template class="PreviousScientificNames" parent="AdwPreferencesGroup">
+    <template class="StringListMaker" parent="AdwPreferencesGroup">
         <property name="title">Previous Scientific Names</property>
         <property name="halign">fill</property>
         <property name="separate-rows">true</property>
