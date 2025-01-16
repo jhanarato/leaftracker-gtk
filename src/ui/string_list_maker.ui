@@ -20,7 +20,7 @@
             <object class="AdwEntryRow" id="_add_name_entry_row">
                 <property name="title">Add Name</property>
                 <property name="show-apply-button">true</property>
-                <signal name="apply" handler="on_apply_add_name"/>
+                <signal name="apply" handler="_on_apply_add_item"/>
             </object>
         </child>
     </template>
