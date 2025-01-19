@@ -72,6 +72,7 @@ class StringListMaker(Adw.PreferencesGroup):
         return [item.get_string() for item in self._model]
 
     def click_remove_on_item(self, item_number: int):
+        """ Method required only for testing """
         pass
 
     def position_of_value(self, value: str) -> int | None:
