@@ -8,7 +8,7 @@ pygui_tests = [
   'test_learn_properties.py',
   'test_learn_templates.py',
   'test_list_maker.py',
-  'test_species.py',
+  'test_species_details_page.py',
   'pytest.ini'
 ]
 
