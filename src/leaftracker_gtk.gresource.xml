@@ -3,7 +3,7 @@
   <gresource prefix="/org/bswa/Leaftracker">
     <file>ui/main_window.ui</file>
     <file>ui/species_details_page.ui</file>
-    <file>ui/species_list.ui</file>
+    <file>ui/species_list_page.ui</file>
     <file>ui/string_list_maker.ui</file>
     <file>ui/removable_row.ui</file>
     <file>icons/sprout-symbolic.svg</file>
