@@ -7,6 +7,7 @@ pygui_files = [
   'list_maker.py',
   'main_window.py',
   'species.py',
+  'species_details_page.py',
 ]
 
 install_data(pygui_files, install_dir: moduledir)

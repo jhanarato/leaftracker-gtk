@@ -1,9 +1,12 @@
 import gi
 
+
 gi.require_version('Adw', '1')
 from gi.repository import Adw, Gtk
 
-from pygui.species import SpeciesDetailsPage, SpeciesListPage
+from pygui.species import SpeciesListPage
+from pygui.species_details_page import SpeciesDetailsPage
+
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/main_window.ui")

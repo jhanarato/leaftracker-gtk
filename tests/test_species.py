@@ -4,7 +4,8 @@ from gi.repository import Gio, Gtk, GObject
 resource = Gio.Resource.load('../leaftracker-gtk.gresource')
 resource._register()
 
-from pygui.species import SpeciesDetailsPage, SpeciesEditMode
+
+from pygui.species_details_page import SpeciesDetailsPage, SpeciesEditMode
 
 
 class FakeSpeciesWriter:
