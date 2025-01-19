@@ -73,7 +73,8 @@ class StringListMaker(Adw.PreferencesGroup):
 
     def click_remove_on_item(self, item_number: int):
         """ Method required only for testing """
-        pass
+        item: RemovableRow = self._names_list_box.get_row_at_index(item_number)
+        item.click_remove_button()
 
     def position_of_value(self, value: str) -> int | None:
         for position, item in enumerate(self._model):
@@ -88,4 +89,9 @@ class StringListMaker(Adw.PreferencesGroup):
     def add_name_widget_to_list(self, list_item: Gtk.StringObject) -> RemovableRow:
         text = list_item.get_string()
         list_row = RemovableRow(text)
+        list_row.connect("removed", self._on_remove_button_clicked)
         return list_row
+
+    def _on_remove_button_clicked(self, item: RemovableRow):
+        value = item.get_text()
+        self.remove_value(value)
