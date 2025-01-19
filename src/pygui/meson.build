@@ -6,7 +6,7 @@ pygui_files = [
   'main.py',
   'list_maker.py',
   'main_window.py',
-  'species.py',
+  'species_list_page.py',
   'species_details_page.py',
 ]
 

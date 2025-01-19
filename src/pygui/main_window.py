@@ -4,7 +4,7 @@ import gi
 gi.require_version('Adw', '1')
 from gi.repository import Adw, Gtk
 
-from pygui.species import SpeciesListPage
+from pygui.species_list_page import SpeciesListPage
 from pygui.species_details_page import SpeciesDetailsPage
 
 
