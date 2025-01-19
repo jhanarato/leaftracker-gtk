@@ -4,7 +4,7 @@ moduledir = join_paths(pkgdatadir, 'pygui')
 pygui_files = [
   '__init__.py',
   'main.py',
-  'list_maker.py',
+  'string_list_maker.py',
   'main_window.py',
   'species_list_page.py',
   'species_details_page.py',

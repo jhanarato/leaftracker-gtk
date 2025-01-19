@@ -5,7 +5,7 @@ from gi.repository import Gio, Gtk, GObject
 resource = Gio.Resource.load('../leaftracker-gtk.gresource')
 resource._register()
 
-from pygui.list_maker import RemovableRow, StringListMaker
+from pygui.string_list_maker import RemovableRow, StringListMaker
 
 
 class TestRemovableRow:

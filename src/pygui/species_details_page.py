@@ -5,7 +5,7 @@ import gi
 gi.require_version('Adw', '1')
 from gi.repository import Adw, Gtk, GObject
 
-from pygui.list_maker import StringListMaker
+from pygui.string_list_maker import StringListMaker
 
 from leaftracker.adapters.elastic.initialise import unit_of_work
 from leaftracker.service_layer import services
