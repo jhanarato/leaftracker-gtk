@@ -56,26 +56,20 @@ class StringListMaker(Adw.PreferencesGroup):
     def entry_field(self, name: str) -> None:
         self._add_name_entry_row.set_text(name)
 
-    def get_values(self) -> list[str]:
-        return [item.get_string() for item in self._model]
+    def reset_entry_field(self):
+        self._add_name_entry_row.set_text("")
+        self._add_name_entry_row.set_show_apply_button(False)
+        self._add_name_entry_row.set_show_apply_button(True)
 
     @Gtk.Template.Callback()
     def _on_apply_add_item(self, instance: Adw.EntryRow) -> None:
         name = instance.get_text()
         if name not in self.get_values():
             self._model.append(name)
-
         self.reset_entry_field()
 
-    def reset_entry_field(self):
-        self._add_name_entry_row.set_text("")
-        self._add_name_entry_row.set_show_apply_button(False)
-        self._add_name_entry_row.set_show_apply_button(True)
-
-    def add_name_widget_to_list(self, list_item: Gtk.StringObject) -> RemovableRow:
-        text = list_item.get_string()
-        list_row = RemovableRow(text)
-        return list_row
+    def get_values(self) -> list[str]:
+        return [item.get_string() for item in self._model]
 
     def click_remove_on_item(self, item_number: int):
         pass
@@ -89,3 +83,8 @@ class StringListMaker(Adw.PreferencesGroup):
     def remove_value(self, value: str) -> None:
         position = self.position_of_value(value)
         self._model.remove(position)
+
+    def add_name_widget_to_list(self, list_item: Gtk.StringObject) -> RemovableRow:
+        text = list_item.get_string()
+        list_row = RemovableRow(text)
+        return list_row
