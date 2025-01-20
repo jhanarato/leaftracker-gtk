@@ -95,3 +95,7 @@ class TestGtkStringListHelpers:
     def test_position_of_value(self):
         string_list = Gtk.StringList.new(["abc", "def", "hij"])
         assert position(string_list, "def") == 1
+
+    def test_position_of_missing_value_is_none(self):
+        string_list = Gtk.StringList.new(["abc", "def", "hij"])
+        assert position(string_list, "fred") is None
