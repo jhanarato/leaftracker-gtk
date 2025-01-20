@@ -5,7 +5,7 @@ from gi.repository import Gio, Gtk, GObject
 resource = Gio.Resource.load('../leaftracker-gtk.gresource')
 resource._register()
 
-from pygui.string_list_maker import RemovableRow, StringListMaker, position
+from pygui.string_list_maker import RemovableRow, StringListMaker, position, remove
 
 
 class TestRemovableRow:
@@ -70,13 +70,6 @@ class TestStringListMaker:
         widget.click_add_button()
         assert widget.get_values() == ["some text"]
 
-    def test_remove_value(self):
-        widget = StringListMaker()
-        widget.entry_field = "some text"
-        widget.click_add_button()
-        widget.remove_value("some text")
-        assert widget.get_values() == []
-
     def test_item_removed_when_remove_button_clicked(self):
         widget = StringListMaker()
         widget.entry_field = "some text"
@@ -93,3 +86,15 @@ class TestGtkStringListHelpers:
     def test_position_of_missing_value_is_none(self):
         string_list = Gtk.StringList.new(["abc", "def", "hij"])
         assert position(string_list, "fred") is None
+
+    def test_remove_value(self):
+        string_list = Gtk.StringList.new(["abc", "def", "hij"])
+        remove(string_list, "def")
+        assert string_list.get_n_items() == 2
+        assert string_list.get_string(0) == "abc"
+        assert string_list.get_string(1) == "hij"
+
+    def test_remove_missing_value(self):
+        string_list = Gtk.StringList.new(["abc", "def", "hij"])
+        remove(string_list, "fred")
+        assert string_list.get_n_items() == 3

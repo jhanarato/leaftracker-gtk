@@ -37,6 +37,12 @@ def position(string_list: Gtk.StringList, value: str) -> int | None:
     return None
 
 
+def remove(string_list: Gtk.StringList, value: str) -> None:
+    p = position(string_list, value)
+    if p is not None:
+        string_list.remove(p)
+
+
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/string_list_maker.ui")
 class StringListMaker(Adw.PreferencesGroup):
     __gtype_name__ = "StringListMaker"
@@ -83,10 +89,6 @@ class StringListMaker(Adw.PreferencesGroup):
         item: RemovableRow = self._names_list_box.get_row_at_index(item_number)
         item.click_remove_button()
 
-    def remove_value(self, value: str) -> None:
-        p = position(self._model, value)
-        self._model.remove(p)
-
     def add_name_widget_to_list(self, list_item: Gtk.StringObject) -> RemovableRow:
         text = list_item.get_string()
         list_row = RemovableRow(text)
@@ -95,4 +97,4 @@ class StringListMaker(Adw.PreferencesGroup):
 
     def _on_remove_button_clicked(self, item: RemovableRow):
         value = item.get_text()
-        self.remove_value(value)
+        remove(self._model, value)
