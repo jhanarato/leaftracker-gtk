@@ -5,7 +5,7 @@ from gi.repository import Gio, Gtk, GObject
 resource = Gio.Resource.load('../leaftracker-gtk.gresource')
 resource._register()
 
-from pygui.string_list_maker import RemovableRow, StringListMaker
+from pygui.string_list_maker import RemovableRow, StringListMaker, position
 
 
 class TestRemovableRow:
@@ -89,3 +89,9 @@ class TestStringListMaker:
         widget.click_add_button()
         widget.click_remove_on_item(0)
         assert widget.get_values() == []
+
+
+class TestGtkStringListHelpers:
+    def test_position_of_value(self):
+        string_list = Gtk.StringList.new(["abc", "def", "hij"])
+        assert position(string_list, "def") == 1

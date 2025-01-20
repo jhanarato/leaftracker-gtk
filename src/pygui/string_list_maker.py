@@ -30,6 +30,13 @@ class RemovableRow(Adw.PreferencesRow):
         self.emit("removed")
 
 
+def position(string_list: Gtk.StringList, value: str) -> int | None:
+    for i, item in enumerate(string_list):
+        if item.get_string() == value:
+            return i
+    return None
+
+
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/string_list_maker.ui")
 class StringListMaker(Adw.PreferencesGroup):
     __gtype_name__ = "StringListMaker"
