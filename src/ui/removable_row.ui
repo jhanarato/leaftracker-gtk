@@ -2,11 +2,11 @@
 <interface>
     <template class="RemovableRow" parent="AdwPreferencesRow">
         <child>
-            <object class="GtkBox">
-                <child>
+            <object class="GtkCenterBox">
+                <child type="center">
                     <object class="GtkLabel" id="_text"/>
                 </child>
-                <child>
+                <child type="end">
                     <object class="GtkButton" id="_remove_button">
                         <property name="icon-name">list-remove-symbolic</property>
                         <signal name="clicked" handler="_on_remove_button_clicked"/>
