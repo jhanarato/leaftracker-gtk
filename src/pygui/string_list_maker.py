@@ -83,15 +83,9 @@ class StringListMaker(Adw.PreferencesGroup):
         item: RemovableRow = self._names_list_box.get_row_at_index(item_number)
         item.click_remove_button()
 
-    def position_of_value(self, value: str) -> int | None:
-        for position, item in enumerate(self._model):
-            if item.get_string() == value:
-                return position
-        return None
-
     def remove_value(self, value: str) -> None:
-        position = self.position_of_value(value)
-        self._model.remove(position)
+        p = position(self._model, value)
+        self._model.remove(p)
 
     def add_name_widget_to_list(self, list_item: Gtk.StringObject) -> RemovableRow:
         text = list_item.get_string()
