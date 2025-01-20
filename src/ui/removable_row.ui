@@ -10,6 +10,9 @@
                     <object class="GtkButton" id="_remove_button">
                         <property name="icon-name">list-remove-symbolic</property>
                         <signal name="clicked" handler="_on_remove_button_clicked"/>
+                        <style>
+                            <class name="flat"/>
+                        </style>
                     </object>
                 </child>
             </object>
