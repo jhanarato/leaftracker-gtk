@@ -36,3 +36,11 @@ class TestValidatedEntryRow:
         widget.set_validator(lambda value: False)
         widget.set_text("some text")
         assert not widget.get_show_apply_button()
+
+    def test_reset_after_valid_input(self):
+        widget = ValidatedEntryRow()
+        widget.set_validator(lambda value: True)
+        widget.set_text("some text")
+        widget.reset()
+        assert widget.get_text() == ""
+        assert widget.get_show_apply_button()

@@ -19,6 +19,9 @@ class ValidatedEntryRow(Adw.EntryRow):
         text = self.get_text()
         return self._validate_entry(text)
 
+    def reset(self):
+        self.set_text("")
+
     def set_validator(self, validator: Callable[[str], bool]):
         self._validate_entry = validator
 
