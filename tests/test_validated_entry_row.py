@@ -24,3 +24,8 @@ class TestValidatedEntryRow:
         widget = ValidatedEntryRow()
         widget.set_text("some text")
         assert widget.callback_called
+
+    def test_valid_text_shows_apply_button(self):
+        widget = ValidatedEntryRow()
+        widget.set_text("some text")
+        assert widget.get_show_apply_button()
