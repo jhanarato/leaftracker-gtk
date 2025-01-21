@@ -20,6 +20,11 @@ class TestValidatedEntryRow:
         widget.set_validator(lambda value: False)
         assert not widget.entry_is_valid()
 
+    def test_validator_defaults_to_accept_all(self):
+        widget = ValidatedEntryRow()
+        widget.set_text("some text")
+        assert widget.get_show_apply_button()
+
     def test_valid_text_shows_apply_button(self):
         widget = ValidatedEntryRow()
         widget.set_validator(lambda value: True)
