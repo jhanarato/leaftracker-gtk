@@ -100,6 +100,8 @@ class StringListMaker(Adw.PreferencesGroup):
     def _on_remove_button_clicked(self, item: RemovableRow):
         value = item.get_text()
         remove(self._model, value)
+        if self._model.get_n_items() == 0:
+            self._list_row.set_visible(False)
 
     def click_remove_on_item(self, item_number: int):
         """ Method required only for testing """

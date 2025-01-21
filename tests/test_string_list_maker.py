@@ -86,6 +86,11 @@ class TestStringListMaker:
         widget.add_string("some text")
         assert widget.list_row_is_visible()
 
+    def test_list_row_is_hidden_when_all_items_removed(self):
+        widget = StringListMaker()
+        widget.add_string("some text")
+        widget.click_remove_on_item(0)
+        assert not widget.list_row_is_visible()
 
 class TestGtkStringListHelpers:
     def test_position_of_value(self):
