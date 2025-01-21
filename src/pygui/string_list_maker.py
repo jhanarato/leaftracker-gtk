@@ -47,14 +47,14 @@ def remove(string_list: Gtk.StringList, value: str) -> None:
 class StringListMaker(Adw.PreferencesGroup):
     __gtype_name__ = "StringListMaker"
 
-    _add_item_row: Adw.EntryRow = Gtk.Template.Child()
-    _names_list_box: Gtk.ListBox = Gtk.Template.Child()
     _list_row: Adw.PreferencesRow = Gtk.Template.Child()
+    _list_box: Gtk.ListBox = Gtk.Template.Child()
+    _add_item_row: Adw.EntryRow = Gtk.Template.Child()
 
     def __init__(self):
         super().__init__()
         self._model = Gtk.StringList()
-        self._names_list_box.bind_model(
+        self._list_box.bind_model(
             model=self._model,
             create_widget_func=self.add_name_widget_to_list
         )
@@ -99,7 +99,7 @@ class StringListMaker(Adw.PreferencesGroup):
 
     def click_remove_on_item(self, item_number: int):
         """ Method required only for testing """
-        item: RemovableRow = self._names_list_box.get_row_at_index(item_number)
+        item: RemovableRow = self._list_box.get_row_at_index(item_number)
         item.click_remove_button()
 
     def list_row_is_visible(self):
