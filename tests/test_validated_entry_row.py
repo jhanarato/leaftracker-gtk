@@ -55,3 +55,16 @@ class TestValidatedEntryRow:
         always_invalid.clear()
         assert always_invalid.get_text() == ""
         assert always_invalid.get_show_apply_button()
+
+    def test_can_issue_apply_signal_with_valid_input(self, always_valid):
+        signal_received = False
+
+        def apply_callback(inst):
+            nonlocal signal_received
+            signal_received = True
+
+        always_valid.connect("apply", apply_callback)
+        always_valid.set_text("some text")
+        always_valid.emit("apply")
+
+        assert signal_received
