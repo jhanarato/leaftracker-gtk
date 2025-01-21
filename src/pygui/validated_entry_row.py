@@ -19,7 +19,7 @@ class ValidatedEntryRow(Adw.EntryRow):
         text = self.get_text()
         return self._validate_entry(text)
 
-    def reset(self):
+    def clear(self):
         self.set_text("")
         self.set_show_apply_button(False)
         self.set_show_apply_button(True)

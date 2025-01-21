@@ -44,14 +44,14 @@ class TestValidatedEntryRow:
         always_invalid.set_text("some text")
         assert not always_invalid.get_show_apply_button()
 
-    def test_reset_after_valid_input(self, always_valid):
+    def test_clear_after_valid_input(self, always_valid):
         always_valid.set_text("some text")
-        always_valid.reset()
+        always_valid.clear()
         assert always_valid.get_text() == ""
         assert always_valid.get_show_apply_button()
 
-    def test_reset_after_invalid_input(self, always_invalid):
+    def test_clear_after_invalid_input(self, always_invalid):
         always_invalid.set_text("some text")
-        always_invalid.reset()
+        always_invalid.clear()
         assert always_invalid.get_text() == ""
         assert always_invalid.get_show_apply_button()
