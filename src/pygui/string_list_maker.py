@@ -61,9 +61,6 @@ class StringListMaker(Adw.PreferencesGroup):
 
         self._list_row.set_visible(False)
 
-    def click_add_button(self) -> None:
-        self._add_item_row.emit("apply")
-
     @property
     def entry_field(self) -> str:
         return self._add_item_row.get_text()
@@ -102,6 +99,10 @@ class StringListMaker(Adw.PreferencesGroup):
         remove(self._model, value)
         if self._model.get_n_items() == 0:
             self._list_row.set_visible(False)
+
+    def click_add_button(self) -> None:
+        """ Method required only for testing """
+        self._add_item_row.emit("apply")
 
     def click_remove_on_item(self, item_number: int):
         """ Method required only for testing """
