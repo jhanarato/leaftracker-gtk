@@ -92,6 +92,14 @@ class TestStringListMaker:
         widget.click_remove_on_item(0)
         assert not widget.list_row_is_visible()
 
+    def test_can_use_a_validation_function(self):
+        widget = StringListMaker()
+        widget.set_validator(lambda value: True)
+        assert widget.entry_is_valid()
+        widget.set_validator(lambda value: False)
+        assert not widget.entry_is_valid()
+
+
 class TestGtkStringListHelpers:
     def test_position_of_value(self):
         string_list = Gtk.StringList.new(["abc", "def", "hij"])

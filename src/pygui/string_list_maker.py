@@ -1,3 +1,5 @@
+from collections.abc import Callable
+
 import gi
 
 gi.require_version('Adw', '1')
@@ -53,6 +55,7 @@ class StringListMaker(Adw.PreferencesGroup):
 
     def __init__(self):
         super().__init__()
+        self._validate_entry: Callable[[str], bool] = lambda entry : True
         self._model = Gtk.StringList()
         self._list_box.bind_model(
             model=self._model,
@@ -100,6 +103,16 @@ class StringListMaker(Adw.PreferencesGroup):
         if self._model.get_n_items() == 0:
             self._list_row.set_visible(False)
 
+    def list_row_is_visible(self):
+        return self._list_row.get_visible()
+
+    def set_validator(self, validator: Callable[[str], bool]):
+        self._validate_entry = validator
+
+    def entry_is_valid(self) -> bool:
+        text = self._add_item_row.get_text()
+        return self._validate_entry(text)
+
     def click_add_button(self) -> None:
         """ Method required only for testing """
         self._add_item_row.emit("apply")
@@ -109,6 +122,3 @@ class StringListMaker(Adw.PreferencesGroup):
         item: RemovableRow = self._list_box.get_row_at_index(item_number)
         item.click_remove_button()
 
-    def list_row_is_visible(self):
-        """ Method required only for testing """
-        return self._list_row.get_visible()
