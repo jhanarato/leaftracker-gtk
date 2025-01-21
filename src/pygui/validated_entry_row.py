@@ -1,4 +1,5 @@
 from collections.abc import Callable
+from typing import Self
 
 import gi
 
@@ -13,6 +14,7 @@ class ValidatedEntryRow(Adw.EntryRow):
     def __init__(self):
         super().__init__()
         self._validate_entry: Callable[[str], bool] = lambda entry: True
+        self.callback_called = False
 
     def entry_is_valid(self) -> bool:
         text = self.get_text()
@@ -20,3 +22,7 @@ class ValidatedEntryRow(Adw.EntryRow):
 
     def set_validator(self, validator: Callable[[str], bool]):
         self._validate_entry = validator
+
+    @Gtk.Template.Callback()
+    def _on_changed(self, instance: Self) -> None:
+        self.callback_called = True
