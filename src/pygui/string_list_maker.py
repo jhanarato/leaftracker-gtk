@@ -56,7 +56,6 @@ class StringListMaker(Adw.PreferencesGroup):
 
     def __init__(self):
         super().__init__()
-        self._validate_entry: Callable[[str], bool] = lambda entry : True
         self._model = Gtk.StringList()
         self._list_box.bind_model(
             model=self._model,
@@ -108,11 +107,7 @@ class StringListMaker(Adw.PreferencesGroup):
         return self._list_row.get_visible()
 
     def set_validator(self, validator: Callable[[str], bool]):
-        self._validate_entry = validator
-
-    def entry_is_valid(self) -> bool:
-        text = self._add_item_row.get_text()
-        return self._validate_entry(text)
+        self._add_item_row.set_validator(validator)
 
     def click_add_button(self) -> None:
         """ Method required only for testing """
