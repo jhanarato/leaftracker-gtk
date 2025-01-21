@@ -12,3 +12,8 @@ class ValidatedEntryRow(Adw.EntryRow):
 
     def __init__(self):
         super().__init__()
+        self._validate_entry: Callable[[str], bool] = lambda entry: True
+
+    def entry_is_valid(self) -> bool:
+        text = self.get_text()
+        return self._validate_entry(text)

@@ -9,5 +9,6 @@ from pygui.validated_entry_row import ValidatedEntryRow
 
 
 class TestValidatedEntryRow:
-    def test_create_row(self):
-        row = ValidatedEntryRow()
+    def test_entry_is_valid_by_default(self):
+        widget = ValidatedEntryRow()
+        assert widget.entry_is_valid()

@@ -5,6 +5,7 @@ import gi
 gi.require_version('Adw', '1')
 from gi.repository import Adw, Gtk, GObject
 
+from pygui.validated_entry_row import ValidatedEntryRow
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/removable_row.ui")
 class RemovableRow(Adw.PreferencesRow):
@@ -51,7 +52,7 @@ class StringListMaker(Adw.PreferencesGroup):
 
     _list_row: Adw.PreferencesRow = Gtk.Template.Child()
     _list_box: Gtk.ListBox = Gtk.Template.Child()
-    _add_item_row: Adw.EntryRow = Gtk.Template.Child()
+    _add_item_row: ValidatedEntryRow = Gtk.Template.Child()
 
     def __init__(self):
         super().__init__()
