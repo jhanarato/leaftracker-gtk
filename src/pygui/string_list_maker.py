@@ -84,11 +84,6 @@ class StringListMaker(Adw.PreferencesGroup):
     def get_values(self) -> list[str]:
         return [item.get_string() for item in self._model]
 
-    def click_remove_on_item(self, item_number: int):
-        """ Method required only for testing """
-        item: RemovableRow = self._names_list_box.get_row_at_index(item_number)
-        item.click_remove_button()
-
     def add_name_widget_to_list(self, list_item: Gtk.StringObject) -> RemovableRow:
         text = list_item.get_string()
         list_row = RemovableRow(text)
@@ -98,3 +93,12 @@ class StringListMaker(Adw.PreferencesGroup):
     def _on_remove_button_clicked(self, item: RemovableRow):
         value = item.get_text()
         remove(self._model, value)
+
+    def click_remove_on_item(self, item_number: int):
+        """ Method required only for testing """
+        item: RemovableRow = self._names_list_box.get_row_at_index(item_number)
+        item.click_remove_button()
+
+    def listbox_is_visible(self):
+        """ Method required only for testing """
+        return False

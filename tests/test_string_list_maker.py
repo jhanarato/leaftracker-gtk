@@ -77,6 +77,10 @@ class TestStringListMaker:
         widget.click_remove_on_item(0)
         assert widget.get_values() == []
 
+    def test_listbox_is_hidden_when_created(self):
+        widget = StringListMaker()
+        assert not widget.listbox_is_visible()
+
 
 class TestGtkStringListHelpers:
     def test_position_of_value(self):
