@@ -49,3 +49,9 @@ class TestValidatedEntryRow:
         always_valid.reset()
         assert always_valid.get_text() == ""
         assert always_valid.get_show_apply_button()
+
+    def test_reset_after_invalid_input(self, always_invalid):
+        always_invalid.set_text("some text")
+        always_invalid.reset()
+        assert always_invalid.get_text() == ""
+        assert always_invalid.get_show_apply_button()

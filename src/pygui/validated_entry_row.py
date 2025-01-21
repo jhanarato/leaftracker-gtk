@@ -21,6 +21,8 @@ class ValidatedEntryRow(Adw.EntryRow):
 
     def reset(self):
         self.set_text("")
+        self.set_show_apply_button(False)
+        self.set_show_apply_button(True)
 
     def set_validator(self, validator: Callable[[str], bool]):
         self._validate_entry = validator
