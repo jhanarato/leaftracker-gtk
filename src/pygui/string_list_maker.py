@@ -79,9 +79,9 @@ class StringListMaker(Adw.PreferencesGroup):
 
     @Gtk.Template.Callback()
     def _on_apply_add_item(self, instance: Adw.EntryRow) -> None:
-        name = instance.get_text()
-        if name not in self.get_values():
-            self.add_string(name)
+        text = instance.get_text()
+        if text not in self.get_values():
+            self.add_string(text)
         self.reset_entry_field()
 
     def add_string(self, value: str) -> None:
