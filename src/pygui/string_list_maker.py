@@ -47,7 +47,7 @@ def remove(string_list: Gtk.StringList, value: str) -> None:
 class StringListMaker(Adw.PreferencesGroup):
     __gtype_name__ = "StringListMaker"
 
-    _add_name_entry_row: Adw.EntryRow = Gtk.Template.Child()
+    _add_item_row: Adw.EntryRow = Gtk.Template.Child()
     _names_list_box: Gtk.ListBox = Gtk.Template.Child()
     _list_row: Adw.PreferencesRow = Gtk.Template.Child()
 
@@ -62,20 +62,20 @@ class StringListMaker(Adw.PreferencesGroup):
         self._list_row.set_visible(False)
 
     def click_add_button(self) -> None:
-        self._add_name_entry_row.emit("apply")
+        self._add_item_row.emit("apply")
 
     @property
     def entry_field(self) -> str:
-        return self._add_name_entry_row.get_text()
+        return self._add_item_row.get_text()
 
     @entry_field.setter
     def entry_field(self, name: str) -> None:
-        self._add_name_entry_row.set_text(name)
+        self._add_item_row.set_text(name)
 
     def reset_entry_field(self):
-        self._add_name_entry_row.set_text("")
-        self._add_name_entry_row.set_show_apply_button(False)
-        self._add_name_entry_row.set_show_apply_button(True)
+        self._add_item_row.set_text("")
+        self._add_item_row.set_show_apply_button(False)
+        self._add_item_row.set_show_apply_button(True)
 
     @Gtk.Template.Callback()
     def _on_apply_add_item(self, instance: Adw.EntryRow) -> None:
