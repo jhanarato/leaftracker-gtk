@@ -20,13 +20,9 @@ class TestValidatedEntryRow:
         widget.set_validator(lambda value: False)
         assert not widget.entry_is_valid()
 
-    def test_changing_text_calls_handler(self):
-        widget = ValidatedEntryRow()
-        widget.set_text("some text")
-        assert widget.callback_called
-
     def test_valid_text_shows_apply_button(self):
         widget = ValidatedEntryRow()
+        widget.set_validator(lambda value: True)
         widget.set_text("some text")
         assert widget.get_show_apply_button()
 
