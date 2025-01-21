@@ -26,3 +26,6 @@ class ValidatedEntryRow(Adw.EntryRow):
     @Gtk.Template.Callback()
     def _on_changed(self, instance: Self) -> None:
         self.callback_called = True
+        text = self.get_text()
+        valid = self._validate_entry(text)
+        self.set_show_apply_button(valid)

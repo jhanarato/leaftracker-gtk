@@ -29,3 +29,9 @@ class TestValidatedEntryRow:
         widget = ValidatedEntryRow()
         widget.set_text("some text")
         assert widget.get_show_apply_button()
+
+    def test_invalid_text_hides_apply_button(self):
+        widget = ValidatedEntryRow()
+        widget.set_validator(lambda value: False)
+        widget.set_text("some text")
+        assert not widget.get_show_apply_button()
