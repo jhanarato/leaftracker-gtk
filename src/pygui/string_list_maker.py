@@ -72,17 +72,12 @@ class StringListMaker(Adw.PreferencesGroup):
     def entry_field(self, name: str) -> None:
         self._add_item_row.set_text(name)
 
-    def reset_entry_field(self):
-        self._add_item_row.set_text("")
-        self._add_item_row.set_show_apply_button(False)
-        self._add_item_row.set_show_apply_button(True)
-
     @Gtk.Template.Callback()
-    def _on_apply_add_item(self, instance: Adw.EntryRow) -> None:
+    def _on_apply_add_item(self, instance: ValidatedEntryRow) -> None:
         text = instance.get_text()
         if text not in self.get_values():
             self.add_string(text)
-        self.reset_entry_field()
+        self._add_item_row.clear()
 
     def add_string(self, value: str) -> None:
         self._model.append(value)
