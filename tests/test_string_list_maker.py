@@ -99,6 +99,10 @@ class TestStringListMaker:
         widget.set_validator(lambda value: False)
         assert not widget.entry_is_valid()
 
+    def test_entry_is_valid_by_default(self):
+        widget = StringListMaker()
+        assert widget.entry_is_valid()
+
 
 class TestGtkStringListHelpers:
     def test_position_of_value(self):
