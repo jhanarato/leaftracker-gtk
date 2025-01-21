@@ -17,3 +17,6 @@ class ValidatedEntryRow(Adw.EntryRow):
     def entry_is_valid(self) -> bool:
         text = self.get_text()
         return self._validate_entry(text)
+
+    def set_validator(self, validator: Callable[[str], bool]):
+        self._validate_entry = validator
