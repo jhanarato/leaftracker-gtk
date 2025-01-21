@@ -49,6 +49,7 @@ class StringListMaker(Adw.PreferencesGroup):
 
     _add_name_entry_row: Adw.EntryRow = Gtk.Template.Child()
     _names_list_box: Gtk.ListBox = Gtk.Template.Child()
+    _list_row: Adw.PreferencesRow = Gtk.Template.Child()
 
     def __init__(self):
         super().__init__()
@@ -57,6 +58,8 @@ class StringListMaker(Adw.PreferencesGroup):
             model=self._model,
             create_widget_func=self.add_name_widget_to_list
         )
+
+        self._list_row.set_visible(False)
 
     def click_add_button(self) -> None:
         self._add_name_entry_row.emit("apply")
@@ -99,6 +102,6 @@ class StringListMaker(Adw.PreferencesGroup):
         item: RemovableRow = self._names_list_box.get_row_at_index(item_number)
         item.click_remove_button()
 
-    def listbox_is_visible(self):
+    def list_row_is_visible(self):
         """ Method required only for testing """
-        return False
+        return self._list_row.get_visible()
