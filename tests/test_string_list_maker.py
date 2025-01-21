@@ -81,6 +81,11 @@ class TestStringListMaker:
         widget = StringListMaker()
         assert not widget.list_row_is_visible()
 
+    def test_list_row_is_shown_when_item_added(self):
+        widget = StringListMaker()
+        widget.add_string("some text")
+        assert widget.list_row_is_visible()
+
 
 class TestGtkStringListHelpers:
     def test_position_of_value(self):

@@ -81,8 +81,12 @@ class StringListMaker(Adw.PreferencesGroup):
     def _on_apply_add_item(self, instance: Adw.EntryRow) -> None:
         name = instance.get_text()
         if name not in self.get_values():
-            self._model.append(name)
+            self.add_string(name)
         self.reset_entry_field()
+
+    def add_string(self, value: str) -> None:
+        self._model.append(value)
+        self._list_row.set_visible(True)
 
     def get_values(self) -> list[str]:
         return [item.get_string() for item in self._model]
