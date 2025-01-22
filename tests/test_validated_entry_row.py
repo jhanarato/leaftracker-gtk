@@ -71,3 +71,10 @@ class TestValidatedEntryRow:
         always_valid.set_text("some text")
         always_valid.emit("apply")
         assert receiver.received
+
+    def test_does_not_issue_apply_valid_signal_for_invalid_input(self, always_invalid):
+        receiver = Receiver()
+        always_invalid.connect("apply-valid", receiver.callback)
+        always_invalid.set_text("some text")
+        always_invalid.emit("apply")
+        assert not receiver.received

@@ -35,7 +35,8 @@ class ValidatedEntryRow(Adw.EntryRow):
 
     @Gtk.Template.Callback()
     def _on_apply(self, instance: Self) -> None:
-        self.emit("apply-valid")
+        if self.entry_is_valid():
+            self.emit("apply-valid")
 
     @GObject.Signal
     def apply_valid(self) -> None:
