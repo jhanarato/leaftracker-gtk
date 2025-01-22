@@ -7,6 +7,15 @@ resource._register()
 
 from pygui.validated_entry_row import ValidatedEntryRow
 
+
+class Receiver:
+    def __init__(self):
+        self.received = False
+
+    def callback(self, instance):
+        self.received = True
+
+
 @pytest.fixture
 def always_valid() -> ValidatedEntryRow:
     widget = ValidatedEntryRow()
@@ -57,16 +66,8 @@ class TestValidatedEntryRow:
         assert always_invalid.get_show_apply_button()
 
     def test_issues_apply_valid_signal_for_valid_input(self, always_valid):
-        class Receiver:
-            def __init__(self):
-                self.received = False
-
-            def callback(self, instance):
-                self.received = True
-
         receiver = Receiver()
         always_valid.connect("apply-valid", receiver.callback)
         always_valid.set_text("some text")
         always_valid.emit("apply")
-
         assert receiver.received
