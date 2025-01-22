@@ -3,5 +3,6 @@
     <template class="ValidatedEntryRow" parent="AdwEntryRow">
         <property name="show-apply-button">true</property>
         <signal name="changed" handler="_on_changed"/>
+        <signal name="apply" handler="_on_apply"/>
     </template>
 </interface>

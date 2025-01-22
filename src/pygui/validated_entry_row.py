@@ -32,3 +32,11 @@ class ValidatedEntryRow(Adw.EntryRow):
         text = self.get_text()
         valid = self._validate_entry(text)
         self.set_show_apply_button(valid)
+
+    @Gtk.Template.Callback()
+    def _on_apply(self, instance: Self) -> None:
+        self.emit("apply-valid")
+
+    @GObject.Signal
+    def apply_valid(self) -> None:
+        pass
