@@ -57,14 +57,16 @@ class TestValidatedEntryRow:
         assert always_invalid.get_show_apply_button()
 
     def test_issues_apply_valid_signal_for_valid_input(self, always_valid):
-        signal_received = False
+        class Receiver:
+            def __init__(self):
+                self.received = False
 
-        def apply_valid_callback(inst):
-            nonlocal signal_received
-            signal_received = True
+            def callback(self, instance):
+                self.received = True
 
-        always_valid.connect("apply-valid", apply_valid_callback)
+        receiver = Receiver()
+        always_valid.connect("apply-valid", receiver.callback)
         always_valid.set_text("some text")
         always_valid.emit("apply")
 
-        assert signal_received
+        assert receiver.received
