@@ -92,6 +92,12 @@ class TestStringListMaker:
         widget.click_remove_on_item(0)
         assert not widget.list_row_is_visible()
 
+    def test_invalid_entry_is_not_applied(self):
+        widget = StringListMaker()
+        widget.set_validator(lambda value: False)
+        widget.entry_field = "some text"
+        widget.click_add_button()
+        assert widget.get_values() == []
 
 class TestGtkStringListHelpers:
     def test_position_of_value(self):

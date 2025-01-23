@@ -20,7 +20,7 @@
             <object class="ValidatedEntryRow" id="_add_item_row">
                 <property name="title">Add Name</property>
                 <property name="show-apply-button">true</property>
-                <signal name="apply" handler="_on_apply_add_item"/>
+                <signal name="apply-valid" handler="_on_apply_valid_add_item"/>
             </object>
         </child>
     </template>
