@@ -22,8 +22,9 @@ class SpeciesWriter:
         self.reference: str | None = None
 
     def write_current_scientific_name(self, name: str) -> None:
-        uow = unit_of_work()
-        self.reference = services.add_species(name, uow)
+        pass
+        # uow = unit_of_work()
+        # self.reference = services.add_species(name, uow)
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details_page.ui")

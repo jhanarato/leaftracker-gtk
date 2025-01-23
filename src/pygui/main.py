@@ -35,7 +35,7 @@ def on_activate(app):
 def main(version):
     print_versions()
 
-    initialise.indexes()
+    # initialise.indexes()
 
     app = Adw.Application(application_id='org.bswa.Leaftracker')
     app.connect('activate', on_activate)
