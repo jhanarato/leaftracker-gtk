@@ -10,3 +10,7 @@ class SpeciesModel(GObject.Object):
     @GObject.Property(type=str)
     def reference(self) -> str | None:
         return self._reference
+
+    @reference.setter
+    def reference(self, value: str):
+        self._reference = value
