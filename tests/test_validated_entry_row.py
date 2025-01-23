@@ -78,3 +78,11 @@ class TestValidatedEntryRow:
         always_invalid.set_text("some text")
         always_invalid.emit("apply")
         assert not receiver.received
+
+    def test_validate_acacia_s(self):
+        def is_acacia_s(value: str) -> bool:
+            return value == "Acacia s"
+
+        widget = ValidatedEntryRow()
+        widget.set_validator(is_acacia_s)
+        widget.is_valid()
