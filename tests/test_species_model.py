@@ -1,4 +1,4 @@
-from gi.repository import Gio, GObject
+from gi.repository import Gio, Gtk, GObject
 
 from pygui.species_model import SpeciesModel
 
@@ -27,3 +27,14 @@ class TestSpeciesModel:
         species.previous_names.append("old name")
         species.previous_names.append("older name")
         assert species.previous_names == ["old name", "older name"]
+
+    def test_previous_names_with_different_types(self):
+        species = SpeciesModel()
+        species.previous_names = ["abc", 123]
+
+    def test_add_species_model_to_list_store(self):
+        species = SpeciesModel()
+        species.current_name = "a name"
+        store = Gio.ListStore()
+        store.append(species)
+        assert store.get_item(0).current_name == "a name"
