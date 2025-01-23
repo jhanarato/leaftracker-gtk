@@ -39,6 +39,8 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         super().__init__()
         self._current_species: str | None = None
         self._writer = SpeciesWriter()
+        self.current_scientific_name.set_validator(services.validate_taxon_name)
+        self.previous_scientific_names.set_validator(services.validate_taxon_name)
 
     @GObject.Property(type=str)
     def reference(self) -> str | None:
