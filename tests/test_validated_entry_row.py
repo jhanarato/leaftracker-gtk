@@ -85,4 +85,5 @@ class TestValidatedEntryRow:
 
         widget = ValidatedEntryRow()
         widget.set_validator(is_acacia_s)
-        widget.is_valid()
+        widget.set_text("Acacia s")
+        assert widget.is_valid()
