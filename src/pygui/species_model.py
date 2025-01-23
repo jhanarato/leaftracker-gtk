@@ -5,7 +5,7 @@ class SpeciesModel(GObject.Object):
         super().__init__()
         self._reference: str | None = None
         self._current_name: str | None = None
-        self._previous_names: list[str] | None = None
+        self._previous_names: list[str] = list()
 
     @GObject.Property(type=str)
     def reference(self) -> str | None:
@@ -24,7 +24,7 @@ class SpeciesModel(GObject.Object):
         self._current_name = value
 
     @GObject.Property(type=GObject.ValueArray)
-    def previous_names(self) -> list[str] | None:
+    def previous_names(self) -> list[str]:
         return self._previous_names
 
     @previous_names.setter

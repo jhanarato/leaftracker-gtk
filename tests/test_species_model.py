@@ -18,6 +18,6 @@ class TestSpeciesModel:
 
     def test_previous_names(self):
         species = SpeciesModel()
-        assert species.previous_names is None
+        assert species.previous_names == []
         species.previous_names = ["old name", "older name"]
         assert species.previous_names == ["old name", "older name"]
