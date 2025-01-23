@@ -6,6 +6,7 @@ import gi
 gi.require_version('Adw', '1')
 from gi.repository import Adw, Gtk, GObject
 
+type Validator = Callable[[str], bool]
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/validated_entry_row.ui")
 class ValidatedEntryRow(Adw.EntryRow):
@@ -13,7 +14,7 @@ class ValidatedEntryRow(Adw.EntryRow):
 
     def __init__(self):
         super().__init__()
-        self._validate_entry: Callable[[str], bool] = lambda entry: True
+        self._validate_entry: Validator = lambda entry: True
 
     def is_valid(self) -> bool:
         text = self.get_text()
@@ -24,7 +25,7 @@ class ValidatedEntryRow(Adw.EntryRow):
         self.set_show_apply_button(False)
         self.set_show_apply_button(True)
 
-    def set_validator(self, validator: Callable[[str], bool]) -> None:
+    def set_validator(self, validator: Validator) -> None:
         self._validate_entry = validator
 
     @Gtk.Template.Callback()

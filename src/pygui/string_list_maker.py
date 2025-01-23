@@ -5,7 +5,7 @@ import gi
 gi.require_version('Adw', '1')
 from gi.repository import Adw, Gtk, GObject
 
-from pygui.validated_entry_row import ValidatedEntryRow
+from pygui.validated_entry_row import ValidatedEntryRow, Validator
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/removable_row.ui")
 class RemovableRow(Adw.PreferencesRow):
@@ -101,7 +101,7 @@ class StringListMaker(Adw.PreferencesGroup):
     def list_row_is_visible(self):
         return self._list_row.get_visible()
 
-    def set_validator(self, validator: Callable[[str], bool]):
+    def set_validator(self, validator: Validator):
         self._add_item_row.set_validator(validator)
 
     def click_add_button(self) -> None:
