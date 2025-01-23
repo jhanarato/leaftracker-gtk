@@ -31,14 +31,14 @@ def always_invalid() -> ValidatedEntryRow:
 class TestValidatedEntryRow:
     def test_entry_is_valid_by_default(self):
         widget = ValidatedEntryRow()
-        assert widget.entry_is_valid()
+        assert widget.is_valid()
 
     def test_can_use_a_validation_function(self):
         widget = ValidatedEntryRow()
         widget.set_validator(lambda value: True)
-        assert widget.entry_is_valid()
+        assert widget.is_valid()
         widget.set_validator(lambda value: False)
-        assert not widget.entry_is_valid()
+        assert not widget.is_valid()
 
     def test_validator_defaults_to_accept_all(self):
         widget = ValidatedEntryRow()

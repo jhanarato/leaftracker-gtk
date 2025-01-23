@@ -15,7 +15,7 @@ class ValidatedEntryRow(Adw.EntryRow):
         super().__init__()
         self._validate_entry: Callable[[str], bool] = lambda entry: True
 
-    def entry_is_valid(self) -> bool:
+    def is_valid(self) -> bool:
         text = self.get_text()
         return self._validate_entry(text)
 
@@ -35,7 +35,7 @@ class ValidatedEntryRow(Adw.EntryRow):
 
     @Gtk.Template.Callback()
     def _on_apply(self, instance: Self) -> None:
-        if self.entry_is_valid():
+        if self.is_valid():
             self.emit("apply-valid")
 
     @GObject.Signal
