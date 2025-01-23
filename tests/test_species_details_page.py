@@ -1,6 +1,8 @@
 import pytest
 from gi.repository import Gio, Gtk, GObject
 
+from pygui.species_model import SpeciesModel
+
 resource = Gio.Resource.load('../leaftracker-gtk.gresource')
 resource._register()
 
@@ -34,6 +36,12 @@ class TestFakeSpeciesWriter:
 
 
 class TestSpeciesDetailsPage:
+    def test_species_property(self, details_page):
+        species = SpeciesModel()
+        species.current_name = "Acacia saligna"
+        details_page.species = species
+        assert details_page.species.current_name == "Acacia saligna"
+
     def test_set_species_reference(self, details_page):
         details_page.set_property("reference", "abc")
         assert details_page.get_property("reference") == "abc"

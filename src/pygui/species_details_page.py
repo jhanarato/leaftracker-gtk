@@ -2,6 +2,7 @@ from enum import Enum, auto
 
 import gi
 
+from pygui.species_model import SpeciesModel
 
 gi.require_version('Adw', '1')
 from gi.repository import Adw, Gtk, GObject
@@ -38,6 +39,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
 
     def __init__(self):
         super().__init__()
+        self.species = SpeciesModel()
         self._current_species: str | None = None
         self._writer = SpeciesWriter()
         self.current_scientific_name.set_validator(services.validate_taxon_name)
@@ -46,6 +48,18 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     @GObject.Property(type=str)
     def reference(self) -> str | None:
         return self._current_species
+
+    @reference.setter
+    def reference(self, species: str) -> None:
+        self._current_species = species
+
+    @GObject.Property(type=SpeciesModel)
+    def species(self) -> SpeciesModel:
+        return self._species
+
+    @species.setter
+    def species(self, species: SpeciesModel) -> None:
+        self._species = species
 
     @reference.setter
     def reference(self, species: str) -> None:
