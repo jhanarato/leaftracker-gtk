@@ -24,7 +24,7 @@ class ValidatedEntryRow(Adw.EntryRow):
         self.set_show_apply_button(False)
         self.set_show_apply_button(True)
 
-    def set_validator(self, validator: Callable[[str], bool]):
+    def set_validator(self, validator: Callable[[str], bool]) -> None:
         self._validate_entry = validator
 
     @Gtk.Template.Callback()
