@@ -9,6 +9,7 @@ pygui_tests = [
   'test_learn_templates.py',
   'test_string_list_maker.py',
   'test_species_details_page.py',
+  'test_species_model.py',
   'test_validated_entry_row.py',
   'pytest.ini'
 ]

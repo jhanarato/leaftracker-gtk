@@ -7,6 +7,7 @@ pygui_files = [
   'main_window.py',
   'species_list_page.py',
   'species_details_page.py',
+  'species_model.py',
   'string_list_maker.py',
   'validated_entry_row.py',
 ]
