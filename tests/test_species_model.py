@@ -21,3 +21,9 @@ class TestSpeciesModel:
         assert species.previous_names == []
         species.previous_names = ["old name", "older name"]
         assert species.previous_names == ["old name", "older name"]
+
+    def test_append_previous_name(self):
+        species = SpeciesModel()
+        species.previous_names.append("old name")
+        species.previous_names.append("older name")
+        assert species.previous_names == ["old name", "older name"]
