@@ -30,6 +30,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
 
     reference_display: Adw.EntryRow = Gtk.Template.Child()
     current_scientific_name: Adw.EntryRow = Gtk.Template.Child()
+    previous_scientific_names: StringListMaker = Gtk.Template.Child()
     save_button: Adw.ButtonRow = Gtk.Template.Child()
 
     def __init__(self):
