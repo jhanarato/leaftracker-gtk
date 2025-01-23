@@ -2,10 +2,12 @@ from enum import Enum, auto
 
 import gi
 
+
 gi.require_version('Adw', '1')
 from gi.repository import Adw, Gtk, GObject
 
 from pygui.string_list_maker import StringListMaker
+from pygui.validated_entry_row import ValidatedEntryRow
 
 from leaftracker.adapters.elastic.initialise import unit_of_work
 from leaftracker.service_layer import services
@@ -29,7 +31,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     __gtype_name__ = "SpeciesDetailsPage"
 
     reference_display: Adw.EntryRow = Gtk.Template.Child()
-    current_scientific_name: Adw.EntryRow = Gtk.Template.Child()
+    current_scientific_name: ValidatedEntryRow = Gtk.Template.Child()
     previous_scientific_names: StringListMaker = Gtk.Template.Child()
     save_button: Adw.ButtonRow = Gtk.Template.Child()
 

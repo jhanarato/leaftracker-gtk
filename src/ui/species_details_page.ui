@@ -35,7 +35,7 @@
                                 <property name="title">Current Scientific Name</property>
                                 <property name="separate-rows">true</property>
                                 <child>
-                                    <object class="AdwEntryRow" id="current_scientific_name">
+                                    <object class="ValidatedEntryRow" id="current_scientific_name">
                                         <property name="title">current</property>
                                     </object>
                                 </child>
