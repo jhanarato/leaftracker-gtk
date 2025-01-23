@@ -59,7 +59,7 @@ class StringListMaker(Adw.PreferencesGroup):
         self._model = Gtk.StringList()
         self._list_box.bind_model(
             model=self._model,
-            create_widget_func=self.add_name_widget_to_list
+            create_widget_func=self.create_removable_row
         )
 
         self._list_row.set_visible(False)
@@ -86,7 +86,7 @@ class StringListMaker(Adw.PreferencesGroup):
     def get_values(self) -> list[str]:
         return [item.get_string() for item in self._model]
 
-    def add_name_widget_to_list(self, list_item: Gtk.StringObject) -> RemovableRow:
+    def create_removable_row(self, list_item: Gtk.StringObject) -> RemovableRow:
         text = list_item.get_string()
         list_row = RemovableRow(text)
         list_row.connect("removed", self._on_remove_button_clicked)
