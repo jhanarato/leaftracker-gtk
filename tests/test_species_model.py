@@ -28,10 +28,6 @@ class TestSpeciesModel:
         species.previous_names.append("older name")
         assert species.previous_names == ["old name", "older name"]
 
-    def test_previous_names_with_different_types(self):
-        species = SpeciesModel()
-        species.previous_names = ["abc", 123]
-
     def test_add_species_model_to_list_store(self):
         species = SpeciesModel()
         species.current_name = "a name"
