@@ -3,3 +3,4 @@ elastic-transport>=8.15.0
 elasticsearch>=8.15.1
 urllib3>=2.2.3
 pytest>=8.3.3
+behave>=1.2.6
