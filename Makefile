@@ -12,3 +12,6 @@ run:
 
 shell:
 	flatpak run --command=sh --cwd=/app/share/leaftracker-gtk/ --devel org.bswa.Leaftracker
+
+behave:
+	flatpak run --command=behave --cwd=/app/share/leaftracker-gtk/acceptance-tests --devel org.bswa.Leaftracker

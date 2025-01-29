@@ -11,6 +11,7 @@ gnome = import('gnome')
 
 
 
+subdir('features')
 subdir('data')
 subdir('src')
 subdir('tests')
