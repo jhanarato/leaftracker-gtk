@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <interface>
     <template class="SpeciesDetailsPage" parent="AdwNavigationPage">
-        <signal name="notify::reference" handler="reference_changed"/>
         <signal name="notify::current-species" handler="_on_current_species_changed"/>
         <property name="title">Species Details</property>
         <property name="tag">species-details-page</property>

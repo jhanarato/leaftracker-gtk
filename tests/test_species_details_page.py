@@ -11,24 +11,24 @@ from pygui.species_details_page import SpeciesDetailsPage
 class TestSpeciesDetailsPage:
     def test_set_species_reference(self):
         details_page = SpeciesDetailsPage()
-        details_page.set_property("reference", "abc")
-        assert details_page.get_property("reference") == "abc"
+        species = SpeciesModel()
+        species.reference = "abc"
+        details_page.set_property("current_species", species)
+        assert details_page.get_property("current_species").reference == "abc"
 
     def test_set_species_reference_to_none(self):
         details_page = SpeciesDetailsPage()
-        details_page.set_property("reference", None)
-        assert details_page.get_property("reference") is None
-
-    def test_reference_display_is_updated_when_reference_changed(self):
-        details_page = SpeciesDetailsPage()
-        details_page.set_property("reference", "xyz")
-        assert details_page.reference_display.get_text() == "xyz"
+        details_page.set_property("current_species", None)
+        assert details_page.get_property("current_species") is None
 
     def test_setting_reference_to_none_shows_missing_message(self):
         details_page = SpeciesDetailsPage()
-        details_page.set_property("reference", None)
+        species = SpeciesModel()
+        species.reference = None
+        details_page.set_property("current_species", species)
         assert details_page.reference_display.get_text() == "None"
 
+    @pytest.mark.skip("Keep obsolete test as documentation.")
     def test_changing_bound_property_sets_reference(self, gobject_with_property):
         details_page = SpeciesDetailsPage()
         gobject_with_property.bind_property(
@@ -51,4 +51,3 @@ class TestSpeciesDetailsPage:
         species.reference = "reference-xyz"
         page.current_species = species
         assert page.reference_display.get_text() == "reference-xyz"
-        

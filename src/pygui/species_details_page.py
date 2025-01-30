@@ -27,14 +27,6 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self.current_scientific_name.set_validator(services.validate_taxon_name)
         self.previous_scientific_names.set_validator(services.validate_taxon_name)
 
-    @GObject.Property(type=str)
-    def reference(self) -> str | None:
-        return self._current_species.reference
-
-    @reference.setter
-    def reference(self, new_reference: str) -> None:
-        self._current_species.reference = new_reference
-
     @GObject.Property(type=SpeciesModel)
     def current_species(self) -> SpeciesModel:
         return self._current_species
@@ -42,10 +34,6 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     @current_species.setter
     def current_species(self, species: SpeciesModel) -> None:
         self._current_species = species
-
-    @Gtk.Template.Callback()
-    def reference_changed(self, instance, param):
-        self.reference_display.set_text(str(self.reference))
 
     @Gtk.Template.Callback()
     def _on_current_species_changed(self, instance, param):
