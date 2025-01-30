@@ -28,13 +28,6 @@ class TestSpeciesDetailsPage:
         details_page.set_property("current_species", species)
         assert details_page.reference_display.get_text() == "None"
 
-    def test_reference_display_updated_when_current_species_changed(self):
-        page = SpeciesDetailsPage()
-        species = SpeciesModel()
-        species.reference = "reference-xyz"
-        page.current_species = species
-        assert page.reference_display.get_text() == "reference-xyz"
-
     def test_can_bind_current_and_selected_species(self):
         details_page = SpeciesDetailsPage()
         list_page = SpeciesListPage()
@@ -49,3 +42,10 @@ class TestSpeciesDetailsPage:
         species.reference = "reference-xyz"
         list_page.selected_species = species
         assert details_page.current_species == species
+
+    def test_reference_display_updated(self):
+        page = SpeciesDetailsPage()
+        species = SpeciesModel()
+        species.reference = "reference-xyz"
+        page.current_species = species
+        assert page.reference_display.get_text() == "reference-xyz"
