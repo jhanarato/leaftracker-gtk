@@ -9,7 +9,7 @@ from pygui.species_details_page import SpeciesDetailsPage
 
 
 class TestSpeciesDetailsPage:
-    def test_set_species_reference_to_none(self):
+    def test_can_set_species_reference_to_none(self):
         details_page = SpeciesDetailsPage()
         details_page.set_property("current_species", None)
         assert details_page.get_property("current_species") is None
