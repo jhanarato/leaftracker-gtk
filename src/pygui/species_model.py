@@ -1,3 +1,5 @@
+from typing import Self
+
 from gi.repository import Gio, GObject
 
 class SpeciesModel(GObject.Object):
@@ -30,3 +32,14 @@ class SpeciesModel(GObject.Object):
     @previous_names.setter
     def previous_names(self, values: list[str]) -> None:
         self._previous_names = values
+
+    def __eq__(self, other: Self) -> bool:
+        return (
+            self.reference,
+            self._current_name,
+            self._previous_names
+        ) == (
+            other.reference,
+            other._current_name,
+            other._previous_names
+        )
