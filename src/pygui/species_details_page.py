@@ -1,6 +1,7 @@
 from enum import Enum, auto
 
 import gi
+from leaftracker.service_layer import services
 
 from pygui.species_model import SpeciesModel
 
@@ -9,19 +10,6 @@ from gi.repository import Adw, Gtk, GObject
 
 from pygui.string_list_maker import StringListMaker
 from pygui.validated_entry_row import ValidatedEntryRow
-
-from leaftracker.adapters.elastic.initialise import unit_of_work
-from leaftracker.service_layer import services
-
-
-class SpeciesWriter:
-    def __init__(self):
-        self.reference: str | None = None
-
-    def write_current_scientific_name(self, name: str) -> None:
-        pass
-        # uow = unit_of_work()
-        # self.reference = services.add_species(name, uow)
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details_page.ui")
@@ -36,7 +24,6 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     def __init__(self):
         super().__init__()
         self._current_species = SpeciesModel()
-        self._writer = SpeciesWriter()
         self.current_scientific_name.set_validator(services.validate_taxon_name)
         self.previous_scientific_names.set_validator(services.validate_taxon_name)
 
@@ -62,9 +49,4 @@ class SpeciesDetailsPage(Adw.NavigationPage):
 
     @Gtk.Template.Callback()
     def save_button_activated(self, instance):
-        text = self.current_scientific_name.get_text()
-        self._writer.write_current_scientific_name(text)
-        self.reference = self._writer.reference
-
-    def set_writer(self, writer):
-        self._writer = writer
+        pass

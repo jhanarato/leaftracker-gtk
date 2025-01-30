@@ -8,55 +8,29 @@ from pygui.species_model import SpeciesModel
 from pygui.species_details_page import SpeciesDetailsPage
 
 
-class FakeSpeciesWriter:
-    def __init__(self):
-        self.reference = None
-        self.current_scientific_name = None
-
-    def write_current_scientific_name(self, name: str):
-        self.reference = "species-ref"
-        self.current_scientific_name = name
-
-
-@pytest.fixture
-def writer() -> FakeSpeciesWriter:
-    return FakeSpeciesWriter()
-
-@pytest.fixture
-def details_page(writer) -> SpeciesDetailsPage:
-    page = SpeciesDetailsPage()
-    page.set_writer(writer)
-    return page
-
-class TestFakeSpeciesWriter:
-    def test_create_writer(self):
-        writer = FakeSpeciesWriter()
-
-
 class TestSpeciesDetailsPage:
-    def test_species_property(self, details_page):
-        species = SpeciesModel()
-        species.current_name = "Acacia saligna"
-        details_page.species = species
-        assert details_page.species.current_name == "Acacia saligna"
-
-    def test_set_species_reference(self, details_page):
+    def test_set_species_reference(self):
+        details_page = SpeciesDetailsPage()
         details_page.set_property("reference", "abc")
         assert details_page.get_property("reference") == "abc"
 
-    def test_set_species_reference_to_none(self, details_page):
+    def test_set_species_reference_to_none(self):
+        details_page = SpeciesDetailsPage()
         details_page.set_property("reference", None)
         assert details_page.get_property("reference") is None
 
-    def test_reference_display_is_updated_when_reference_changed(self, details_page):
+    def test_reference_display_is_updated_when_reference_changed(self):
+        details_page = SpeciesDetailsPage()
         details_page.set_property("reference", "xyz")
         assert details_page.reference_display.get_text() == "xyz"
 
-    def test_setting_reference_to_none_shows_missing_message(self, details_page):
+    def test_setting_reference_to_none_shows_missing_message(self):
+        details_page = SpeciesDetailsPage()
         details_page.set_property("reference", None)
         assert details_page.reference_display.get_text() == "None"
 
-    def test_changing_bound_property_sets_reference(self, details_page, gobject_with_property):
+    def test_changing_bound_property_sets_reference(self, gobject_with_property):
+        details_page = SpeciesDetailsPage()
         gobject_with_property.bind_property(
             source_property="prop-a",
             target=details_page,
@@ -66,19 +40,7 @@ class TestSpeciesDetailsPage:
         gobject_with_property.set_property("prop-a", "cba")
         assert details_page.reference == "cba"
 
-    def test_changes_saved_when_save_button_clicked(self, details_page, writer):
-        species_name = "Acacia saligna"
-        details_page.current_scientific_name.set_text(species_name)
-        assert writer.current_scientific_name is None
-        details_page.save_button.emit("activated")
-        assert writer.current_scientific_name == species_name
-
-    def test_reference_displayed_on_save(self, details_page):
-        species_name = "Acacia saligna"
-        details_page.current_scientific_name.set_text(species_name)
-        details_page.save_button.emit("activated")
-        assert details_page.reference_display.get_text() == "species-ref"
-
-    def test_species_property(self, details_page):
+    def test_species_property(self):
+        details_page = SpeciesDetailsPage()
         details_page.set_property("current_species", SpeciesModel())
         assert details_page.get_property("current_species") == SpeciesModel()
