@@ -35,18 +35,18 @@ class SpeciesDetailsPage(Adw.NavigationPage):
 
     def __init__(self):
         super().__init__()
-        self.species = SpeciesModel()
+        self._current_species = SpeciesModel()
         self._writer = SpeciesWriter()
         self.current_scientific_name.set_validator(services.validate_taxon_name)
         self.previous_scientific_names.set_validator(services.validate_taxon_name)
 
     @GObject.Property(type=str)
     def reference(self) -> str | None:
-        return self._current_species
+        return self._current_species.reference
 
     @reference.setter
-    def reference(self, species: str) -> None:
-        self._current_species = species
+    def reference(self, new_reference: str) -> None:
+        self._current_species.reference = new_reference
 
     @GObject.Property(type=SpeciesModel)
     def species(self) -> SpeciesModel:
