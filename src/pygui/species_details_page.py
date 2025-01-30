@@ -61,10 +61,6 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     def species(self, species: SpeciesModel) -> None:
         self._species = species
 
-    @reference.setter
-    def reference(self, species: str) -> None:
-        self._current_species = species
-
     @Gtk.Template.Callback()
     def reference_changed(self, instance, param):
         self.reference_display.set_text(str(self.reference))
