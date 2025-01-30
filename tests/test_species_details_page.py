@@ -16,7 +16,6 @@ class TestSpeciesDetailsPage:
         details_page.set_property("current_species", SpeciesModel())
         assert details_page.get_property("current_species") == SpeciesModel()
 
-    @pytest.mark.skip("This test passes, even though an exception is thrown in the callback.")
     def test_can_set_species_property_to_none(self):
         details_page = SpeciesDetailsPage()
         details_page.set_property("current_species", None)
