@@ -1,12 +1,10 @@
 import pytest
 from gi.repository import Gio, Gtk, GObject
 
-from pygui.species_model import SpeciesModel
-
 resource = Gio.Resource.load('../leaftracker-gtk.gresource')
 resource._register()
 
-
+from pygui.species_model import SpeciesModel
 from pygui.species_details_page import SpeciesDetailsPage, SpeciesEditMode
 
 
