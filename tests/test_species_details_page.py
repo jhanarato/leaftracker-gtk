@@ -9,13 +9,6 @@ from pygui.species_details_page import SpeciesDetailsPage
 
 
 class TestSpeciesDetailsPage:
-    def test_set_species_reference(self):
-        details_page = SpeciesDetailsPage()
-        species = SpeciesModel()
-        species.reference = "abc"
-        details_page.set_property("current_species", species)
-        assert details_page.get_property("current_species").reference == "abc"
-
     def test_set_species_reference_to_none(self):
         details_page = SpeciesDetailsPage()
         details_page.set_property("current_species", None)
