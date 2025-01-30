@@ -78,3 +78,7 @@ class TestSpeciesDetailsPage:
         details_page.current_scientific_name.set_text(species_name)
         details_page.save_button.emit("activated")
         assert details_page.reference_display.get_text() == "species-ref"
+
+    def test_species_property(self, details_page):
+        details_page.set_property("current_species", SpeciesModel())
+        assert details_page.get_property("current_species") == SpeciesModel()

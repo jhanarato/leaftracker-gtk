@@ -50,7 +50,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
 
     @GObject.Property(type=SpeciesModel)
     def current_species(self) -> SpeciesModel:
-        return self._species
+        return self._current_species
 
     @current_species.setter
     def current_species(self, species: SpeciesModel) -> None:
