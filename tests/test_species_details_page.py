@@ -49,3 +49,10 @@ class TestSpeciesDetailsPage:
         species.reference = "reference-xyz"
         page.current_species = species
         assert page.reference_display.get_text() == "reference-xyz"
+
+    def test_current_scientific_name_entry_updated(self):
+        page = SpeciesDetailsPage()
+        species = SpeciesModel()
+        species.current_name = "Acacia saligna"
+        page.current_species = species
+        assert page.current_scientific_name.get_text() == "Acacia saligna"

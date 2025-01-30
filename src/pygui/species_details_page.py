@@ -39,8 +39,8 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     def _on_current_species_changed(self, instance, param):
         # Note that we can set the property to None, but we shouldn't.
         if self.current_species is not None:
-            reference_as_string = str(self.current_species.reference)
-            self.reference_display.set_text(reference_as_string)
+            self.reference_display.set_text(str(self.current_species.reference))
+            self.current_scientific_name.set_text(str(self.current_species.current_name))
 
     @Gtk.Template.Callback()
     def save_button_activated(self, instance):
