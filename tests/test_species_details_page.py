@@ -44,3 +44,11 @@ class TestSpeciesDetailsPage:
         details_page = SpeciesDetailsPage()
         details_page.set_property("current_species", SpeciesModel())
         assert details_page.get_property("current_species") == SpeciesModel()
+
+    def test_reference_display_updated_when_current_species_changed(self):
+        page = SpeciesDetailsPage()
+        species = SpeciesModel()
+        species.reference = "reference-xyz"
+        page.current_species = species
+        assert page.reference_display.get_text() == "reference-xyz"
+        

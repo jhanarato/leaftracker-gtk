@@ -48,5 +48,9 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self.reference_display.set_text(str(self.reference))
 
     @Gtk.Template.Callback()
+    def _on_current_species_changed(self, instance, param):
+        self.reference_display.set_text(str(self.current_species.reference))
+
+    @Gtk.Template.Callback()
     def save_button_activated(self, instance):
         pass
