@@ -2,6 +2,7 @@ pkgdatadir = join_paths(get_option('prefix'), get_option('datadir'), meson.proje
 moduledir = join_paths(pkgdatadir, 'features/steps')
 
 steps = [
+  'editing_species.py',
   'tutorial.py',
 ]
 

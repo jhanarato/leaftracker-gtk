@@ -3,6 +3,7 @@ moduledir = join_paths(pkgdatadir, 'features')
 
 features = [
   'tutorial.feature',
+  'editing_species.feature',
 ]
 
 install_data(features, install_dir: moduledir)
