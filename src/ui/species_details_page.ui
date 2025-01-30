@@ -58,7 +58,7 @@
                                 <property name="halign">center</property>
                                 <child>
                                     <object class="AdwButtonRow" id="save_button">
-                                        <property name="title">Save Changes</property>
+                                        <property name="title">Apply</property>
                                         <style>
                                             <class name="suggested-action"/>
                                         </style>
