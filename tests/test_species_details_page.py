@@ -5,7 +5,7 @@ resource = Gio.Resource.load('../leaftracker-gtk.gresource')
 resource._register()
 
 from pygui.species_model import SpeciesModel
-from pygui.species_details_page import SpeciesDetailsPage, SpeciesEditMode
+from pygui.species_details_page import SpeciesDetailsPage
 
 
 class FakeSpeciesWriter:
@@ -65,18 +65,6 @@ class TestSpeciesDetailsPage:
         )
         gobject_with_property.set_property("prop-a", "cba")
         assert details_page.reference == "cba"
-
-    def test_starts_in_add_new_mode(self, details_page):
-        assert details_page.mode() == SpeciesEditMode.ADD_NEW
-
-    def test_switches_mode_to_edit_existing(self, details_page):
-        details_page.set_property("reference", "a reference")
-        assert details_page.mode() == SpeciesEditMode.EDIT_EXISTING
-
-    def test_switches_mode_to_add_new(self, details_page):
-        details_page.set_property("reference", "a reference")
-        details_page.set_property("reference", None)
-        assert details_page.mode() == SpeciesEditMode.ADD_NEW
 
     def test_changes_saved_when_save_button_clicked(self, details_page, writer):
         species_name = "Acacia saligna"

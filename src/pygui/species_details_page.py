@@ -14,10 +14,6 @@ from leaftracker.adapters.elastic.initialise import unit_of_work
 from leaftracker.service_layer import services
 
 
-class SpeciesEditMode(Enum):
-    ADD_NEW = auto()
-    EDIT_EXISTING = auto()
-
 class SpeciesWriter:
     def __init__(self):
         self.reference: str | None = None
@@ -40,7 +36,6 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     def __init__(self):
         super().__init__()
         self.species = SpeciesModel()
-        self._current_species: str | None = None
         self._writer = SpeciesWriter()
         self.current_scientific_name.set_validator(services.validate_taxon_name)
         self.previous_scientific_names.set_validator(services.validate_taxon_name)
@@ -70,12 +65,6 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         text = self.current_scientific_name.get_text()
         self._writer.write_current_scientific_name(text)
         self.reference = self._writer.reference
-
-    def mode(self) -> SpeciesEditMode:
-        if self.reference is None:
-            return SpeciesEditMode.ADD_NEW
-        else:
-            return SpeciesEditMode.EDIT_EXISTING
 
     def set_writer(self, writer):
         self._writer = writer
