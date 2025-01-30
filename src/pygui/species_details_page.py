@@ -49,12 +49,12 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self._current_species.reference = new_reference
 
     @GObject.Property(type=SpeciesModel)
-    def species(self) -> SpeciesModel:
+    def current_species(self) -> SpeciesModel:
         return self._species
 
-    @species.setter
-    def species(self, species: SpeciesModel) -> None:
-        self._species = species
+    @current_species.setter
+    def current_species(self, species: SpeciesModel) -> None:
+        self._current_species = species
 
     @Gtk.Template.Callback()
     def reference_changed(self, instance, param):
