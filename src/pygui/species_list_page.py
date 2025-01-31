@@ -18,7 +18,11 @@ class SpeciesListPage(Adw.NavigationPage):
 
     @Gtk.Template.Callback()
     def goto_button_clicked(self, *args):
-        print("Clicked")
+        dummy_species = SpeciesModel()
+        dummy_species.reference = "dummy-reference"
+        dummy_species.current_name = "Dummy species"
+        dummy_species.previous_names = ["Dummy a", "Dummy b"]
+        self.selected_species = dummy_species
 
     def click_add_species(self):
         pass
