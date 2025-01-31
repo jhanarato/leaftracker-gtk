@@ -41,3 +41,11 @@ class TestSpeciesDetailsPage:
         species.current_name = "Acacia saligna"
         page.current_species = species
         assert page.current_scientific_name.get_text() == "Acacia saligna"
+
+    def test_previous_names_list_updated(self):
+        page = SpeciesDetailsPage()
+        species = SpeciesModel()
+        names = ["Previous one", "Previous two"]
+        species.previous_names = names
+        page.current_species = species
+        assert page.previous_scientific_names.get_values() == names
