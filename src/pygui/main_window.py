@@ -2,11 +2,19 @@ import gi
 
 
 gi.require_version('Adw', '1')
-from gi.repository import Adw, Gtk
+from gi.repository import Adw, GObject, Gtk
 
 from pygui.species_list_page import SpeciesListPage
 from pygui.species_details_page import SpeciesDetailsPage
 
+
+def bind_properties(list_page: SpeciesListPage, details_page: SpeciesDetailsPage):
+    details_page.bind_property(
+        source_property="current_species",
+        target=list_page,
+        target_property="selected_species",
+        flags=GObject.BindingFlags.BIDIRECTIONAL
+    )
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/main_window.ui")
