@@ -41,10 +41,19 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         if self.current_species is None:
             return
 
-        self.reference_display.set_text(str(self.current_species.reference))
-        self.current_scientific_name.set_text(str(self.current_species.current_name))
+        self.show_reference()
+        self.show_current_species()
+        self.show_previous_names()
+
+    def show_previous_names(self):
         for previous_name in self.current_species.previous_names:
             self.previous_scientific_names.add_string(previous_name)
+
+    def show_current_species(self):
+        self.current_scientific_name.set_text(str(self.current_species.current_name))
+
+    def show_reference(self):
+        self.reference_display.set_text(str(self.current_species.reference))
 
     @Gtk.Template.Callback()
     def save_button_activated(self, instance):
