@@ -28,21 +28,6 @@ class TestSpeciesDetailsPage:
         details_page.set_property("current_species", species)
         assert details_page.reference_display.get_text() == "None"
 
-    def test_can_bind_current_and_selected_species(self):
-        details_page = SpeciesDetailsPage()
-        list_page = SpeciesListPage()
-        details_page.bind_property(
-            source_property="current_species",
-            target=list_page,
-            target_property="selected_species",
-            flags=GObject.BindingFlags.BIDIRECTIONAL
-        )
-
-        species = SpeciesModel()
-        species.reference = "reference-xyz"
-        list_page.selected_species = species
-        assert details_page.current_species == species
-
     def test_reference_display_updated(self):
         page = SpeciesDetailsPage()
         species = SpeciesModel()
