@@ -5,6 +5,18 @@ gi.require_version("Adw", "1")
 from gi.repository import Gtk, Adw, GLib, Gio
 
 
+button_ui = """\
+    <interface>
+      <template class="TheButton" parent="GtkButton">
+      </template>
+    </interface>
+    """
+
+@Gtk.Template(string=button_ui)
+class TheButton(Gtk.Button):
+    __gtype_name__ = "TheButton"
+
+
 class TestSimpleAction:
     def test_activate_with_no_parameters(self):
         action_name = None
