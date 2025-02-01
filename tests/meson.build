@@ -4,6 +4,7 @@ moduledir = join_paths(pkgdatadir, 'pygui_tests')
 pygui_tests = [
   'conftest.py',
   'test_main_window.py',
+  'test_learn_actions.py',
   'test_learn_models.py',
   'test_learn_properties.py',
   'test_learn_templates.py',
