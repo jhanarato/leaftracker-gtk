@@ -28,12 +28,6 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self.current_scientific_name.set_validator(services.validate_taxon_name)
         self.previous_scientific_names.set_validator(services.validate_taxon_name)
 
-        self.current_scientific_name.bind_property(
-            source_property="text",
-            target=self._edited_species,
-            target_property="current_name"
-        )
-
     @GObject.Property(type=SpeciesModel)
     def current_species(self) -> SpeciesModel:
         return self._current_species
@@ -51,6 +45,10 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self.show_reference()
         self.show_current_species()
         self.show_previous_names()
+
+    @Gtk.Template.Callback()
+    def _on_edited(self, instance, param):
+        self._edited_species.current_name = self.current_scientific_name.get_text()
 
     def show_reference(self) -> None:
         reference = str(self.current_species.reference)

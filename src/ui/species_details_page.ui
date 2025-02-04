@@ -37,6 +37,7 @@
                                 <child>
                                     <object class="ValidatedEntryRow" id="current_scientific_name">
                                         <property name="title">current</property>
+                                        <signal name="notify::text" handler="_on_edited"/>
                                     </object>
                                 </child>
                                 <child>
