@@ -1,6 +1,6 @@
 import pytest
 
-from gi.repository import Gio, GObject
+from gi.repository import Gio, GObject, Gtk
 
 
 class Notification():
@@ -150,3 +150,30 @@ def test_doesnt_convert_none_to_empty():
     object_a = ObjectA()
     object_a.props.property_a = None
     assert object_a.props.property_a is None
+
+
+class StrvObject(GObject.Object):
+    def __init__(self):
+        super().__init__()
+        self._strv_list: list[str] = list()
+
+    @GObject.Property(type=GObject.TYPE_STRV)
+    def strv_list(self) -> list[str]:
+        return self._strv_list
+
+    @strv_list.setter
+    def strv_list(self, values: list[str]) -> None:
+        self._strv_list = values
+
+
+@pytest.mark.filterwarnings("ignore:.*GtkStringList has no readable property called 'strings'*")
+def test_bind_string_list_to_strv():
+    string_list = Gtk.StringList()
+    strv_object = StrvObject()
+
+    with pytest.raises(TypeError):
+        string_list.bind_property(
+            source_property="strings",
+            target=strv_object,
+            target_property="strv_list"
+        )
