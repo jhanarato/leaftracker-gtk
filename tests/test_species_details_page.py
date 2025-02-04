@@ -28,24 +28,13 @@ class TestSpeciesDetailsPage:
         details_page.set_property("current_species", species)
         assert details_page.reference_display.get_text() == "None"
 
-    def test_reference_display_updated(self):
+    def test_when_current_species_set_fields_are_populated(self):
         page = SpeciesDetailsPage()
         species = SpeciesModel()
         species.reference = "reference-xyz"
+        species.current_name = "Acacia saligna"
+        species.previous_names = ["Acacia old", "Acacia older"]
         page.current_species = species
         assert page.reference_display.get_text() == "reference-xyz"
-
-    def test_current_scientific_name_entry_updated(self):
-        page = SpeciesDetailsPage()
-        species = SpeciesModel()
-        species.current_name = "Acacia saligna"
-        page.current_species = species
         assert page.current_scientific_name.get_text() == "Acacia saligna"
-
-    def test_previous_names_list_updated(self):
-        page = SpeciesDetailsPage()
-        species = SpeciesModel()
-        names = ["Previous one", "Previous two"]
-        species.previous_names = names
-        page.current_species = species
-        assert page.previous_scientific_names.get_values() == names
+        assert page.previous_scientific_names.get_values() == ["Acacia old", "Acacia older"]
