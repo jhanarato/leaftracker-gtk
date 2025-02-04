@@ -7,7 +7,6 @@ resource._register()
 
 from pygui.species_model import SpeciesModel
 from pygui.species_details_page import SpeciesDetailsPage
-from pygui.species_list_page import SpeciesListPage
 
 
 class TestSpeciesDetailsPage:
