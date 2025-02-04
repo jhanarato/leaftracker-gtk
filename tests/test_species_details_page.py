@@ -38,3 +38,8 @@ class TestSpeciesDetailsPage:
         assert page.reference_display.get_text() == "reference-xyz"
         assert page.current_scientific_name.get_text() == "Acacia saligna"
         assert page.previous_scientific_names.get_values() == ["Acacia old", "Acacia older"]
+
+    def test_when_current_name_is_changed_the_edited_species_is_updated(self):
+        page = SpeciesDetailsPage()
+        page.current_scientific_name.set_text("Eucalyptus rudis")
+        assert page._edited_species.current_name == "Eucalyptus rudis"
