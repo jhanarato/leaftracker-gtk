@@ -12,7 +12,7 @@ class Signaller(GObject.Object):
         pass
 
     @GObject.Signal
-    def print_signal(self) -> None:
+    def signal_with_side_effect(self) -> None:
         print("A side effect of emit")
 
 
@@ -21,8 +21,8 @@ class TestSignals:
         signaller = Signaller()
         signaller.emit("noarg-signal")
 
-    def test_print_signal(self, capsys):
+    def test_signal_with_side_effect(self, capsys):
         signaller = Signaller()
-        signaller.emit("print-signal")
+        signaller.emit("signal-with-side-effect")
         captured = capsys.readouterr()
         assert captured.out == "A side effect of emit\n"
