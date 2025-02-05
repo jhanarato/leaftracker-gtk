@@ -7,6 +7,11 @@ class Signaller(GObject.Object):
     def __init__(self):
         super().__init__()
 
+    @GObject.Signal
+    def noarg_signal(self) -> None:
+        pass
 
-def test_new_module():
-    assert True
+class TestSignals:
+    def test_noarg_signal(self):
+        signaller = Signaller()
+        signaller.emit("noarg-signal")
