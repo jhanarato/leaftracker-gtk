@@ -7,6 +7,7 @@ pygui_tests = [
   'test_learn_actions.py',
   'test_learn_models.py',
   'test_learn_properties.py',
+  'test_learn_signals.py',
   'test_learn_templates.py',
   'test_string_list_maker.py',
   'test_species_details_page.py',
