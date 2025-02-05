@@ -166,12 +166,14 @@ class StrvObject(GObject.Object):
         self._strv_list = values
 
 
-@pytest.mark.filterwarnings("ignore:.*GtkStringList has no readable property called 'strings'*")
 def test_bind_string_list_to_strv():
     string_list = Gtk.StringList()
     strv_object = StrvObject()
 
-    with pytest.raises(TypeError):
+    with (
+        pytest.warns(Warning, match="GtkStringList has no readable property called 'strings'"),
+        pytest.raises(TypeError),
+    ):
         string_list.bind_property(
             source_property="strings",
             target=strv_object,
