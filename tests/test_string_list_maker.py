@@ -112,6 +112,21 @@ class TestStringListMaker:
 
         assert received
 
+    def test_emits_changed_when_item_removed(self):
+        received = False
+
+        def callback(instance):
+            nonlocal received
+            received = True
+
+        widget = StringListMaker()
+        widget.add_string("some text")
+        assert not received
+        widget.connect("list-changed", callback)
+        widget.click_remove_on_item(0)
+        assert received
+
+
 class TestGtkStringListHelpers:
     def test_position_of_value(self):
         string_list = Gtk.StringList.new(["abc", "def", "hij"])
