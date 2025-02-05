@@ -17,7 +17,7 @@ class Signaller(GObject.Object):
 
     @GObject.Signal(return_type=bool)
     def signal_with_return_type(self) -> bool:
-        return False
+        pass
 
     @GObject.Property(type=str)
     def static_property(self) -> str:
@@ -41,9 +41,10 @@ class TestSignals:
 
     def test_signal_with_return_type(self):
         instance_type = None
-        def callback(instance):
+        def callback(instance: Signaller) -> bool:
             nonlocal instance_type
             instance_type = type(instance)
+            return True
 
         signaller = Signaller()
         signaller.connect("signal-with-return-type", callback)
