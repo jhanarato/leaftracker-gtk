@@ -99,6 +99,19 @@ class TestStringListMaker:
         widget.click_add_button()
         assert widget.get_values() == []
 
+    def test_emits_changed_when_item_added(self):
+        received = False
+
+        def callback(instance):
+            nonlocal received
+            received = True
+
+        widget = StringListMaker()
+        widget.connect("list-changed", callback)
+        widget.add_string("some text")
+
+        assert received
+
 class TestGtkStringListHelpers:
     def test_position_of_value(self):
         string_list = Gtk.StringList.new(["abc", "def", "hij"])

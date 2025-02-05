@@ -64,6 +64,8 @@ class StringListMaker(Adw.PreferencesGroup):
 
         self._list_row.set_visible(False)
 
+        self._model.connect("items_changed", self._on_string_list_changed)
+
     @property
     def entry_field(self) -> str:
         return self._add_item_row.get_text()
@@ -72,12 +74,20 @@ class StringListMaker(Adw.PreferencesGroup):
     def entry_field(self, name: str) -> None:
         self._add_item_row.set_text(name)
 
+    @GObject.Signal
+    def list_changed(self) -> None:
+        pass
+
     @Gtk.Template.Callback()
     def _on_apply_valid_add_item(self, instance: ValidatedEntryRow) -> None:
         text = instance.get_text()
         if text not in self.get_values():
             self.add_string(text)
         self._add_item_row.clear()
+
+    def _on_string_list_changed(self, instance, foo, bar, baz):
+        # foo, bar and baz are integers, what they mean I don't know.
+        self.emit("list-changed")
 
     def add_string(self, value: str) -> None:
         self._model.append(value)
