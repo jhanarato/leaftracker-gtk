@@ -105,8 +105,11 @@ class StringListMaker(Adw.PreferencesGroup):
     def _on_remove_button_clicked(self, item: RemovableRow):
         value = item.get_text()
         remove(self._model, value)
-        if self._model.get_n_items() == 0:
+        if self.is_empty():
             self._list_row.set_visible(False)
+
+    def is_empty(self):
+        return self._model.get_n_items() == 0
 
     def list_row_is_visible(self):
         return self._list_row.get_visible()
