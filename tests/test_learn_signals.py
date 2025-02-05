@@ -39,7 +39,6 @@ class TestSignals:
         param_passed = None
 
         def callback(instance, param):
-            print("In callback")
             nonlocal param_passed
             param_passed = param
 
