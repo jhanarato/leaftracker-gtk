@@ -167,6 +167,10 @@ class StrvObject(GObject.Object):
 
 
 def test_bind_string_list_to_strv():
+    # Note: the C API documentation does explain that
+    # 'strings' is writeable, but not readable.
+    # https://docs.gtk.org/gtk4/property.StringList.strings.html
+
     string_list = Gtk.StringList()
     strv_object = StrvObject()
 
