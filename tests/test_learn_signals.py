@@ -15,6 +15,10 @@ class Signaller(GObject.Object):
     def signal_with_side_effect(self) -> None:
         print("A side effect of emit")
 
+    @GObject.Signal(return_type=bool)
+    def signal_with_return_type(self) -> bool:
+        return False
+
     @GObject.Property(type=str)
     def static_property(self) -> str:
         return "static property"
@@ -35,6 +39,18 @@ class TestSignals:
         captured = capsys.readouterr()
         assert captured.out == "A side effect of emit\n"
 
+    def test_signal_with_return_type(self):
+        instance_type = None
+        def callback(instance):
+            nonlocal instance_type
+            instance_type = type(instance)
+
+        signaller = Signaller()
+        signaller.connect("signal-with-return-type", callback)
+        signaller.emit("signal-with-return-type")
+
+        assert instance_type == Signaller
+
     def test_handle_notify_signal(self):
         param_passed = None
 
@@ -48,3 +64,4 @@ class TestSignals:
         signaller.static_property = "This changes nothing"
 
         assert isinstance(param_passed, GObject.ParamSpecString)
+
