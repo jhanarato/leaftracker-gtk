@@ -44,6 +44,9 @@ class SpeciesModel(GObject.Object):
             other._previous_names
         )
 
-    def __str__(self) -> str:
-        return f"SpeciesModel: {self.reference=} {self.current_name=} {self.previous_names=}"
+    def __ne__(self, other: Self) -> bool:
+        return not (self == other)
+
+    def __repr__(self) -> str:
+        return f"SpeciesModel({self.reference}, {self.current_name}, {self.previous_names})"
 

@@ -65,3 +65,9 @@ class TestSpeciesModel:
         assert species_a == species_b
         assert species_b == species_a
 
+    def test_inequality(self):
+        species_a = SpeciesModel()
+        species_b = SpeciesModel()
+        assert (species_a == species_b)
+        assert not (species_a != species_b)
+
