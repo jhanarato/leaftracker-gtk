@@ -43,3 +43,7 @@ class SpeciesModel(GObject.Object):
             other._current_name,
             other._previous_names
         )
+
+    def __str__(self) -> str:
+        return f"SpeciesModel: {self.reference=} {self.current_name=} {self.previous_names=}"
+
