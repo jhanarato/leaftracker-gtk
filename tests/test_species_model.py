@@ -34,3 +34,22 @@ class TestSpeciesModel:
         store = Gio.ListStore()
         store.append(species)
         assert store.get_item(0).current_name == "a name"
+
+    def test_equality(self):
+        species_a = SpeciesModel()
+        species_b = SpeciesModel()
+        assert species_a == species_b
+        assert species_b == species_a
+        species_a.reference = "abc"
+        species_b.reference = "abc"
+        assert species_a == species_b
+        assert species_b == species_a
+        species_a.current_name = "Acacia saligna"
+        species_b.current_name = "Acacia saligna"
+        assert species_a == species_b
+        assert species_b == species_a
+        species_a.previous_names = ["Acacia old", "Acacia older"]
+        species_b.previous_names = ["Acacia old", "Acacia older"]
+        assert species_a == species_b
+        assert species_b == species_a
+
