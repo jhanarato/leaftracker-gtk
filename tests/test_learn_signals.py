@@ -28,6 +28,7 @@ class SideEffectSignaller(GObject.Object):
     def signal_with_side_effect(self) -> None:
         print("A side effect of emit")
 
+
 def test_signal_with_side_effect(capsys):
     signaller = SideEffectSignaller()
     signaller.emit("signal-with-side-effect")
@@ -40,8 +41,10 @@ class ReturnTypeSignaller(GObject.Object):
     def signal_with_return_type(self) -> bool:
         pass
 
+
 def test_signal_with_return_type():
     instance_type = None
+
     def handler(instance: ReturnTypeSignaller) -> bool:
         nonlocal instance_type
         instance_type = type(instance)
