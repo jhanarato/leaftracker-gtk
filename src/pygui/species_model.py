@@ -3,11 +3,19 @@ from typing import Self
 from gi.repository import Gio, GObject
 
 class SpeciesModel(GObject.Object):
-    def __init__(self):
+    def __init__(self,
+                 reference: str | None= None,
+                 current_name: str | None = None,
+                 previous_names: list[str] | None = None):
         super().__init__()
-        self._reference: str | None = None
-        self._current_name: str | None = None
+        self._reference: str | None = reference
+        self._current_name: str | None = current_name
+
         self._previous_names: list[str] = list()
+
+        if previous_names is not None:
+            self._previous_names = previous_names
+
 
     @GObject.Property(type=str)
     def reference(self) -> str | None:
@@ -48,5 +56,5 @@ class SpeciesModel(GObject.Object):
         return not (self == other)
 
     def __repr__(self) -> str:
-        return f"SpeciesModel({self.reference}, {self.current_name}, {self.previous_names})"
+        return f"SpeciesModel({self.reference!r}, {self.current_name!r}, {self.previous_names!r})"
 

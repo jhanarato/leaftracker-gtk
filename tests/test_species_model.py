@@ -2,7 +2,6 @@ from gi.repository import Gio, Gtk, GObject
 
 from pygui.species_model import SpeciesModel
 
-
 class TestSpeciesModel:
     def test_reference(self):
         species = SpeciesModel()
@@ -70,4 +69,14 @@ class TestSpeciesModel:
         species_b = SpeciesModel()
         assert (species_a == species_b)
         assert not (species_a != species_b)
+
+    def test_init_sets_properties(self):
+        species = SpeciesModel(
+            reference="ref123",
+            current_name="Acacia saligna",
+            previous_names=["Acacia old", "Acacia older"],
+        )
+
+        assert f"{species!r}" == "SpeciesModel('ref123', 'Acacia saligna', ['Acacia old', 'Acacia older'])"
+
 
