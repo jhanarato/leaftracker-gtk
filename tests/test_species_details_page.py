@@ -52,7 +52,8 @@ class TestSpeciesDetailsPage:
         page.previous_scientific_names.add_string("Acacia older")
         assert page._edited_species.previous_names == ["Acacia old", "Acacia older"]
 
-    def test_save_button_is_sensitive_when_changed_have_been_made(self):
+    def test_save_button_is_sensitive_when_changed_have_been_made(self, species_data):
         page = SpeciesDetailsPage()
+        page.current_species = species_data
         page.current_scientific_name.set_text("Acacia saligna")
         assert page.save_button.get_sensitive()
