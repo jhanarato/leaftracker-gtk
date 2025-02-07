@@ -65,16 +65,16 @@ class ReturnTypeSignaller(GObject.Object):
 
 def test_signal_with_return_type():
     instance_type = None
-    def callback(instance: Signaller) -> bool:
+    def callback(instance: ReturnTypeSignaller) -> bool:
         nonlocal instance_type
         instance_type = type(instance)
         return True
 
-    signaller = Signaller()
+    signaller = ReturnTypeSignaller()
     signaller.connect("signal-with-return-type", callback)
     signaller.emit("signal-with-return-type")
 
-    assert instance_type == Signaller
+    assert instance_type == ReturnTypeSignaller
 
 
 class NotifySignaller(GObject.Object):
