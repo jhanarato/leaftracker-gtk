@@ -53,6 +53,29 @@ def test_signal_with_return_type():
     assert instance_type == ReturnTypeSignaller
 
 
+class ArgumentSignaller(GObject.Object):
+    @GObject.Signal(arg_types=(int, str))
+    def signal_with_arguments(self, param_one: int, param_two: str) -> None:
+        pass
+
+
+def test_signal_with_arguments():
+    argument_one = None
+    argument_two = None
+
+    def handler(instance: ArgumentSignaller, param_one: int, param_two: str) -> None:
+        assert isinstance(instance, ArgumentSignaller)
+        nonlocal argument_one, argument_two
+        argument_one = param_one
+        argument_two = param_two
+
+    signaller = ArgumentSignaller()
+    signaller.connect("signal-with-arguments", handler)
+    signaller.emit("signal-with-arguments", 123, "abc")
+
+    assert (argument_one, argument_two) == (123, "abc")
+
+
 class NotifySignaller(GObject.Object):
     def __init__(self):
         super().__init__()
