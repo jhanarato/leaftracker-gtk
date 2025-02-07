@@ -3,30 +3,6 @@ import pytest
 from gi.repository import Gio, GObject, Gtk
 
 
-class Signaller(GObject.Object):
-    def __init__(self):
-        super().__init__()
-
-    @GObject.Signal
-    def noarg_signal(self) -> None:
-        pass
-
-    @GObject.Signal
-    def signal_with_side_effect(self) -> None:
-        print("A side effect of emit")
-
-    @GObject.Signal(return_type=bool)
-    def signal_with_return_type(self) -> bool:
-        pass
-
-    @GObject.Property(type=str)
-    def static_property(self) -> str:
-        return "static property"
-
-    @static_property.setter
-    def static_property(self, value: str):
-        pass
-
 class NoargSignaller(GObject.Object):
     def __init__(self):
         super().__init__()
