@@ -4,9 +4,6 @@ from gi.repository import Gio, GObject, Gtk
 
 
 class NoargSignaller(GObject.Object):
-    def __init__(self):
-        super().__init__()
-
     @GObject.Signal
     def noarg_signal(self) -> None:
         pass
@@ -17,9 +14,6 @@ def test_noarg_signal():
 
 
 class SideEffectSignaller(GObject.Object):
-    def __init__(self):
-        super().__init__()
-
     @GObject.Signal
     def signal_with_side_effect(self) -> None:
         print("A side effect of emit")
@@ -32,9 +26,6 @@ def test_signal_with_side_effect(capsys):
 
 
 class ReturnTypeSignaller(GObject.Object):
-    def __init__(self):
-        super().__init__()
-
     @GObject.Signal(return_type=bool)
     def signal_with_return_type(self) -> bool:
         pass
@@ -77,9 +68,6 @@ def test_signal_with_arguments():
 
 
 class NotifySignaller(GObject.Object):
-    def __init__(self):
-        super().__init__()
-
     @GObject.Property(type=str)
     def static_property(self) -> str:
         return "static property"
