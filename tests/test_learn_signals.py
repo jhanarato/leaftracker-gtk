@@ -41,13 +41,13 @@ class ReturnTypeSignaller(GObject.Object):
 
 def test_signal_with_return_type():
     instance_type = None
-    def callback(instance: ReturnTypeSignaller) -> bool:
+    def handler(instance: ReturnTypeSignaller) -> bool:
         nonlocal instance_type
         instance_type = type(instance)
         return True
 
     signaller = ReturnTypeSignaller()
-    signaller.connect("signal-with-return-type", callback)
+    signaller.connect("signal-with-return-type", handler)
     signaller.emit("signal-with-return-type")
 
     assert instance_type == ReturnTypeSignaller
@@ -69,13 +69,13 @@ class NotifySignaller(GObject.Object):
 def test_handle_notify_signal():
     param_passed = None
 
-    def callback(instance, param):
+    def handler(instance, param):
         nonlocal param_passed
         param_passed = param
 
     signaller = NotifySignaller()
     # Note: static-property is referred to as a "detail"
-    signaller.connect("notify::static-property", callback)
+    signaller.connect("notify::static-property", handler)
     signaller.static_property = "This changes nothing"
 
     assert isinstance(param_passed, GObject.ParamSpecString)
