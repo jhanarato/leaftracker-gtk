@@ -9,8 +9,18 @@ class NoargSignaller(GObject.Object):
         pass
 
 def test_noarg_signal():
+    called = False
+
+    def handler(instance: NoargSignaller):
+        assert isinstance(instance, NoargSignaller)
+        nonlocal called
+        called = True
+
     signaller = NoargSignaller()
+    signaller.connect("noarg-signal", handler)
     signaller.emit("noarg-signal")
+
+    assert called
 
 
 class SideEffectSignaller(GObject.Object):
