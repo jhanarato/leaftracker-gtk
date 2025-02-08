@@ -104,3 +104,17 @@ def test_handle_notify_signal():
 
     assert isinstance(param_passed, GObject.ParamSpecString)
 
+
+class AccumulatorTrueHandledSignaller(GObject.Object):
+    @GObject.Signal(
+        flags=GObject.SignalFlags.RUN_LAST,
+        arg_types=(bool,),
+        return_type=bool,
+        accumulator=GObject.signal_accumulator_true_handled,
+    )
+    def signal_true_handled(self, param_one: int, param_two: str) -> None:
+        pass
+
+
+def test_accumulator_true_handled():
+    signaller = AccumulatorTrueHandledSignaller()
