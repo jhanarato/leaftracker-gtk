@@ -27,12 +27,13 @@ class TestSpeciesDetailsPage:
         page.current_species = None
         assert page.current_species == SpeciesModel()
 
-    def test_when_reference_is_none_it_is_displayed(self):
-        details_page = SpeciesDetailsPage()
+    def test_display_none_text(self):
+        page = SpeciesDetailsPage()
         species = SpeciesModel()
         species.reference = None
-        details_page.set_property("current_species", species)
-        assert details_page.reference_display.get_text() == "None"
+        page.current_species = species
+        assert page.reference_display.get_text() == "None"
+        assert page.current_scientific_name.get_text() == "None"
 
     def test_when_current_species_set_fields_are_populated(self, species_data):
         page = SpeciesDetailsPage()
