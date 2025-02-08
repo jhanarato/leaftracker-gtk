@@ -46,7 +46,6 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     def edited_species(self) -> SpeciesModel:
         return self._edited_species
 
-
     @Gtk.Template.Callback()
     def _on_current_species_changed(self, instance, param):
         self.show_reference()
