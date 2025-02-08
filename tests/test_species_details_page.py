@@ -27,6 +27,12 @@ class TestSpeciesDetailsPage:
         page.current_species = None
         assert page.current_species == SpeciesModel()
 
+    def test_set_a_new_current_species(self):
+        page = SpeciesDetailsPage()
+        page.current_species = SpeciesModel()
+        assert page.current_species == SpeciesModel()
+
+
     def test_display_none_text(self):
         page = SpeciesDetailsPage()
         species = SpeciesModel()
