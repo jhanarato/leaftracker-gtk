@@ -17,6 +17,11 @@ def species_data() -> SpeciesModel:
     return species
 
 class TestSpeciesDetailsPage:
+    def test_on_creation_models_are_initialised(self):
+        page = SpeciesDetailsPage()
+        assert page.current_species == SpeciesModel()
+        assert page.edited_species == SpeciesModel()
+
     def test_when_current_species_set_to_none_new_species_created(self):
         page = SpeciesDetailsPage()
         page.current_species = None
