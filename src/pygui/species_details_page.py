@@ -36,18 +36,19 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     @current_species.setter
     def current_species(self, species: SpeciesModel) -> None:
         if species is None:
-            self._current_species = None
-            self._edited_species = None
+            self._current_species = SpeciesModel()
+            self._edited_species = SpeciesModel()
         else:
             self._current_species = species
             self._edited_species = species.clone()
 
+    @GObject.Property(type=SpeciesModel)
+    def edited_species(self) -> SpeciesModel:
+        return self._edited_species
+
+
     @Gtk.Template.Callback()
     def _on_current_species_changed(self, instance, param):
-        # Note that we can set the property to None, but we shouldn't.
-        if self.current_species is None:
-            return
-
         self.show_reference()
         self.show_current_species()
         self.show_previous_names()

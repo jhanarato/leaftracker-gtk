@@ -22,10 +22,10 @@ class TestSpeciesDetailsPage:
         details_page.set_property("current_species", SpeciesModel())
         assert details_page.get_property("current_species") == SpeciesModel()
 
-    def test_can_set_species_property_to_none(self):
+    def test_setting_current_species_to_none_creates_a_new_species_model(self):
         details_page = SpeciesDetailsPage()
         details_page.set_property("current_species", None)
-        assert details_page.get_property("current_species") is None
+        assert details_page.get_property("current_species") == SpeciesModel()
 
     def test_when_reference_is_none_it_is_displayed(self):
         details_page = SpeciesDetailsPage()
