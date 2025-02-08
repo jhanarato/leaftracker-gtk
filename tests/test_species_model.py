@@ -3,9 +3,12 @@ from gi.repository import Gio, Gtk, GObject
 from pygui.species_model import SpeciesModel
 
 class TestSpeciesModel:
-    def test_reference(self):
+    def test_reference_empty_string_when_created(self):
         species = SpeciesModel()
-        assert species.reference is None
+        assert species.reference == ""
+
+    def test_set_reference_property(self):
+        species = SpeciesModel()
         species.reference = "reference"
         assert species.reference == "reference"
 
