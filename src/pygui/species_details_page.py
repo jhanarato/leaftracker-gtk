@@ -54,12 +54,12 @@ class SpeciesDetailsPage(Adw.NavigationPage):
 
     @Gtk.Template.Callback()
     def _on_current_scientific_name_edited(self, instance, param):
-        self._edited_species.current_name = self.current_scientific_name.get_text()
+        self.edited_species.current_name = self.current_scientific_name.get_text()
         self.update_save_sensitivity()
 
     @Gtk.Template.Callback()
     def _on_previous_scientific_name_edited(self, instance):
-        self._edited_species.previous_names = self.previous_scientific_names.get_values()
+        self.edited_species.previous_names = self.previous_scientific_names.get_values()
 
     def show_reference(self) -> None:
         reference = str(self.current_species.reference)
@@ -78,5 +78,5 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         pass
 
     def update_save_sensitivity(self):
-        changed = (self._current_species != self._edited_species)
+        changed = (self.current_species != self.edited_species)
         self.save_button.set_sensitive(changed)
