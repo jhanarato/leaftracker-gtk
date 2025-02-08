@@ -79,4 +79,14 @@ class TestSpeciesModel:
 
         assert f"{species!r}" == "SpeciesModel('ref123', 'Acacia saligna', ['Acacia old', 'Acacia older'])"
 
+    def test_clone(self):
+        species = SpeciesModel(
+            reference="ref123",
+            current_name="Acacia saligna",
+            previous_names=["Acacia old", "Acacia older"],
+        )
 
+        species_clone = species.clone()
+
+        assert id(species) != id(species_clone)
+        assert species == species_clone

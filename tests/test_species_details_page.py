@@ -52,6 +52,17 @@ class TestSpeciesDetailsPage:
         page.previous_scientific_names.add_string("Acacia older")
         assert page._edited_species.previous_names == ["Acacia old", "Acacia older"]
 
+    def test_when_current_species_is_set_edited_is_cloned(self, species_data):
+        page = SpeciesDetailsPage()
+
+        assert id(page._current_species) != id(page._edited_species)
+        assert page._current_species == page._edited_species
+
+        page.current_species = species_data
+
+        assert id(page._current_species) != id(page._edited_species)
+        assert page._current_species == page._edited_species
+
     def test_save_button_is_not_sensitive_by_default(self):
         page = SpeciesDetailsPage()
         assert not page.save_button.get_sensitive()

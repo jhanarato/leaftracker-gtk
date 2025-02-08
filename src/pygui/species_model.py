@@ -17,6 +17,13 @@ class SpeciesModel(GObject.Object):
             self._previous_names = previous_names
 
 
+    def clone(self) -> Self:
+        return SpeciesModel(
+            reference=self._reference,
+            current_name=self._current_name,
+            previous_names=self._previous_names,
+        )
+
     @GObject.Property(type=str)
     def reference(self) -> str | None:
         return self._reference

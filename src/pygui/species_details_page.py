@@ -35,7 +35,12 @@ class SpeciesDetailsPage(Adw.NavigationPage):
 
     @current_species.setter
     def current_species(self, species: SpeciesModel) -> None:
-        self._current_species = species
+        if species is None:
+            self._current_species = None
+            self._edited_species = None
+        else:
+            self._current_species = species
+            self._edited_species = species.clone()
 
     @Gtk.Template.Callback()
     def _on_current_species_changed(self, instance, param):
