@@ -29,8 +29,11 @@ class SpeciesModel(GObject.Object):
         return self._reference
 
     @reference.setter
-    def reference(self, value: str):
-        self._reference = value
+    def reference(self, value: str) -> None:
+        if value is None:
+            self._reference = ""
+        else:
+            self._reference = value
 
     @GObject.Property(type=str)
     def current_name(self) -> str | None:

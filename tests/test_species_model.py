@@ -12,6 +12,11 @@ class TestSpeciesModel:
         species.reference = "reference"
         assert species.reference == "reference"
 
+    def test_none_reference_converted_to_empty_string(self):
+        species = SpeciesModel()
+        species.reference = None
+        assert species.reference == ""
+
     def test_current_name(self):
         species = SpeciesModel()
         assert species.current_name is None
