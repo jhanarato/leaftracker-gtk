@@ -49,6 +49,11 @@ class TestSpeciesDetailsPage:
         page.current_species = SpeciesModel()
         assert page.edited_species == SpeciesModel()
 
+    def test_when_current_species_set_to_populated_species_edited_is_same(self, species_data):
+        page = SpeciesDetailsPage()
+        page.current_species = species_data
+        assert page.edited_species == species_data.clone()
+
     def test_display_none_text(self):
         page = SpeciesDetailsPage()
         species = SpeciesModel()
