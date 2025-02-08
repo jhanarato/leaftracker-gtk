@@ -77,6 +77,8 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     def save_button_activated(self, instance):
         pass
 
-    def update_save_sensitivity(self):
-        changed = (self.current_species != self.edited_species)
-        self.save_button.set_sensitive(changed)
+    def update_save_sensitivity(self) -> None:
+        self.save_button.set_sensitive(self.is_modified())
+
+    def is_modified(self) -> bool:
+        return (self.current_species != self.edited_species)
