@@ -27,11 +27,22 @@ class TestSpeciesDetailsPage:
         page.current_species = None
         assert page.current_species == SpeciesModel()
 
+    @pytest.mark.skip("Get back to this")
+    def test_when_current_species_set_to_none_edited_is_clone(self):
+        page = SpeciesDetailsPage()
+        page.current_species = None
+        assert page.edited_species == SpeciesModel()
+
     def test_set_a_new_current_species(self):
         page = SpeciesDetailsPage()
         page.current_species = SpeciesModel()
         assert page.current_species == SpeciesModel()
 
+    @pytest.mark.skip("Get back to this")
+    def test_when_new_current_species_set_edited_is_cloned(self):
+        page = SpeciesDetailsPage()
+        page.current_species = SpeciesModel()
+        assert page.edited_species == SpeciesModel()
 
     def test_display_none_text(self):
         page = SpeciesDetailsPage()
