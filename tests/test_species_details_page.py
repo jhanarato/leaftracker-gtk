@@ -108,3 +108,9 @@ class TestSpeciesDetailsPage:
         assert page.save_button.get_sensitive()
         page.current_species = species_data
         assert not page.save_button.get_sensitive()
+
+    def test_save_is_sensitive_when_previous_name_added(self):
+        page = SpeciesDetailsPage()
+        assert not page.save_button.get_sensitive()
+        page.previous_scientific_names.add_string("Acacia old")
+        assert page.save_button.get_sensitive()

@@ -62,6 +62,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     @Gtk.Template.Callback()
     def _on_previous_scientific_name_edited(self, instance):
         self.edited_species.previous_names = self.previous_scientific_names.get_values()
+        self.update_save_sensitivity()
 
     @Gtk.Template.Callback()
     def save_button_activated(self, instance):
