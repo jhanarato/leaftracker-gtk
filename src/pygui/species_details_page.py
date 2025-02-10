@@ -49,7 +49,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     @Gtk.Template.Callback()
     def _on_current_species_changed(self, instance, param):
         self.show_reference()
-        self.show_current_species()
+        self.show_current_name()
         self.show_previous_names()
 
     @Gtk.Template.Callback()
@@ -65,7 +65,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         reference = str(self.current_species.reference)
         self.reference_display.set_text(reference)
 
-    def show_current_species(self) -> None:
+    def show_current_name(self) -> None:
         current_name = str(self.current_species.current_name)
         self.current_scientific_name.set_text(current_name)
 
