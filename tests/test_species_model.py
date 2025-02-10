@@ -7,7 +7,7 @@ class TestSpeciesModel:
         species = SpeciesModel()
         assert species.reference == ""
 
-    def test_set_reference_property(self):
+    def test_set_reference(self):
         species = SpeciesModel()
         species.reference = "reference"
         assert species.reference == "reference"
@@ -17,9 +17,12 @@ class TestSpeciesModel:
         species.reference = None
         assert species.reference == ""
 
-    def test_current_name(self):
+    def test_current_name_empty_string_when_created(self):
         species = SpeciesModel()
-        assert species.current_name is None
+        assert species.current_name == ""
+
+    def test_set_current_name(self):
+        species = SpeciesModel()
         species.current_name = "current name"
         assert species.current_name == "current name"
 
