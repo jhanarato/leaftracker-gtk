@@ -6,16 +6,16 @@ class SpeciesModel(GObject.Object):
     def __init__(self,
                  reference: str = "",
                  current_name: str = "",
-                 previous_names: list[str] | None = None):
+                 previous_names: list[str] = None):
         super().__init__()
 
         self._reference: str = reference
         self._current_name: str = current_name
-        self._previous_names: list[str] = list()
 
-        if previous_names is not None:
+        if previous_names is None:
+            self._previous_names = list()
+        else:
             self._previous_names = previous_names
-
 
     def clone(self) -> Self:
         return SpeciesModel(
