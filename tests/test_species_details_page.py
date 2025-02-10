@@ -93,7 +93,11 @@ class TestSpeciesDetailsPage:
         assert id(page._current_species) != id(page._edited_species)
         assert page._current_species == page._edited_species
 
-    def test_save_button_is_not_sensitive_by_default(self):
+    def test_save_is_not_sensitive_by_default(self):
         page = SpeciesDetailsPage()
         assert not page.save_button.get_sensitive()
 
+    def test_save_is_sensitive_when_current_name_changed(self):
+        page = SpeciesDetailsPage()
+        page.current_scientific_name.set_text("Eucalyptus rudis")
+        assert page.save_button.get_sensitive()
