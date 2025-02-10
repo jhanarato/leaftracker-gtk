@@ -41,7 +41,10 @@ class SpeciesModel(GObject.Object):
 
     @current_name.setter
     def current_name(self, value: str) -> None:
-        self._current_name = value
+        if value is None:
+            self._current_name = ""
+        else:
+            self._current_name = value
 
     @GObject.Property(type=GObject.TYPE_STRV)
     def previous_names(self) -> list[str]:

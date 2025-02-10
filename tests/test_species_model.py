@@ -26,6 +26,11 @@ class TestSpeciesModel:
         species.current_name = "current name"
         assert species.current_name == "current name"
 
+    def test_none_current_name_converted_to_empty_string(self):
+        species = SpeciesModel()
+        species.current_name = None
+        assert species.current_name == ""
+
     def test_previous_names(self):
         species = SpeciesModel()
         assert species.previous_names == []
