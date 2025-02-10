@@ -96,3 +96,4 @@ class TestSpeciesDetailsPage:
     def test_save_button_is_not_sensitive_by_default(self):
         page = SpeciesDetailsPage()
         assert not page.save_button.get_sensitive()
+

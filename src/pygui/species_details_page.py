@@ -62,12 +62,10 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self.edited_species.previous_names = self.previous_scientific_names.get_values()
 
     def show_reference(self) -> None:
-        reference = str(self.current_species.reference)
-        self.reference_display.set_text(reference)
+        self.reference_display.set_text(self.current_species.reference)
 
     def show_current_name(self) -> None:
-        current_name = str(self.current_species.current_name)
-        self.current_scientific_name.set_text(current_name)
+        self.current_scientific_name.set_text(self.current_species.current_name)
 
     def show_previous_names(self) -> None:
         for previous_name in self.current_species.previous_names:
