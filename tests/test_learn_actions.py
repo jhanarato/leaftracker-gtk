@@ -31,3 +31,16 @@ class TestSimpleAction:
         assert action_name is None
         simple_action.activate()
         assert action_name == "simple"
+
+    def test_can_give_action_a_handler(self):
+        called = False
+
+        def handler(action, parameter):
+            nonlocal called
+            called = True
+
+        save_action = Gio.SimpleAction(name="save-species", parameter_type=GLib.VariantType("s"))
+        save_action.connect("activate", handler)
+        save_action.emit("activate", GLib.Variant.new_string("wheetbix"))
+
+        assert called
