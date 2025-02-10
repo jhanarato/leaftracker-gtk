@@ -114,3 +114,8 @@ class TestSpeciesDetailsPage:
         assert not page.save_button.get_sensitive()
         page.previous_scientific_names.add_string("Acacia old")
         assert page.save_button.get_sensitive()
+
+    def test_can_add_an_action_group(self):
+        page = SpeciesDetailsPage()
+        action_group = Gio.SimpleActionGroup()
+        page.insert_action_group("group-name", action_group)
