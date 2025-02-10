@@ -101,3 +101,10 @@ class TestSpeciesDetailsPage:
         page = SpeciesDetailsPage()
         page.current_scientific_name.set_text("Eucalyptus rudis")
         assert page.save_button.get_sensitive()
+
+    def test_save_is_not_sensitive_when_current_species_set(self, species_data):
+        page = SpeciesDetailsPage()
+        page.current_scientific_name.set_text("Eucalyptus rudis")
+        assert page.save_button.get_sensitive()
+        page.current_species = species_data
+        assert not page.save_button.get_sensitive()
