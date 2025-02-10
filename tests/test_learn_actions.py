@@ -8,6 +8,7 @@ from gi.repository import Gtk, Adw, GLib, Gio
 button_ui = """\
     <interface>
       <template class="TheButton" parent="GtkButton">
+        <signal name="clicked" handler="on_button_clicked"/>
       </template>
     </interface>
     """
@@ -15,6 +16,10 @@ button_ui = """\
 @Gtk.Template(string=button_ui)
 class TheButton(Gtk.Button):
     __gtype_name__ = "TheButton"
+
+    @Gtk.Template.Callback()
+    def on_button_clicked(self, instance):
+        print("\nclicked")
 
 
 class TestSimpleAction:
@@ -45,3 +50,9 @@ class TestSimpleAction:
 
         assert called
 
+
+    def test_can_click_button(self, capsys):
+        button = TheButton()
+        button.emit("clicked")
+        captured = capsys.readouterr()
+        assert captured.out == "\nclicked\n"
