@@ -41,6 +41,7 @@ class TestSimpleAction:
 
         save_action = Gio.SimpleAction(name="save-species", parameter_type=GLib.VariantType("s"))
         save_action.connect("activate", handler)
-        save_action.emit("activate", GLib.Variant.new_string("wheetbix"))
+        save_action.activate(GLib.Variant.new_string("wheetbix"))
 
         assert called
+
