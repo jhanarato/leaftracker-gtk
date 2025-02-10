@@ -9,6 +9,7 @@ button_ui = """\
     <interface>
       <template class="TheButton" parent="GtkButton">
         <signal name="clicked" handler="on_button_clicked"/>
+        <property name="action-name">say.cheese</property>
       </template>
     </interface>
     """
@@ -19,7 +20,7 @@ class TheButton(Gtk.Button):
 
     @Gtk.Template.Callback()
     def on_button_clicked(self, instance):
-        print("\nclicked")
+        pass
 
 
 class TestSimpleAction:
@@ -50,9 +51,13 @@ class TestSimpleAction:
 
         assert called
 
-
-    def test_can_click_button(self, capsys):
+    def test_give_button_an_action(self, capsys):
         button = TheButton()
+        button_actions = Gio.SimpleActionGroup()
+        button.insert_action_group("say", button_actions)
+        cheese_action = Gio.SimpleAction(name="cheese")
+        button_actions.add_action(cheese_action)
+        cheese_action.connect("activate", lambda action, _: print("cheese", end=""))
         button.emit("clicked")
         captured = capsys.readouterr()
-        assert captured.out == "\nclicked\n"
+        assert captured.out == "cheese"
