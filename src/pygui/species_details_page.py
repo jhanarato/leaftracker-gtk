@@ -1,5 +1,3 @@
-from enum import Enum, auto
-
 import gi
 from leaftracker.service_layer import services
 
@@ -48,9 +46,13 @@ class SpeciesDetailsPage(Adw.NavigationPage):
 
     @Gtk.Template.Callback()
     def _on_current_species_changed(self, instance, param):
-        self.show_reference()
-        self.show_current_name()
-        self.show_previous_names()
+        self.set_fields_to_current_species_values()
+
+    def set_fields_to_current_species_values(self):
+        self.reference_display.set_text(self.current_species.reference)
+        self.current_scientific_name.set_text(self.current_species.current_name)
+        for previous_name in self.current_species.previous_names:
+            self.previous_scientific_names.add_string(previous_name)
 
     @Gtk.Template.Callback()
     def _on_current_scientific_name_edited(self, instance, param):
@@ -60,16 +62,6 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     @Gtk.Template.Callback()
     def _on_previous_scientific_name_edited(self, instance):
         self.edited_species.previous_names = self.previous_scientific_names.get_values()
-
-    def show_reference(self) -> None:
-        self.reference_display.set_text(self.current_species.reference)
-
-    def show_current_name(self) -> None:
-        self.current_scientific_name.set_text(self.current_species.current_name)
-
-    def show_previous_names(self) -> None:
-        for previous_name in self.current_species.previous_names:
-            self.previous_scientific_names.add_string(previous_name)
 
     @Gtk.Template.Callback()
     def save_button_activated(self, instance):
