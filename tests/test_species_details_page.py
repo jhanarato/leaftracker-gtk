@@ -127,8 +127,7 @@ class TestSpeciesDetailsPage:
         action_group.add_action(save_action)
         page.insert_action_group("species", action_group)
 
-    def test_species_written_on_save_activated(self):
+    def test_when_save_activated_reference_assigned_to_edited_species(self):
         page = SpeciesDetailsPage()
-        assert page.written == False
         page.activate_save_button()
-        assert page.written == True
+        assert page._edited_species.reference == "reference-ijk"
