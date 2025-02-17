@@ -129,5 +129,6 @@ class TestSpeciesDetailsPage:
 
     def test_when_save_activated_reference_assigned_to_edited_species(self):
         page = SpeciesDetailsPage()
+        page.write_species = lambda species: "reference-ijk"
         page.activate_save_button()
         assert page._edited_species.reference == "reference-ijk"

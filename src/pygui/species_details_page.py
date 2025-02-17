@@ -70,10 +70,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self._edited_species.reference = reference
 
     def write_species(self, species: SpeciesModel) -> str:
-        # TODO:
-        #    * convert species data to service layer calls
-        #    * current species beocmes edited species
-        return "reference-ijk"
+        return ""
 
     def update_save_sensitivity(self) -> None:
         self.save_button.set_sensitive(self.is_modified())
