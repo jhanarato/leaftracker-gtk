@@ -27,6 +27,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self.previous_scientific_names.set_validator(services.validate_taxon_name)
         self.update_save_sensitivity()
         self.save_activated = False
+        self.written = False
 
     @GObject.Property(type=SpeciesModel)
     def current_species(self) -> SpeciesModel:
@@ -68,6 +69,11 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     @Gtk.Template.Callback()
     def _on_save_button_activated(self, instance):
         self.save_activated = True
+        reference = self.write_species(self._edited_species)
+
+    def write_species(self, species: SpeciesModel) -> str:
+        self.written = True
+        return ""
 
     def update_save_sensitivity(self) -> None:
         self.save_button.set_sensitive(self.is_modified())

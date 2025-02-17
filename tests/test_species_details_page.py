@@ -132,3 +132,9 @@ class TestSpeciesDetailsPage:
         assert page.save_activated == False
         page.activate_save_button()
         assert page.save_activated == True
+
+    def test_species_written_on_save_activated(self):
+        page = SpeciesDetailsPage()
+        assert page.written == False
+        page.activate_save_button()
+        assert page.written == True
