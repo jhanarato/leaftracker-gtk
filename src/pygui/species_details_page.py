@@ -26,6 +26,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self.current_scientific_name.set_validator(services.validate_taxon_name)
         self.previous_scientific_names.set_validator(services.validate_taxon_name)
         self.update_save_sensitivity()
+        self.save_activated = False
 
     @GObject.Property(type=SpeciesModel)
     def current_species(self) -> SpeciesModel:
@@ -65,11 +66,14 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self.update_save_sensitivity()
 
     @Gtk.Template.Callback()
-    def save_button_activated(self, instance):
-        pass
+    def _on_save_button_activated(self, instance):
+        self.save_activated = True
 
     def update_save_sensitivity(self) -> None:
         self.save_button.set_sensitive(self.is_modified())
 
     def is_modified(self) -> bool:
         return (self.current_species != self.edited_species)
+
+    def activate_save_button(self):
+        self.save_button.emit("activated")

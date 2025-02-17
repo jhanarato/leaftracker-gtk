@@ -64,7 +64,7 @@
                                         <style>
                                             <class name="suggested-action"/>
                                         </style>
-                                        <signal name="activated" handler="save_button_activated"/>
+                                        <signal name="activated" handler="_on_save_button_activated"/>
                                     </object>
                                 </child>
                             </object>
