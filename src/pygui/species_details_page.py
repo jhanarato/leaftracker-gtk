@@ -71,7 +71,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self.current_species = self.edited_species.clone()
 
     def write_species(self, species: SpeciesModel) -> str:
-        return ""
+        return "write-species"
 
     def update_save_sensitivity(self) -> None:
         self.save_button.set_sensitive(self.is_modified())
