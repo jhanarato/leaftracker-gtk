@@ -132,3 +132,10 @@ class TestSpeciesDetailsPage:
         page.write_species = lambda species: "reference-ijk"
         page.activate_save_button()
         assert page.edited_species.reference == "reference-ijk"
+
+    def test_current_species_updated_after_saving(self):
+        page = SpeciesDetailsPage()
+        page.write_species = lambda species: "reference-ijk"
+        page.current_scientific_name.set_text("Eucalyptus rudis")
+        page.activate_save_button()
+        assert page.current_species == page.edited_species

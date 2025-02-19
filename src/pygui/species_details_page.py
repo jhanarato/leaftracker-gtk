@@ -68,6 +68,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     def _on_save_button_activated(self, instance):
         reference = self.write_species(self._edited_species)
         self._edited_species.reference = reference
+        self.current_species = self.edited_species.clone()
 
     def write_species(self, species: SpeciesModel) -> str:
         return ""
