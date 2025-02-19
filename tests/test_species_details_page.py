@@ -131,4 +131,4 @@ class TestSpeciesDetailsPage:
         page = SpeciesDetailsPage()
         page.write_species = lambda species: "reference-ijk"
         page.activate_save_button()
-        assert page._edited_species.reference == "reference-ijk"
+        assert page.edited_species.reference == "reference-ijk"
