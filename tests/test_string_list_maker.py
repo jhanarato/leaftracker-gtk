@@ -125,6 +125,11 @@ class TestStringListMaker:
         widget.click_remove_on_item(0)
         assert received
 
+    def test_can_set_values_with_list_of_strings(self):
+        widget = StringListMaker()
+        widget.values = ["abc", "def", "hij"]
+        assert widget.values == ["abc", "def", "hij"]
+
 
 class TestGtkStringListHelpers:
     def test_position_of_value(self):

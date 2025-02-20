@@ -76,6 +76,10 @@ class StringListMaker(Adw.PreferencesGroup):
     def values(self) -> list[str]:
         return [item.get_string() for item in self._model]
 
+    @values.setter
+    def values(self, values: list[str]) -> None:
+        self._model = Gtk.StringList.new(values)
+
     @GObject.Signal
     def list_changed(self) -> None:
         pass
