@@ -67,7 +67,7 @@ class TestStringListMaker:
         widget.click_add_button()
         widget.entry_field = "some text"
         widget.click_add_button()
-        assert widget.get_values() == ["some text"]
+        assert widget.values == ["some text"]
 
     def test_item_removed_when_remove_button_clicked(self):
         widget = StringListMaker()
