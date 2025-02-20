@@ -45,8 +45,7 @@ class TestStringListMaker:
         widget = StringListMaker()
         widget.entry_field = "some text"
         widget.click_add_button()
-        values = widget.get_values()
-        assert values == ["some text"]
+        assert widget.values == ["some text"]
 
     def test_name_field_cleared_after_add(self):
         widget = StringListMaker()
@@ -60,7 +59,7 @@ class TestStringListMaker:
         widget.click_add_button()
         widget.entry_field = "other text"
         widget.click_add_button()
-        assert widget.get_values() == ["some text", "other text"]
+        assert widget.values == ["some text", "other text"]
 
     def test_adding_a_duplicate_name_does_not_modify_the_list(self):
         widget = StringListMaker()
@@ -75,7 +74,7 @@ class TestStringListMaker:
         widget.entry_field = "some text"
         widget.click_add_button()
         widget.click_remove_on_item(0)
-        assert widget.get_values() == []
+        assert widget.values == []
 
     def test_list_row_is_hidden_when_created(self):
         widget = StringListMaker()
@@ -97,7 +96,7 @@ class TestStringListMaker:
         widget.set_validator(lambda value: False)
         widget.entry_field = "some text"
         widget.click_add_button()
-        assert widget.get_values() == []
+        assert widget.values == []
 
     def test_emits_changed_when_item_added(self):
         received = False
