@@ -51,7 +51,8 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     def set_fields_to_current_species_values(self):
         self.reference_display.set_text(self.current_species.reference)
         self.current_scientific_name.set_text(self.current_species.current_name)
-        for previous_name in self.current_species.previous_names:
+        previous_names = [name for name in self.current_species.previous_names]
+        for previous_name in previous_names:
             self.previous_scientific_names.add_string(previous_name)
 
     @Gtk.Template.Callback()
