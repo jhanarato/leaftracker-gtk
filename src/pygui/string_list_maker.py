@@ -72,6 +72,10 @@ class StringListMaker(Adw.PreferencesGroup):
     def entry_field(self, name: str) -> None:
         self._add_item_row.set_text(name)
 
+    @GObject.Signal
+    def list_changed(self) -> None:
+        pass
+
     @GObject.Property(type=GObject.TYPE_STRV)
     def values(self) -> list[str]:
         return [item.get_string() for item in self._model]
@@ -79,10 +83,7 @@ class StringListMaker(Adw.PreferencesGroup):
     @values.setter
     def values(self, values: list[str]) -> None:
         self._model = Gtk.StringList.new(values)
-
-    @GObject.Signal
-    def list_changed(self) -> None:
-        pass
+        self.emit("list-changed")
 
     @Gtk.Template.Callback()
     def _on_apply_valid_add_item(self, instance: ValidatedEntryRow) -> None:

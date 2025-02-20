@@ -130,6 +130,19 @@ class TestStringListMaker:
         widget.values = ["abc", "def", "hij"]
         assert widget.values == ["abc", "def", "hij"]
 
+    def test_emits_changed_when_values_set(self):
+        received = False
+
+        def callback(instance):
+            nonlocal received
+            received = True
+
+        widget = StringListMaker()
+        widget.connect("list-changed", callback)
+        assert not received
+        widget.values = ["abc", "def", "hij"]
+        assert received
+
 
 class TestGtkStringListHelpers:
     def test_position_of_value(self):
