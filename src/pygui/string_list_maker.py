@@ -85,7 +85,7 @@ class StringListMaker(Adw.PreferencesGroup):
     @Gtk.Template.Callback()
     def _on_apply_valid_add_item(self, instance: ValidatedEntryRow) -> None:
         text = instance.get_text()
-        if text not in self.get_values():
+        if text not in self.values:
             self.add_string(text)
         self._add_item_row.clear()
 

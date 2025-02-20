@@ -69,7 +69,7 @@ class TestSpeciesDetailsPage:
         page.current_species = species_data
         assert page.reference_display.get_text() == species_data.reference
         assert page.current_scientific_name.get_text() == species_data.current_name
-        assert page.previous_scientific_names.get_values() == species_data.previous_names
+        assert page.previous_scientific_names.values == species_data.previous_names
 
     def test_when_current_name_is_changed_the_edited_species_is_updated(self):
         page = SpeciesDetailsPage()
