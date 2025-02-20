@@ -143,6 +143,11 @@ class TestStringListMaker:
         widget.values = ["abc", "def", "hij"]
         assert received
 
+    def test_can_set_values_with_species_model(self, species_data):
+        widget = StringListMaker()
+        widget.values = species_data.previous_names
+        assert widget.values == species_data.clone().previous_names
+
 
 class TestGtkStringListHelpers:
     def test_position_of_value(self):
