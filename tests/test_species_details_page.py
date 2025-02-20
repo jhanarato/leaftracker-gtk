@@ -146,3 +146,8 @@ class TestSpeciesDetailsPage:
         page.current_scientific_name.set_text("Eucalyptus rudis")
         page.activate_save_button()
         assert page.reference_display.get_text() == "reference-ijk"
+
+    def test_previous_names_updated_when_current_species_changed(self, species_data):
+        page = SpeciesDetailsPage()
+        page.current_species = species_data
+        assert page.previous_scientific_names.values == species_data.previous_names
