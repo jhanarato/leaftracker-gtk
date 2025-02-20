@@ -1,5 +1,3 @@
-from collections.abc import Callable
-
 import gi
 
 gi.require_version('Adw', '1')
@@ -76,7 +74,7 @@ class StringListMaker(Adw.PreferencesGroup):
 
     @GObject.Property(type=GObject.TYPE_STRV)
     def values(self) -> list[str]:
-        return self.get_values()
+        return [item.get_string() for item in self._model]
 
     @GObject.Signal
     def list_changed(self) -> None:
@@ -96,9 +94,6 @@ class StringListMaker(Adw.PreferencesGroup):
     def add_string(self, value: str) -> None:
         self._model.append(value)
         self._list_row.set_visible(True)
-
-    def get_values(self) -> list[str]:
-        return [item.get_string() for item in self._model]
 
     def create_removable_row(self, list_item: Gtk.StringObject) -> RemovableRow:
         text = list_item.get_string()
