@@ -8,13 +8,6 @@ resource._register()
 from pygui.species_model import SpeciesModel
 from pygui.species_details_page import SpeciesDetailsPage
 
-@pytest.fixture
-def species_data() -> SpeciesModel:
-    species = SpeciesModel()
-    species.reference = "reference-xyz"
-    species.current_name = "Acacia saligna"
-    species.previous_names = ["Acacia old", "Acacia older"]
-    return species
 
 class TestSpeciesDetailsPage:
     def test_on_creation_models_are_initialised(self):
