@@ -74,6 +74,10 @@ class StringListMaker(Adw.PreferencesGroup):
     def entry_field(self, name: str) -> None:
         self._add_item_row.set_text(name)
 
+    @GObject.Property(type=GObject.TYPE_STRV)
+    def values(self) -> list[str]:
+        return self.get_values()
+
     @GObject.Signal
     def list_changed(self) -> None:
         pass
