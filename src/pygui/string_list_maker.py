@@ -82,6 +82,7 @@ class StringListMaker(Adw.PreferencesGroup):
     @values.setter
     def values(self, values: list[str]) -> None:
         self._model = Gtk.StringList.new(values)
+        self.update_list_row_visibility()
         self.emit("list-changed")
 
     @Gtk.Template.Callback()
