@@ -91,8 +91,7 @@ class StringListMaker(Adw.PreferencesGroup):
             self.add_string(text)
         self._add_item_row.clear()
 
-    def _on_string_list_changed(self, instance, foo, bar, baz):
-        # foo, bar and baz are integers, what they mean I don't know.
+    def _on_string_list_changed(self, instance, *args):
         self.emit("list-changed")
 
     def add_string(self, value: str) -> None:
