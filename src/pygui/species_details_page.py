@@ -52,8 +52,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         self.reference_display.set_text(self.current_species.reference)
         self.current_scientific_name.set_text(self.current_species.current_name)
         previous_names = [name for name in self.current_species.previous_names]
-        for previous_name in previous_names:
-            self.previous_scientific_names.add_string(previous_name)
+        self.previous_scientific_names.values = previous_names
 
     @Gtk.Template.Callback()
     def _on_current_scientific_name_edited(self, instance, param):

@@ -153,6 +153,7 @@ class TestStringListMaker:
         widget.values = species_data.previous_names
         assert widget.list_row_is_visible()
 
+
 class TestGtkStringListHelpers:
     def test_position_of_value(self):
         string_list = Gtk.StringList.new(["abc", "def", "hij"])

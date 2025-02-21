@@ -54,14 +54,16 @@ class StringListMaker(Adw.PreferencesGroup):
 
     def __init__(self):
         super().__init__()
-        self._model = Gtk.StringList()
+        self._create_new_model([])
+        self.update_list_row_visibility()
+
+    def _create_new_model(self, values: list[str]):
+        self._model = Gtk.StringList.new(values)
         self._list_box.bind_model(
             model=self._model,
             create_widget_func=self.create_removable_row
         )
         self._model.connect("items_changed", self._on_string_list_changed)
-        self.update_list_row_visibility()
-
 
     @property
     def entry_field(self) -> str:
@@ -81,7 +83,7 @@ class StringListMaker(Adw.PreferencesGroup):
 
     @values.setter
     def values(self, values: list[str]) -> None:
-        self._model = Gtk.StringList.new(values)
+        self._create_new_model(values)
         self.update_list_row_visibility()
         self.emit("list-changed")
 
@@ -128,4 +130,3 @@ class StringListMaker(Adw.PreferencesGroup):
         """ Method required only for testing """
         item: RemovableRow = self._list_box.get_row_at_index(item_number)
         item.click_remove_button()
-
