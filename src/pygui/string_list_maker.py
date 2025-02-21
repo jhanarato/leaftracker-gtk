@@ -59,10 +59,9 @@ class StringListMaker(Adw.PreferencesGroup):
             model=self._model,
             create_widget_func=self.create_removable_row
         )
-
-        self._list_row.set_visible(False)
-
         self._model.connect("items_changed", self._on_string_list_changed)
+        self.update_list_row_visibility()
+
 
     @property
     def entry_field(self) -> str:
@@ -98,7 +97,7 @@ class StringListMaker(Adw.PreferencesGroup):
 
     def add_string(self, value: str) -> None:
         self._model.append(value)
-        self._list_row.set_visible(True)
+        self.update_list_row_visibility()
 
     def create_removable_row(self, list_item: Gtk.StringObject) -> RemovableRow:
         text = list_item.get_string()
