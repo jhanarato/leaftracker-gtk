@@ -35,7 +35,7 @@
                                 <property name="title">Current Scientific Name</property>
                                 <property name="separate-rows">true</property>
                                 <child>
-                                    <object class="ValidatedEntryRow" id="current_scientific_name">
+                                    <object class="AdwEntryRow" id="current_scientific_name">
                                         <property name="title">current</property>
                                         <signal name="notify::text" handler="_on_current_scientific_name_edited"/>
                                     </object>

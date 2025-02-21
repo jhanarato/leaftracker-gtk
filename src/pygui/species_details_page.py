@@ -7,7 +7,6 @@ gi.require_version('Adw', '1')
 from gi.repository import Adw, Gtk, GObject
 
 from pygui.string_list_maker import StringListMaker
-from pygui.validated_entry_row import ValidatedEntryRow
 
 
 @Gtk.Template(resource_path="/org/bswa/Leaftracker/ui/species_details_page.ui")
@@ -15,7 +14,7 @@ class SpeciesDetailsPage(Adw.NavigationPage):
     __gtype_name__ = "SpeciesDetailsPage"
 
     reference_display: Adw.EntryRow = Gtk.Template.Child()
-    current_scientific_name: ValidatedEntryRow = Gtk.Template.Child()
+    current_scientific_name: Adw.EntryRow = Gtk.Template.Child()
     previous_scientific_names: StringListMaker = Gtk.Template.Child()
     save_button: Adw.ButtonRow = Gtk.Template.Child()
 
@@ -23,7 +22,6 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         super().__init__()
         self._current_species = SpeciesModel()
         self._edited_species = SpeciesModel()
-        self.current_scientific_name.set_validator(services.validate_taxon_name)
         self.previous_scientific_names.set_validator(services.validate_taxon_name)
         self.update_save_sensitivity()
 
@@ -74,10 +72,15 @@ class SpeciesDetailsPage(Adw.NavigationPage):
         return "write-species"
 
     def update_save_sensitivity(self) -> None:
-        self.save_button.set_sensitive(self.is_modified())
+        sensitive = self.is_modified() and self.current_name_is_valid()
+        self.save_button.set_sensitive(sensitive)
 
     def is_modified(self) -> bool:
         return (self.current_species != self.edited_species)
+
+    def current_name_is_valid(self):
+        name = self.current_scientific_name.get_text()
+        return services.validate_taxon_name(name)
 
     def activate_save_button(self):
         self.save_button.emit("activated")
