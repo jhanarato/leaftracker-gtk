@@ -45,17 +45,17 @@ class TestSpeciesDetailsPage:
         page.current_species = species_data
         assert page.edited_species == species_data.clone()
 
-    def test_when_reference_is_set_to_none_text_shown_is_empty_string(self):
+    def test_when_reference_is_set_to_none_display_is_blank(self):
         page = SpeciesDetailsPage()
         species = SpeciesModel()
         species.reference = None
         assert page.reference_display.get_text() == ""
 
-    def when_current_scientific_name_is_none_text_is_none(self):
+    def test_when_current_name_is_set_to_none_display_is_blank(self):
         page = SpeciesDetailsPage()
         species = SpeciesModel()
         page.current_species = species
-        assert page.current_scientific_name.get_text() == "None"
+        assert page.current_scientific_name.get_text() == ""
 
     def test_when_current_species_set_fields_are_populated(self, species_data):
         page = SpeciesDetailsPage()
