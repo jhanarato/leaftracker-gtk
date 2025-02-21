@@ -130,3 +130,6 @@ class StringListMaker(Adw.PreferencesGroup):
         """ Method required only for testing """
         item: RemovableRow = self._list_box.get_row_at_index(item_number)
         item.click_remove_button()
+
+    def has_text_entered(self):
+        return len(self.entry_field) > 0

@@ -143,6 +143,14 @@ class TestStringListMaker:
         widget.values = ["abc", "def", "hij"]
         assert received
 
+    def test_has_text_entered(self):
+        widget = StringListMaker()
+        assert not widget.has_text_entered()
+        widget.entry_field = "Some text"
+        assert widget.has_text_entered()
+        widget.entry_field = ""
+        assert not widget.has_text_entered()
+
 
 class TestGtkStringListHelpers:
     def test_position_of_value(self):
