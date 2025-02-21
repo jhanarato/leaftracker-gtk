@@ -109,9 +109,6 @@ class StringListMaker(Adw.PreferencesGroup):
         remove(self._model, value)
         self.update_list_row_visibility()
 
-    def is_empty(self):
-        return self._model.get_n_items() == 0
-
     def update_list_row_visibility(self):
         has_values = self._model.get_n_items() > 0
         self._list_row.set_visible(has_values)
